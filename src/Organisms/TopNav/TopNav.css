@@ -2,8 +2,36 @@
   position: absolute;
   top: 0;
   width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.logo-pic{
+  width: 33%;
+  margin: 0 auto;
+}
+
+.logo-pic img{
+  height: 2.5em;
+  width: auto;
 }
 
 #back{
-  width: auto !important;
+  width: 33% !important;
+}
+
+#back .navicon-image{
+  float: left;
+  padding-left: 2em;
+}
+
+
+#user{
+  width: 33% !important;
+}
+
+#user .navicon-image{
+  float: right;
+  padding-right: 2em;
 }

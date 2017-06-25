@@ -47,6 +47,9 @@ getFavicon(iconImage, size) {
     case "back":
       return <FaArrowLeft size={size}/>
       break
+    case "user":
+      return <FaUsers size={size}/>
+      break
   }
 }
   render() {
@@ -61,13 +64,29 @@ getFavicon(iconImage, size) {
           />
         )}
 
-        <div className="logo-pic">
-          <img src={this.props.logoPic} alt=""/>
-        </div>
+        {/* if it is top nav render this, else do not render - specific edge case for top nav - need to refactor */}
 
-        <div className="profile-pic">
-          <img src={this.props.profilePic} alt=""/>
-        </div>
+        {this.props.type == "top-nav" ? (
+          <div className="logo-pic">
+            <img src={this.props.logoPic} alt=""/>
+          </div>
+        ) : (
+          null
+        )}
+
+        {/* if it is top nav render this, else do not render - specific edge case for top nav - need to refactor */}
+
+        {this.props.type == "top-nav" ? (
+            <NavIcon
+              id = {this.props.userIcon.id}
+              iconImage = {this.getFavicon(this.props.userIcon.iconImage, this.props.size)}
+              text = {this.props.userIcon.text}
+              path = {this.props.userIcon.path}
+            />
+        ) : (
+          null
+        )}
+
       </div>
     );
   }
@@ -77,8 +96,8 @@ CustomNav.propTypes = {
   path: PropTypes.string.isRequired,
   iconImage: PropTypes.element.isRequired,
   text: PropTypes.string.isRequired,
-  profilePic: PropTypes.string,
-  logoPic: PropTypes.string
+  logoPic: PropTypes.string,
+  userIcon: PropTypes.object
 }
 
 export default CustomNav;
