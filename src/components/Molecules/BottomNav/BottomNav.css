@@ -1,0 +1,5 @@
+.navfooter {
+  display: flex;
+  height: 5em;
+  justify-content: space-around;
+}
