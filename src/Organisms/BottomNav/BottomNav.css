@@ -1,5 +1,6 @@
 .navfooter {
   display: flex;
   height: 5em;
+  flex-wrap: nowrap;
   justify-content: space-around;
 }

@@ -1,0 +1,9 @@
+.navicon-box{
+  width: 20%;
+}
+
+.navicon-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
