@@ -1,0 +1,5 @@
+.nav-bar {
+  display: flex;
+  height: 2.5em;
+  flex-wrap: nowrap;
+}

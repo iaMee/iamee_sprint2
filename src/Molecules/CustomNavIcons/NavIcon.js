@@ -12,7 +12,7 @@ import FaUsers from 'react-icons/lib/fa/user';
 class NavIcon extends Component {
   render() {
   return (
-      <div className="navicon-box" id={this.props.id}>
+      <div className="navicon-box">
         <Link to={this.props.path}>
           <div className="navicon-image">
             {this.props.iconImage}

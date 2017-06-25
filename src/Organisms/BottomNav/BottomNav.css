@@ -1,6 +1,6 @@
-.navfooter {
-  display: flex;
-  height: 5em;
-  flex-wrap: nowrap;
+.bottom-nav{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   justify-content: space-around;
 }
