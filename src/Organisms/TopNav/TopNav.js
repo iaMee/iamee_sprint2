@@ -16,13 +16,16 @@ class TopNav extends Component {
           id: "back"
         },
       ],
+      //this is the main difference from the bottom nav
       logoPic: LogoPic,
+      //this is the main difference from the bottom nav
       userIcon: {
         text: '',
         iconImage: "user",
         path: '/',
         id: "user"
       },
+      //this dictates the size of the icons 
       size: 23
     }
   }

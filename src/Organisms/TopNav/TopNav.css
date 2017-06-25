@@ -7,30 +7,36 @@
   padding-top: 0.5em;
 }
 
+/*the logo image is set as a third of the navbar*/
 .logo-pic{
   width: 33%;
   margin: 0 auto;
 }
 
+/* this is setting the images width and height*/
 .logo-pic img{
   height: 2.5em;
   width: auto;
 }
 
+/*the back icon is set as a third of the navbar*/
 #back{
   width: 33% !important;
 }
 
+
+/* This ensures the back icon is aligned to the left with a little padding to push it away from the edge*/
 #back .navicon-image{
   float: left;
   padding-left: 2em;
 }
 
-
+/*the user icon is set as a third of the navbar*/
 #user{
   width: 33% !important;
 }
 
+/* This ensures the back icon is aligned to the right with a little padding to push it away from the edge*/
 #user .navicon-image{
   float: right;
   padding-right: 2em;
