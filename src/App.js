@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -14,14 +13,13 @@ import Experience from './Pages/Experience/Experience';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Test from './Pages/Test/Test';
 
-class App extends Component {
+class WithNav extends Component {
   render() {
     return (
       <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/signup" component={SignUp}/>
             <Route path="/experiences" component={Experience}/>
             <Route path="/createtask" component={CreateTask}/>
             <Route path="/dashboard" component={Dashboard}/>
@@ -33,4 +31,4 @@ class App extends Component {
   }
 };
 
-export default App;
+export default WithNav;

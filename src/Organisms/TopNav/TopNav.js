@@ -5,9 +5,9 @@ import LogoPic from '../../Assets/Images/navLogo.png'
 import CustomNav from '../../Molecules/CustomNav/CustomNav';
 
 class TopNav extends Component {
-  constructor(){
+  constructor() {
     super()
-    this.state={
+    this.state = {
       icons: [
         {
           text: '',
@@ -25,7 +25,7 @@ class TopNav extends Component {
         path: '/',
         id: "user"
       },
-      //this dictates the size of the icons 
+      //this dictates the size of the icons
       size: 23
     }
   }
