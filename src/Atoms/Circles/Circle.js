@@ -27,8 +27,10 @@ class Circle extends Component {
   render() {
     return (
       <div style={this.getCircleStyles()} id={this.props.tag}>
-        <h6>{this.props.title}</h6>
-
+        <div>
+          {this.props.title}
+          {this.props.description}
+        </div>
       </div>
     )
   }
@@ -37,6 +39,7 @@ class Circle extends Component {
 Circle.propTypes = {
   title: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   radius: PropTypes.string.isRequired
 }
