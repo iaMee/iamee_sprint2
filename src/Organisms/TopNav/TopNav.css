@@ -4,12 +4,19 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  padding-top: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: url('../../Assets/Images/topNavBg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /*the logo image is set as a third of the navbar*/
 .logo-pic{
-  width: 33%;
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
 }
 
@@ -17,27 +24,16 @@
 .logo-pic img{
   height: 2.5em;
   width: auto;
+  margin: 0 auto;
 }
 
 /*the back icon is set as a third of the navbar*/
 #back{
-  width: 33% !important;
+  flex: 1;
 }
 
-
-/* This ensures the back icon is aligned to the left with a little padding to push it away from the edge*/
-#back .navicon-image{
-  float: left;
-  padding-left: 2em;
-}
 
 /*the user icon is set as a third of the navbar*/
 #user{
-  width: 33% !important;
-}
-
-/* This ensures the back icon is aligned to the right with a little padding to push it away from the edge*/
-#user .navicon-image{
-  float: right;
-  padding-right: 2em;
+  flex:1;
 }

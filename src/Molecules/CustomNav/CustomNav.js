@@ -24,25 +24,25 @@ constructor(props) {
 getFavicon(iconImage, size) {
   switch(iconImage){
     case "home":
-      return <FaHome size={size}/>
+      return <FaHome color="white" size={size}/>
       break
     case "notifications":
-      return <FaBell size={size}/>
+      return <FaBell color="white" size={size}/>
       break
     case "create":
-      return <FaPlusCircle size={size}/>
+      return <FaPlusCircle color="white" size={size}/>
       break
     case "find":
-      return <FaSearch size={size}/>
+      return <FaSearch color="white" size={size}/>
       break
     case "buddies":
-      return <FaUsers size={size}/>
+      return <FaUsers color="white" size={size}/>
       break
     case "back":
-      return <FaArrowLeft size={size}/>
+      return <FaArrowLeft color="white" size={size}/>
       break
     case "user":
-      return <FaUsers size={size}/>
+      return <FaUsers color="white" size={size}/>
       break
   }
 }
