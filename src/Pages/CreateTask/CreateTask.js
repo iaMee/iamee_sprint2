@@ -5,7 +5,9 @@ import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
 import BaseButton from '../../Atoms/Buttons/BaseButton';
 import Banner from '../../Atoms/Banners/Banner';
-import { Row, Input, Button } from 'react-materialize'
+import { Row, Input, Button } from 'react-materialize';
+import axios from 'axios';
+import AddForm from '../../Molecules/InputForms/AddForm';
 
 class CreateTask extends Component {
 
@@ -67,9 +69,10 @@ class CreateTask extends Component {
 
             <div className="big-margin-top"></div>
 
-          <div className="text-center margin-top">{this.state.emailFormholder}</div>
+            <div className="text-center margin-top">
+            {this.state.experiences.emailFormholder}</div>
 
-            <div className="margin-top">
+            {/*<div className="margin-top">
               <Input 
                   type="email" 
                   label="Email" 
@@ -77,12 +80,12 @@ class CreateTask extends Component {
                <Button 
                   floating 
                   large 
-                  className='blue' 
+                  className="inputEmail blue"
                   waves='light' 
                   icon='add'
                   onClick={this.addNewEmail}
-              />
-{/*              
+              />*/}
+            {/*              
               <FormGroup className="no-wrap">
                 <Input className="activity-input" onChange={(e)=>this.changeEmail(e)} value={this.state.newEmail} type="activity" name="activity" id="activity" placeholder="Enter your friend's email address" />
                 <Button
@@ -93,7 +96,12 @@ class CreateTask extends Component {
                     <FaPlus />
                   </Button>
               </FormGroup>*/}
-            </div>
+            {/*</div>*/}
+
+            <AddForm
+              type={"email"}
+              label={"email"}
+            />
 
         <BottomNav />
       </div>
