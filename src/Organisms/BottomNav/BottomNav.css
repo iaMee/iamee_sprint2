@@ -1,6 +1,10 @@
 .bottom-nav{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   justify-content: space-around;
+}
+
+.bottom-nav{
+  background-color: #84D1F7;
 }

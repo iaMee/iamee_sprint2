@@ -17,9 +17,6 @@ class NavIcon extends Component {
           <div className="navicon-image">
             {this.props.iconImage}
           </div>
-          <div className="navicon-text">
-            <p>{this.props.text}</p>
-          </div>
         </Link>
       </div>
     )
