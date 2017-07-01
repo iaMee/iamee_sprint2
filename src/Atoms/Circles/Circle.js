@@ -26,7 +26,7 @@ class Circle extends Component {
 
   render() {
     return (
-      <div style={this.getCircleStyles()}   id={this.props.tag}>
+      <div style={this.getCircleStyles()} id={this.props.tag}>
         <h6>{this.props.title}</h6>
 
       </div>
