@@ -1,0 +1,30 @@
+.point-banner{
+  height: 3.5em;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #F5F5F5;
+}
+
+.less-padding{
+  padding-bottom: 2em !important;
+}
+
+
+.badge-image{
+  height: 2.5em;
+  width: auto;
+}
+
+.badges img, .badges h6{
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.add-activity{
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.badge-text{
+  margin-left: 1em;
+}

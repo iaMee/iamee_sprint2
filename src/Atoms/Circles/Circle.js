@@ -17,6 +17,9 @@ class Circle extends Component {
         "height": this.props.height,
         "width": this.props.height,
         "borderRadius": this.props.radius,
+        "background": this.props.boolean ? this.props.background : "",
+        border: this.props.boolean ? "": this.props.border,
+        color: this.props.boolean ? "": this.props.font,
         "display": "flex",
         "justifyContent": "center",
         "alignItems": "center"
