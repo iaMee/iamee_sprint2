@@ -90,11 +90,11 @@ class Experience extends Component {
                 </Modal>
               )}
               <div className="exp-button">
-                <BaseButton 
+                <Button
                   title={"CUSTOMIZE YOUR OWN"} />
               </div>
             </div>
-           
+
           </div>
         <BottomNav />
       </div>
