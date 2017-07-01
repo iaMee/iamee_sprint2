@@ -3,3 +3,11 @@
 .content {
   padding-top: 2.5em;
 }
+
+.spacer{
+  padding-bottom: 1.5em;
+}
+
+.text-center {
+  text-align: center;
+}

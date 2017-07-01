@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Modal } from 'react-materialize'
 import style from './Experience.css'
 import TopNav from '../../Organisms/TopNav/TopNav';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
-import BaseButton from '../../Atoms/Buttons/BaseButton';
+import Button from '../../Atoms/Buttons/BaseButton';
+import ExperienceModal from './ExperienceModal'
 
 class Experience extends Component {
   constructor(){
@@ -70,14 +72,22 @@ class Experience extends Component {
               <p className="text-center">How do you want to feel?</p>
               <div className="circles">
                 {this.state.experiences.map(experience =>
-                <div className="circle-margin">
-                    <Circle
-                    title = {experience.title}
-                    tag = {experience.tag}
-                    height = {this.state.circle.height}
-                    radius = {this.state.circle.radius}
-                  />
-              </div> 
+                <Modal
+                  trigger={
+                    <div className="circle-margin">
+                        <Circle
+                        title = {<h6 className="white-text">{experience.title}</h6>}
+                        tag = {experience.tag}
+                        height = {this.state.circle.height}
+                        radius = {this.state.circle.radius}
+                      />
+                  </div>
+                }
+                >
+                <ExperienceModal
+                  experience = {experience}
+                />
+                </Modal>
               )}
               <div className="exp-button">
                 <BaseButton 
