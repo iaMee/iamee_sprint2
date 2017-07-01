@@ -1,0 +1,36 @@
+.addForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addInput {
+    flex: 3;
+}
+
+.addInput div input {
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+
+.addInput .input-field { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonInput {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonInput .btn-floating {
+    width: 45px ;
+    height: 45px;
+}
+
+.buttonInput button .material-icons {
+    line-height: 45px;
+}
