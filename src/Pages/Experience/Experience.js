@@ -4,7 +4,7 @@ import style from './Experience.css'
 import TopNav from '../../Organisms/TopNav/TopNav';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
-import Button from '../../Atoms/Buttons/BaseButton';
+import BaseButton from '../../Atoms/Buttons/BaseButton';
 import ExperienceModal from './ExperienceModal'
 
 class Experience extends Component {

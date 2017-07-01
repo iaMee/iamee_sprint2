@@ -16,11 +16,9 @@ class DropButton extends Component {
         console.log(array)
 
         this.setState({
-            ac
         })
 
     }
-
 
     render() {
         return (
@@ -29,7 +27,11 @@ class DropButton extends Component {
                 trigger={
                     <Button>{this.props.buttonHeader}<Icon right>arrow_drop_down</Icon></Button>
                 }>
-                {this.state}
+                {this.state.navItems.map(item => 
+                    <NavItem>
+                        one
+                    </NavItem>
+                )}
                 <NavItem>
                     one
                 </NavItem>
