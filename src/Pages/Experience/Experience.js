@@ -63,15 +63,18 @@ class Experience extends Component {
       <div>
         <TopNav />
           <div className="content">
-            <p>Hello! This is your Experience!</p>
-          <div className="circles">
-              {this.state.experiences.map(experience =>
-                <Circle
-                  title = {experience.title}
-                  tag = {experience.tag}
-                  height = {this.state.circle.height}
-                  radius = {this.state.circle.radius}
-                />
+            <h5 className="text-center exp-header">Build your aspirations</h5>
+              <p className="text-center">How do you want to feel?</p>
+              <div className="circles">
+                {this.state.experiences.map(experience =>
+                <div className="circle-margin">
+                    <Circle
+                    title = {experience.title}
+                    tag = {experience.tag}
+                    height = {this.state.circle.height}
+                    radius = {this.state.circle.radius}
+                  />
+              </div> 
               )}
             </div>
           </div>
