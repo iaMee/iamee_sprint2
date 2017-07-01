@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import CreateTask from '../CreateTask/CreateTask';
 import { Modal } from 'react-materialize'
-import style from './Experience.css'
+import style from './Experience.css';
+import {
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 import TopNav from '../../Organisms/TopNav/TopNav';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
@@ -62,6 +68,7 @@ class Experience extends Component {
   }
 
   render() {
+    var match = this.props.match
     return (
       <div>
         <div className="topnav">
@@ -87,11 +94,16 @@ class Experience extends Component {
                 <ExperienceModal
                   experience = {experience}
                 />
+                <Link to={`${match.url}/${experience.title}/createtask`}>
+                  <Button
+                    title="START TO BUILD"
+                  />
+                </Link>
                 </Modal>
               )}
               <div className="exp-button">
-                <Button
-                  title={"CUSTOMIZE YOUR OWN"} />
+                  <Button
+                    title={"CUSTOMIZE YOUR OWN"} />
               </div>
             </div>
 

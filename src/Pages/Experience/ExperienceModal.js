@@ -26,9 +26,6 @@ class ExperienceModal extends Component {
           radius = {this.state.circle.radius}
         />
         <div className="spacer"></div>
-        <Button
-          title="START TO BUILD"
-        />
       </div>
     )
   }
