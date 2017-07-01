@@ -5,7 +5,7 @@ import { Button } from 'react-materialize'
 const BaseButton = ({
   title
 }) => (
-  <Button>
+  <Button className="base-button">
     {title}
   </Button>
 )

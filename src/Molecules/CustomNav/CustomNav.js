@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
 import style from './CustomNav.css';
-
 import NavIcon from '../../Atoms/NavIcons/NavIcon';
 import PropTypes from 'prop-types';
-
 import FaHome from 'react-icons/lib/fa/home';
 import FaBell from 'react-icons/lib/fa/bell';
 import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
@@ -20,10 +17,7 @@ class CustomNav extends Component {
 
 constructor(props) {
   super(props)
-    this.state = {
-
-  }
-
+    this.state = {}
   this.getFavicon.bind(this)
 }
 

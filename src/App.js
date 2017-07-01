@@ -13,7 +13,7 @@ import Experience from './Pages/Experience/Experience';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Test from './Pages/Test/Test';
 
-class WithNav extends Component {
+class App extends Component {
   render() {
     return (
       <Router>
@@ -31,4 +31,4 @@ class WithNav extends Component {
   }
 };
 
-export default WithNav;
+export default App;
