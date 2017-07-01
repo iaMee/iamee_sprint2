@@ -13,8 +13,12 @@
   text-align: center;
 }
 
-.content h5 {
-  margin-top: 1.5em;
+.exp-button {
+  padding-top: 1em;
+}
+
+.topnav {
+  margin-bottom: 2.5em;
 }
 
 #bold {

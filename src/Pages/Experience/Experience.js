@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import style from './Experience.css'
 import TopNav from '../../Organisms/TopNav/TopNav';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
-import Circle from '../../Atoms/Circles/Circle'
+import Circle from '../../Atoms/Circles/Circle';
+import BaseButton from '../../Atoms/Buttons/BaseButton';
 
 class Experience extends Component {
   constructor(){
@@ -61,7 +62,9 @@ class Experience extends Component {
   render() {
     return (
       <div>
-        <TopNav />
+        <div className="topnav">
+         <TopNav />
+        </div>
           <div className="content">
             <h5 className="text-center exp-header">Build your aspirations</h5>
               <p className="text-center">How do you want to feel?</p>
@@ -76,7 +79,12 @@ class Experience extends Component {
                   />
               </div> 
               )}
+              <div className="exp-button">
+                <BaseButton 
+                  title={"CUSTOMIZE YOUR OWN"} />
+              </div>
             </div>
+           
           </div>
         <BottomNav />
       </div>
