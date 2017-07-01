@@ -1,0 +1,17 @@
+.banner {
+    width: 100%;
+    margin-top: 4.6em;
+    height: 50px;
+    background-color: #33C2BC;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.banner h5 {
+    color: white;
+}
+
+/*.topnav {
+  margin-bottom: 2.5em;
+}*/
