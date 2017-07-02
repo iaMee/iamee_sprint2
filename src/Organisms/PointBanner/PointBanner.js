@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import style from './PointBanner.css';
-import CustomNav from '../../Molecules/CustomNav/CustomNav';
 
 class PointBanner extends Component {
   render() {
