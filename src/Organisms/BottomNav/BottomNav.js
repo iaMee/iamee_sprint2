@@ -3,8 +3,8 @@ import NavIcon from '../../Atoms/NavIcons/NavIcon';
 import style from './BottomNav.css';
 import PropTypes from 'prop-types';
 import FaHome from 'react-icons/lib/fa/home';
-import FaBell from 'react-icons/lib/fa/bell';
-import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
+import FaChart from 'react-icons/lib/fa/line-chart';
+import FaMapMarker from 'react-icons/lib/fa/map-marker';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaUsers from 'react-icons/lib/fa/user';
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
@@ -55,10 +55,10 @@ class BottomNav extends Component {
         return <FaHome color="white" size={size}/>
         break
       case "notifications":
-        return <FaBell color="white" size={size}/>
+        return <FaChart color="white" size={size}/>
         break
       case "create":
-        return <FaPlusCircle color="white" size={size}/>
+        return <FaMapMarker color="white" size={size}/>
         break
       case "find":
         return <FaSearch color="white" size={size}/>
@@ -82,7 +82,7 @@ class BottomNav extends Component {
           {this.state.icons.map(icon =>
             <NavIcon
               id = {icon.id}
-              iconImage = {this.getFavicon(icon.iconImage, this.props.size)}
+              iconImage = {this.getFavicon(icon.iconImage, this.state.size)}
               text = {icon.text}
               path = {icon.path}
             />
