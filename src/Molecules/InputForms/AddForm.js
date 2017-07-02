@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Input, Button } from 'react-materialize';
 
 class AddForm extends Component {
-    
+
     constructor(props) {
-        super(props) 
+        super(props)
         this.state = {
         }
     }
@@ -16,29 +16,29 @@ class AddForm extends Component {
         <div className="addForm">
 
             <div className="addInput">
-                <Input 
-                    type={this.props.name} 
-                    label={this.props.name} 
+                <Input
+                    type={this.props.type}
+                    label={this.props.label}
                     name={this.props.name}
                     value={this.props.value}
-                    s={this.props.size} 
+                    s={this.props.size}
                     onChange={this.props.onChange}
 
                 />
             </div>
 
             <div className="buttonInput">
-                <Button 
-                  floating 
-                  large 
+                <Button
+                  floating
+                  large
                   className="blue"
-                  waves='light' 
+                  waves='light'
                   icon='add'
                   onClick={this.props.onClick}
                 />
             </div>
-           
-            
+
+
         </div>
 
         )
@@ -47,10 +47,10 @@ class AddForm extends Component {
 
 AddForm.propTypes = {
     type: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired, 
+    label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
-    s: PropTypes.number, 
+    s: PropTypes.number,
     onChange: PropTypes.func,
     onClick: PropTypes.func
 }

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import style from './TopNav.css';
 import PropTypes from 'prop-types';
+import NavIcon from '../../Atoms/NavIcons/NavIcon';
 import LogoPic from '../../Assets/Images/navLogo.png'
 import CustomNav from '../../Molecules/CustomNav/CustomNav';
+import FaHome from 'react-icons/lib/fa/home';
+import FaBell from 'react-icons/lib/fa/bell';
+import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
+import FaSearch from 'react-icons/lib/fa/search';
+import FaUsers from 'react-icons/lib/fa/user';
+import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
 
 class TopNav extends Component {
   constructor() {
@@ -30,16 +37,49 @@ class TopNav extends Component {
     }
   }
 
+  getFavicon = (iconImage, size) => {
+    switch(iconImage){
+      case "home":
+        return <FaHome color="white" size={size}/>
+        break
+      case "notifications":
+        return <FaBell color="white" size={size}/>
+        break
+      case "create":
+        return <FaPlusCircle color="white" size={size}/>
+        break
+      case "find":
+        return <FaSearch color="white" size={size}/>
+        break
+      case "buddies":
+        return <FaUsers color="white" size={size}/>
+        break
+      case "back":
+        return <FaArrowLeft color="white" size={size}/>
+        break
+      case "user":
+        return <FaUsers color="white" size={size}/>
+        break
+    }
+  }
+
   render() {
     return (
       <div className="top-nav">
-        <CustomNav
-          type="top-nav"
-          icons = {this.state.icons}
-          size = {this.state.size}
-          userIcon = {this.state.userIcon}
-          logoPic = {this.state.logoPic}
-        />
+        <div className="nav-bar">
+          <div className="navicon-box" id="#back">
+            <FaArrowLeft id="#back" color="white" size={this.state.size}/>
+          </div>
+          <div className="logo-pic">
+            <img src={this.state.logoPic} alt=""/>
+          </div>
+          <NavIcon
+            id = {this.state.userIcon.id}
+            iconImage = {this.getFavicon(this.state.userIcon.iconImage, this.state.size)}
+            text = {this.state.userIcon.text}
+            path = {this.state.userIcon.path}
+          />
+        </div>
       </div>
     );
   }

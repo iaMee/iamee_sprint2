@@ -7,6 +7,7 @@ import PointBanner from '../../Organisms/PointBanner/PointBanner';
 import style from './ActivityShow.css';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Banners from '../../Atoms/Banners/Banner';
+import AddForm from '../../Molecules/InputForms/AddForm'
 
 function toggleArray(array, object){
   return function update(state, props){
@@ -67,7 +68,7 @@ class ActivityShow extends Component {
         <Banners id={params.toLowerCase()}  title={"Be " + user.chosen_aspiration.title}/>
         <PointBanner points={user.points}/>
         <div className="content">
-          <div className="circles less-padding">
+          <div className="circles less-padding2">
             {user.chosen_aspiration.activity.map((activity,i) =>
               <div
                 className="circle-margin"
@@ -75,7 +76,8 @@ class ActivityShow extends Component {
                 >
                 <Circle
                   title={<h5>{activity}</h5>}
-                  tag={"activity_" + i}
+                  tag={params.toLowerCase()}
+                  className={`${params.toLowerCase()}1`}
                   height={circle.height}
                   boolean = {checkExistInArray(clicked, activity)}
                   background = "white"
@@ -85,6 +87,21 @@ class ActivityShow extends Component {
                 />
               </div>
             )}
+            {/* <div className="circle-margin">
+              <Circle
+                title={<span className="text-center white-text add-button-text"> + <br/> ADD <br/> ACTIVITY</span>}
+                tag={"add-button"}
+                height={circle.height}
+                radius={circle.radius}
+              />
+            </div> */}
+          </div>
+          <div className="less-padding">
+            <AddForm
+              type={"email"}
+              label={"Add your own activity"}
+              name="add"
+            />
           </div>
         </div>
       </div>

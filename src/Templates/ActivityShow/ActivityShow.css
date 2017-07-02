@@ -1,28 +1,45 @@
-#activity_0{
-  background: #E1CF66; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient( #E1CF66, #F3A24A); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient( #E1CF66, #F3A24A); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient( #E1CF66, #F3A24A); /* For Firefox 3.6 to 15 */
-  background: linear-gradient( #E1CF66, #F3A24A); /* Standard syntax */
-  border: 2px solid #E1CF66;
-  color: #E1CF66;
-}
-#activity_1{
-  background: #31DDDC; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient( #95D7F4, #31DDDC); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient( #95D7F4, #31DDDC); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient( #95D7F4, #31DDDC); /* For Firefox 3.6 to 15 */
-  background: linear-gradient( #95D7F4, #31DDDC); /* Standard syntax */
-  border: 2px solid #31DDDC;
-  color: #31DDDC;
+
+#add-button{
+  background:#588AFF;
 }
 
-#activity_2{
-  background: #F1808B; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient( #F1808B, #F1808B); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient( #F1808B, #F1808B); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient( #F1808B, #F1808B); /* For Firefox 3.6 to 15 */
-  background: linear-gradient( #F1808B, #F1808B); /* Standard syntax */
-  border: 2px solid #F1808B;
-  color: #F1808B;
+.add-button-text{
+  font-size: 1.3em;
+}
+
+.less-padding2{
+  padding-bottom: 0.7em !important;
+}
+.bold1 {
+  color: red;
+  border: 3px solid red;
+}
+.relaxed1 {
+  color: #31DDDC; /* For browsers that do not support gradients */
+  border: 3px solid #31DDDC;
+}
+.positive1 {
+  color: #E1CF66; /* For browsers that do not support gradients */
+  border: 3px solid #E1CF66;
+}
+.inquisitive1 {
+  color: #639EFF; /* For browsers that do not support gradients */
+  border: 3px solid #639EFF;
+}
+
+.loving1 {
+  color: #3ECBCB; /* For browsers that do not support gradients */
+  border: 3px solid #3ECBCB;
+}
+.grateful1 {
+  color: #6DBF7A; /* For browsers that do not support gradients */
+  border: 3px solid #6DBF7A;
+}
+.yourself1 {
+  color: #F1808B; /* For browsers that do not support gradients */
+  border: 3px solid #F1808B;
+}
+.kind1 {
+  color: red; /* For browsers that do not support gradients */
+  border: 3px solid red;
 }
