@@ -10,7 +10,7 @@ import {
 import TopNav from '../../Organisms/TopNav/TopNav';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
-import BaseButton from '../../Atoms/Buttons/BaseButton';
+import Button from '../../Atoms/Buttons/BaseButton';
 import ExperienceModal from './ExperienceModal'
 
 class Experience extends Component {
@@ -29,7 +29,7 @@ class Experience extends Component {
           tag: "relaxed"
         },
         {
-          title: "Positve",
+          title: "Positive",
           description: "Yay!",
           tag: "positive"
         },
@@ -39,19 +39,19 @@ class Experience extends Component {
           tag: "inquisitive"
         },
         {
-          title: "Adventurous",
-          description: "Yeah nah!",
-          tag: "adventurous"
-        },
-        {
-          title: "Motivated",
-          description: "nah!",
-          tag: "motivated"
-        },
-        {
           title: "Yourself",
-          description: "cheerio!",
+          description: "Yeah nah!",
           tag: "yourself"
+        },
+        {
+          title: "Grateful",
+          description: "nah!",
+          tag: "grateful"
+        },
+        {
+          title: "Loving",
+          description: "cheerio!",
+          tag: "loving"
         },
         {
           title: "Kind",
@@ -71,44 +71,42 @@ class Experience extends Component {
     var match = this.props.match
     return (
       <div>
-        <div className="topnav">
-         <TopNav />
-        </div>
-          <div className="content">
+          <div className="experience-content">
             <h5 className="text-center exp-header">Build your aspirations</h5>
               <p className="text-center">How do you want to feel?</p>
               <div className="circles">
                 {this.state.experiences.map(experience =>
-                <Modal
-                  trigger={
-                    <div className="circle-margin">
-                        <Circle
-                        title = {<h6 className="white-text">{experience.title}</h6>}
-                        tag = {experience.tag}
-                        height = {this.state.circle.height}
-                        radius = {this.state.circle.radius}
+                  <div className="modal-selector">
+                    <Modal
+                      trigger={
+                        <div className="circle-margin">
+                            <Circle
+                            title = {<h6 className="white-text">{experience.title}</h6>}
+                            tag = {experience.tag}
+                            height = {this.state.circle.height}
+                            radius = {this.state.circle.radius}
+                          />
+                      </div>
+                    }
+                    >
+                    <ExperienceModal
+                      experience = {experience}
+                    />
+                    <Link to={`${match.url}/${experience.title}/createtask`}>
+                      <Button
+                        title="START TO BUILD"
                       />
+                    </Link>
+                    </Modal>
                   </div>
-                }
-                >
-                <ExperienceModal
-                  experience = {experience}
-                />
-                <Link to={`${match.url}/${experience.title}/createtask`}>
-                  <Button
-                    title="START TO BUILD"
-                  />
-                </Link>
-                </Modal>
               )}
-              <div className="exp-button">
+              <div className="exp-button" >
                   <Button
                     title={"CUSTOMIZE YOUR OWN"} />
               </div>
             </div>
 
           </div>
-        <BottomNav />
       </div>
     )
   }

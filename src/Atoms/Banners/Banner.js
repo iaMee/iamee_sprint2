@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 class Banner extends Component {
 
     constructor(props) {
-        super(props) 
+        super(props)
         this.state = {}
     }
 
     render() {
         return (
-            <div className="banner">
+            <div id={this.props.id} className="banner">
                 <h5>
                     {this.props.title}
                 </h5>

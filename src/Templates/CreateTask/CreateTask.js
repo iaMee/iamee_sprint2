@@ -5,58 +5,56 @@ import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
 import BaseButton from '../../Atoms/Buttons/BaseButton';
 import Banner from '../../Atoms/Banners/Banner';
+import { Link } from 'react-router-dom';
 import { Row, Input, Button } from 'react-materialize';
 import axios from 'axios';
 import AddForm from '../../Molecules/InputForms/AddForm';
 
 class CreateTask extends Component {
 
-  constructor() {
-    super() 
+  constructor(props) {
+    super(props)
     this.state = {
-      experiences: 
-      {
-        title: "Relaxed",
-        tasks: ["Meditation", "Reading", "Writing", "Art", "Dancing", "Hi" ], 
-        newEmail: '',
-        emailFormholder: 'Invite a Friend!'
-      }
+      newEmail: '',
+      emailFormholder: 'Invite a Friend!'
     }
 
     this.addNewEmail = this.addNewEmail.bind(this)
   }
 
-    addNewEmail(){
-      const URL = 'https://iamee.leaanthony.com/api/invite';
-      axios.get(URL + '?email=' + this.state.newEmail)
-      .then(
-        this.setState({
-          emailFormholder: "Your invite has been sent!"
-        })
-      )
-    }
+  componentDidMount(){
+    !document.getElementById('materialize-modal-overlay-1') ? null : document.getElementById('materialize-modal-overlay-1').style.display = "none" //remove modal overlay from previous
+  }
+
+  addNewEmail(){
+    const URL = 'https://iamee.leaanthony.com/api/invite';
+    axios.get(URL + '?email=' + this.state.newEmail)
+    .then(
+      this.setState({
+        emailFormholder: "Your invite has been sent!"
+      })
+    )
+  }
 
   render() {
     var experiences = this.state.experiences
+    var match = this.props.match
     return(
       <div>
 
-        <div className="topnav">
-          <TopNav />
-        </div>
-
-        <Banner 
-         title={experiences.title}
+        <Banner
+          id={(match.params.experience).toLowerCase()}
+         title={match.params.experience}
         />
 
           {/*<div>
             {experiences.tasks.map(task =>
-              <Pill 
+              <Pill
                 tasks = {task}
               />
             )}
           </div>*/}
-          
+
           <div className="text-center margin-top">Set Reminder Frequency</div>
 
             <div className="dropDown margin-top">
@@ -70,22 +68,22 @@ class CreateTask extends Component {
             <div className="big-margin-top"></div>
 
             <div className="text-center margin-top">
-            {this.state.experiences.emailFormholder}</div>
+            {this.state.emailFormholder}</div>
 
             {/*<div className="margin-top">
-              <Input 
-                  type="email" 
-                  label="Email" 
+              <Input
+                  type="email"
+                  label="Email"
               />
-               <Button 
-                  floating 
-                  large 
+               <Button
+                  floating
+                  large
                   className="inputEmail blue"
-                  waves='light' 
+                  waves='light'
                   icon='add'
                   onClick={this.addNewEmail}
               />*/}
-            {/*              
+            {/*
               <FormGroup className="no-wrap">
                 <Input className="activity-input" onChange={(e)=>this.changeEmail(e)} value={this.state.newEmail} type="activity" name="activity" id="activity" placeholder="Enter your friend's email address" />
                 <Button
@@ -103,7 +101,9 @@ class CreateTask extends Component {
               label={"email"}
             />
 
-        <BottomNav />
+            <Link to={`/experiences/${match.params.experience}/show`}>
+              <BaseButton title={"NEXT"}/>
+            </Link>
       </div>
     )
   }

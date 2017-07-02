@@ -7,30 +7,21 @@ import {
   Switch
 } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory'
-import Home from './Pages/Home/Home';
-import SignUp from './Pages/SignUp/SignUp';
-import CreateTask from './Pages/CreateTask/CreateTask'
-import Experience from './Pages/Experience/Experience';
-import Dashboard from './Pages/Dashboard/Dashboard';
-import Test from './Pages/Test/Test';
+import Home from './Templates/Home/Home';
+import SignUp from './Templates/SignUp/SignUp';
+import ExperiencePage from './Pages/ExperiencePage';
+import Test from './Templates/Test/Test';
 
 const history = createBrowserHistory()
 
 class App extends Component {
   render() {
-    const CreateTaskPage = (props) => {
-      return(
-        <CreateTask {...props} />
-      )
-    }
     return (
       <Router history={history}>
         <div>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/experiences" component={Experience}/>
-            <Route exact path='/createtask' component={CreateTask}/>
-            <Route path="/dashboard" component={Dashboard}/>
+            <Route path="/experiences" component={ExperiencePage}/>
             <Route path="/test" component={Test}/>
           </Switch>
         </div>

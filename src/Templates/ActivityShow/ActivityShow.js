@@ -4,7 +4,7 @@ import Circle from '../../Atoms/Circles/Circle';
 import _ from 'lodash';
 import { Input, Button } from 'react-materialize';
 import PointBanner from '../../Organisms/PointBanner/PointBanner';
-import style from './Dashboard.css';
+import style from './ActivityShow.css';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import Banners from '../../Atoms/Banners/Banner';
 
@@ -27,7 +27,7 @@ function checkExistInArray(array, object){
   }
 }
 
-class Dashboard extends Component {
+class ActivityShow extends Component {
   constructor(){
     super()
     this.state={
@@ -61,10 +61,10 @@ class Dashboard extends Component {
     var user = this.state.user;
     var circle = this.state.circle;
     var clicked = this.state.clicked
+    var params = this.props.params
     return(
       <div>
-        <TopNav/>
-        <Banners title={"Be " + user.chosen_aspiration.title}/>
+        <Banners id={params.toLowerCase()}  title={"Be " + user.chosen_aspiration.title}/>
         <PointBanner points={user.points}/>
         <div className="content">
           <div className="circles less-padding">
@@ -87,10 +87,9 @@ class Dashboard extends Component {
             )}
           </div>
         </div>
-        <BottomNav/>
       </div>
     )
   }
 };
 
-export default Dashboard;
+export default ActivityShow;
