@@ -3,9 +3,11 @@ import style from './BaseButton.css';
 import { Button } from 'react-materialize'
 
 const BaseButton = ({
+  className,
+  onClick,
   title
 }) => (
-  <Button className="base-button">
+  <Button onClick={onClick} className={`base-button ${className}`}>
     {title}
   </Button>
 )

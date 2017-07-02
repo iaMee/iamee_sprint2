@@ -3,10 +3,8 @@ import TopNav from '../../Organisms/TopNav/TopNav';
 import Circle from '../../Atoms/Circles/Circle';
 import _ from 'lodash';
 import { Input, Button } from 'react-materialize';
-import PointBanner from '../../Organisms/PointBanner/PointBanner';
 import style from './ActivityShow.css';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
-import Banners from '../../Atoms/Banners/Banner';
 import AddForm from '../../Molecules/InputForms/AddForm'
 
 function toggleArray(array, object){
@@ -65,8 +63,6 @@ class ActivityShow extends Component {
     var params = this.props.params
     return(
       <div>
-        <Banners id={params.toLowerCase()}  title={"Be " + user.chosen_aspiration.title}/>
-        <PointBanner points={user.points}/>
         <div className="content">
           <div className="circles less-padding2">
             {user.chosen_aspiration.activity.map((activity,i) =>

@@ -1,0 +1,10 @@
+.inline-display{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.modal-image{
+  height: 2em;
+  width: 2em;
+}

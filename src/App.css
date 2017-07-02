@@ -19,3 +19,15 @@
   justify-content: inherit;
   align-items: inherit
 }
+
+
+.modal{
+  background-color: white;
+  opacity: 0.8 !important;
+  box-shadow: none;
+  top: 20% !important;
+}
+
+.modal-footer{
+  display: none;
+}

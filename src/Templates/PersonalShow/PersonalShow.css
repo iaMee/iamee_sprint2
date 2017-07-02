@@ -1,0 +1,21 @@
+.personal-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.attribute-image{
+  height: 10em;
+  width: 10em;
+  margin: 0 auto;
+}
+
+.custom-modal-content{
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content{
+  text-align: center;
+}

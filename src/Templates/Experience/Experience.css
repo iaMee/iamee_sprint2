@@ -5,22 +5,12 @@
   padding-bottom: 5em;
 }
 
-.experience-content{
+.main-content{
   margin-top: 5em;
 }
 
 .circle-margin {
   padding: 0.75em;
-}
-
-.modal{
-  background-color: transparent;
-  box-shadow: none;
-  top: 20% !important;
-}
-
-.modal-footer{
-  display: none;
 }
 
 .exp-button {

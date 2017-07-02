@@ -71,7 +71,7 @@ class Experience extends Component {
     var match = this.props.match
     return (
       <div>
-          <div className="experience-content">
+          <div className="main-content">
             <h5 className="text-center exp-header">Build your aspirations</h5>
               <p className="text-center">How do you want to feel?</p>
               <div className="circles">
@@ -92,6 +92,8 @@ class Experience extends Component {
                     <ExperienceModal
                       experience = {experience}
                     />
+                    <div className="spacer"></div>
+                    <div className="spacer"></div>
                     <Link to={`${match.url}/${experience.title}/createtask`}>
                       <Button
                         title="START TO BUILD"
