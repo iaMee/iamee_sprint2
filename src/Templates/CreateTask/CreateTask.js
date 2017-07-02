@@ -16,7 +16,7 @@ class CreateTask extends Component {
     super(props)
     this.state = {
       newEmail: '',
-      emailFormholder: 'Invite a Friend!'
+      emailFormholder: 'Invite a friend to be positive with you!'
     }
 
     this.addNewEmail = this.addNewEmail.bind(this)
@@ -39,7 +39,8 @@ class CreateTask extends Component {
   render() {
     var experiences = this.state.experiences
     var match = this.props.match
-    return(
+
+    return (
       <div>
 
         <Banner
@@ -65,9 +66,15 @@ class CreateTask extends Component {
               </Input>
             </div>
 
-            <div className="big-margin-top"></div>
+             <div className="exp-button width-80 btn-blue" >
+                  <BaseButton
+                    title={"SET REMINDER"} />
+              </div>
 
-            <div className="text-center margin-top">
+            <br/>
+            <br/>
+
+            <div className="text-center">
             {this.state.emailFormholder}</div>
 
             {/*<div className="margin-top">
@@ -95,15 +102,29 @@ class CreateTask extends Component {
                   </Button>
               </FormGroup>*/}
             {/*</div>*/}
+            
+            <div className="createTaskInput">
+              <div className="addInput">
+                <Input
+                    type={"email"}
+                    label={"Enter your friend's email"}
+              />
+              </div>
+            </div>
+             
 
-            <AddForm
-              type={"email"}
-              label={"email"}
-            />
+            <br/>
+            
+            <div className="exp-button width-80 btn-blue" >
+                  <BaseButton
+                    title={"INVITE MY FRIEND!"} />
+              </div>
 
-            <Link to={`/experiences/${match.params.experience}/show`}>
-              <BaseButton title={"NEXT"}/>
-            </Link>
+            <div className="big-margin-top width-80 btn-blue">
+              <Link to={`/experiences/${match.params.experience}/show`}>
+                <BaseButton title={"NEXT"}/>
+              </Link>
+            </div>
       </div>
     )
   }
