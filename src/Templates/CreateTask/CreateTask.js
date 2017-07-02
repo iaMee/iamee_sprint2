@@ -23,6 +23,7 @@ class CreateTask extends Component {
   }
 
   componentDidMount(){
+    this.forceUpdate()
     !document.getElementById('materialize-modal-overlay-1') ? null : document.getElementById('materialize-modal-overlay-1').style.display = "none" //remove modal overlay from previous
   }
 
@@ -102,7 +103,7 @@ class CreateTask extends Component {
                   </Button>
               </FormGroup>*/}
             {/*</div>*/}
-            
+
             <div className="createTaskInput">
               <div className="addInput">
                 <Input
@@ -111,10 +112,10 @@ class CreateTask extends Component {
               />
               </div>
             </div>
-             
+
 
             <br/>
-            
+
             <div className="exp-button width-80 btn-blue" >
                   <BaseButton
                     title={"INVITE MY FRIEND!"} />

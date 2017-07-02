@@ -115,6 +115,7 @@ class PersonalShow extends Component {
                 <div className="spacer"></div>
                 <div className="spacer"></div>
                 <ModalButton
+                  points ={10}
                   className={"modal-close"}
                   onClick={() => this.handleClick(attribute)}
                   img = {require('../../Assets/Images/point.png')}
