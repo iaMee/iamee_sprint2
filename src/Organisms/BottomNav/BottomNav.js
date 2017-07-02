@@ -23,25 +23,25 @@ class BottomNav extends Component {
         {
           text: '',
           iconImage: "notifications",
-          path: '/test',
+          path: '/',
           id:"notifications"
         },
         {
           text: '',
           iconImage: "create",
-          path: '/test',
+          path: '/',
           id:"create"
         },
         {
           text: '',
           iconImage: "find",
-          path: '/test',
+          path: '/',
           id:"find"
         },
         {
           text: '',
           iconImage: "buddies",
-          path: '/test',
+          path: '/',
           id:"buddies"
         },
       ],
