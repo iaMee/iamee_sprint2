@@ -1,0 +1,14 @@
+/*.logo{
+  width: 80%;
+  margin-top: -25px;
+  height: auto;
+}*/
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    width: 16em;
+    margin: 0 auto;
+}
