@@ -35,7 +35,7 @@ class ExperiencePage extends Component {
 
     const AspirationShows = (props) => {
       return(
-        <AspirationShow {...props} />
+        <AspirationShow {...props}/>
       )
     }
 

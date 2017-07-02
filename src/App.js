@@ -15,6 +15,9 @@ import Test from './Templates/Test/Test';
 const history = createBrowserHistory()
 
 class App extends Component {
+  constructor(){
+    super()
+  }
   render() {
     return (
       <Router history={history}>

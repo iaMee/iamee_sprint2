@@ -4,6 +4,7 @@ import style2 from './ModalButton.css';
 import { Button } from 'react-materialize'
 
 const ModalButton = ({
+  points,
   img,
   className,
   onClick,
@@ -14,7 +15,7 @@ const ModalButton = ({
     <div className="inline-display">
       <h6>COMPLETE</h6>
       <img className="modal-image" src={require('../../Assets/Images/point.png')} alt=""/>
-      <h6>10 pts</h6>
+      <h6>{points} pts</h6>
     </div>
   </Button>
 )

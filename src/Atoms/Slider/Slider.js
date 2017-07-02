@@ -28,9 +28,11 @@ class CustomSlider extends Component {
         return (
           <Slider
               dots
+              value = {this.props.value}
               marks = {this.state.marks}
               step = {this.props.step}
               defaultValue = {this.props.defaultValue}
+              onChange = {this.props.onSliderChange}
               min={this.props.min}
               max={this.props.max}
             />

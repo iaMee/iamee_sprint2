@@ -14,10 +14,18 @@ import PersonalShow from '../PersonalShow/PersonalShow';
 
 const history = createBrowserHistory()
 
+function updatePoint(value){
+  return function update(state){
+    var obj = state.user
+    obj.points += value
+  }
+}
+
 class AspirationShow extends Component {
   constructor(props){
     super(props)
     this.state = {
+      value: 8,
       user:
       {
         id: "something",
@@ -29,6 +37,10 @@ class AspirationShow extends Component {
     }
   }
 
+  updatePoints = (value) =>{
+    this.setState(updatePoint(value))
+  }
+
   render() {
     var match = this.props.match
     var user = this.state.user;
@@ -37,11 +49,23 @@ class AspirationShow extends Component {
       var title = match.params.experience.toLowerCase()
       var activities = this.state.activities
         if(activities.indexOf(title) >= 0){
-          return(<ActivityShow {...props} params={match.params.experience}/>)
+          return(<ActivityShow {...props}
+            params={match.params.experience}
+            user={this.state.user}
+            update={this.updatePoints}
+          />)
         }else if(this.state.diary.indexOf(title) >=0){
-          return(<DiaryShow {...props} params={match.params.experience}/>)
+          return(<DiaryShow {...props}
+            params={match.params.experience}
+            user={this.state.user}
+            update={this.updatePoints}
+          />)
         }else{
-          return(<PersonalShow {...props} params={match.params.experience}/>)
+          return(<PersonalShow {...props}
+            params={match.params.experience}
+            user={this.state.user}
+            update={this.updatePoints}
+          />)
         }
     }
 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import TopNav from '../../Organisms/TopNav/TopNav';
+import ModalButton from '../../Atoms/Buttons/ModalButton'
 import Circle from '../../Atoms/Circles/Circle';
 import _ from 'lodash';
-import { Input, Button } from 'react-materialize';
+import yoga from '../../Assets/Images/yoga.png'
+import CustomSlider from '../../Atoms/Slider/Slider'
+import { Input, Button, Modal} from 'react-materialize';
 import style from './ActivityShow.css';
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 import AddForm from '../../Molecules/InputForms/AddForm'
@@ -31,6 +34,7 @@ class ActivityShow extends Component {
     super()
     this.state={
       clicked: [],
+      value: 8,
       user:
       {
         id: "something",
@@ -38,9 +42,12 @@ class ActivityShow extends Component {
         chosen_aspiration: {
           title: "Relaxed",
           activity: [
-            "Meditation",
-            "Reading",
-            "Writing",
+            {title: "Meditation",
+            img: ''},
+            {title: "Yoga",
+            img: yoga},
+            {title: "Writing",
+            img: ''},
           ]
         }
       },
@@ -54,6 +61,20 @@ class ActivityShow extends Component {
 
   handleClick = (activity) => {
     this.setState(toggleArray("clicked", activity))
+    this.props.update(this.state.value)
+  }
+
+  onSliderChange = (value) => {
+    this.setState({
+        value: value
+    });
+  }
+
+  getDay = () => {
+    var d = new Date();
+    var n = d.getDay();
+    var days = {1:"Monday", 2:"Tuesday", 3:"Wednesday", 4:"Thursday", 5:"Friday", 6:"Saturday", 0:"Sunday"}
+    return days[0]
   }
 
   render() {
@@ -65,32 +86,51 @@ class ActivityShow extends Component {
       <div>
         <div className="content">
           <div className="circles less-padding2">
-            {user.chosen_aspiration.activity.map((activity,i) =>
-              <div
-                className="circle-margin"
-                onClick={() => this.handleClick(activity)}
-                >
-                <Circle
-                  title={<h5>{activity}</h5>}
-                  tag={params.toLowerCase()}
-                  className={`${params.toLowerCase()}1`}
-                  height={circle.height}
-                  boolean = {checkExistInArray(clicked, activity)}
-                  background = "white"
-                  font = "white"
-                  border = "2px solid white"
-                  radius={circle.radius}
-                />
+            {user.chosen_aspiration.activity.map(attribute =>
+              <div className="modal-selector">
+                <Modal
+                  header={this.getDay()}
+                  trigger={
+                    <div className="circle-margin text-center">
+                      <Circle
+                        title= {<h6>{attribute.title}</h6>}
+                        tag={params.toLowerCase()}
+                        className={`${params.toLowerCase()}1`}
+                        height={circle.height}
+                        boolean = {checkExistInArray(clicked, attribute)}
+                        background = "white"
+                        font = "white"
+                        border = "2px solid white"
+                        radius={circle.radius}
+                      />
+                    </div>
+                  }>
+                  <div className="custom-modal-content text-center">
+                    <div>
+                      <img className="attribute-image" src={attribute.img} alt=""/>
+                      <p>How Do You Feel?</p>
+                      <CustomSlider
+                        step = {10}
+                        value = {this.state.value}
+                        onSliderChange = {this.onSliderChange}
+                        defaultValue = {8}
+                        min={0}
+                        max={10}
+                      />
+                    </div>
+                  </div>
+                  <div className="spacer"></div>
+                  <div className="spacer"></div>
+                  <ModalButton
+                    className={"modal-close"}
+                    points = {this.state.value}
+                    onClick={() => this.handleClick(attribute)}
+                    img = {require('../../Assets/Images/point.png')}
+                    title ={"CLICK HERE"}
+                  />
+                </Modal>
               </div>
             )}
-            {/* <div className="circle-margin">
-              <Circle
-                title={<span className="text-center white-text add-button-text"> + <br/> ADD <br/> ACTIVITY</span>}
-                tag={"add-button"}
-                height={circle.height}
-                radius={circle.radius}
-              />
-            </div> */}
           </div>
           <div className="less-padding">
             <AddForm
