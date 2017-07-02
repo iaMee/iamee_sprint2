@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-materialize'
 import TopNav from '../../Organisms/TopNav/TopNav';
-import Slider, { Range } from 'rc-slider';
-import 'rc-slider/assets/index.css';
 
 import BottomNav from '../../Organisms/BottomNav/BottomNav';
 
@@ -29,14 +27,6 @@ class Home extends Component {
     return(
       <div>
         HELLO
-        <Slider
-            dots
-            marks = {this.state.marks}
-            step = {1}
-            defaultValue = {8}
-            min={0}
-            max={10}
-          />
       </div>
     )
   }
