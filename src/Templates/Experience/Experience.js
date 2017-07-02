@@ -96,12 +96,11 @@ class Experience extends Component {
                     </div>
                     <div className="spacer"></div>
                     <div className="spacer"></div>
-                    <Link to={`${match.url}/${experience.title}/createtask`}>
-                      <Button
-                        class={"modal-close"}
-                        title="START TO BUILD"
-                      />
-                    </Link>
+                      <Link className={"modal-close"} to={`${match.url}/${experience.title}/createtask`}>
+                        <Button
+                          title="START TO BUILD"
+                        />
+                      </Link>
                     </Modal>
                   </div>
               )}
