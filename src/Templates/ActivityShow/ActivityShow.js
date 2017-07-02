@@ -120,7 +120,6 @@ class ActivityShow extends Component {
                     </div>
                   </div>
                   <div className="spacer"></div>
-                  <div className="spacer"></div>
                   <ModalButton
                     className={"modal-close"}
                     points = {this.state.value}

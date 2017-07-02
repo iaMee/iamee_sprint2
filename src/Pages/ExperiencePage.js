@@ -41,15 +41,13 @@ class ExperiencePage extends Component {
 
     return (
       <div>
-        <div>
           <TopNav />
-        </div>
           <Switch>
             <Route exact path={`${match.url}`} render={Experiences}/>
             <Route path={`${match.url}/:experience/createtask`} render={CreateTasks}/>
             <Route path={`${match.url}/:experience/show`} render={AspirationShows}/>
           </Switch>
-        <BottomNav />
+          <BottomNav />
       </div>
     );
   }

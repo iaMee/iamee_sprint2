@@ -69,6 +69,7 @@ class PersonalShow extends Component {
 
   handleClick = (activity) => {
     this.setState(toggleArray("clicked", activity))
+    this.props.update(this.state.value)
   }
 
   getDay = () => {
@@ -112,7 +113,6 @@ class PersonalShow extends Component {
                     <input placeholder="Write your text here" className="personal-input" type="text"/>
                   </div>
                 </div>
-                <div className="spacer"></div>
                 <div className="spacer"></div>
                 <ModalButton
                   points ={10}

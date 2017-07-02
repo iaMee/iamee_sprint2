@@ -126,6 +126,8 @@ class CreateTask extends Component {
                 <BaseButton title={"NEXT"}/>
               </Link>
             </div>
+            <div className="spacer"></div>
+            <div className="spacer"></div>
       </div>
     )
   }
