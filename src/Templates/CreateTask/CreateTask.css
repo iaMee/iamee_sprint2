@@ -20,14 +20,6 @@
   display: none
 }
 
-.margin-top {
-  margin-top: 1em;
-}
-
-.big-margin-top {
-  margin-top: 5em;
-}
-
 .margin {
   margin: 1em 2.5em;
 }
@@ -47,6 +39,30 @@
   margin: 0;*/
 }
 
-.col input field {
-  
+.createTaskInput {
+  width: 80% !important;
+  margin: 0 auto;
+}
+
+.exp-button {
+  padding-top: 1em;
+}
+
+.width-80 {
+  width: 80%;
+  margin: 0 auto;
+  color: #5E9BFF;
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+
+.big-margin-top {
+  margin-top: 5em;
+}
+
+.btn-blue button {
+  background-color: #5e9bff;
 }

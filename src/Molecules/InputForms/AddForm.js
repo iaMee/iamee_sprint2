@@ -24,7 +24,7 @@ class AddForm extends Component {
                     s={this.props.size}
                     onChange={this.props.onChange}
 
-                />
+              />
             </div>
 
             <div className="buttonInput">
