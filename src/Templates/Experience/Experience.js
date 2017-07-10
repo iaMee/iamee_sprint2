@@ -20,12 +20,12 @@ class Experience extends Component {
       experiences: [
         {
           title: "Bold",
-          description: "Hi!",
+          description: "Feel more confident",
           tag: "bold"
         },
         {
           title: "Relaxed",
-          description: "Hmm!",
+          description: "Take time out to relax",
           tag: "relaxed"
         },
         {
