@@ -10,15 +10,25 @@
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
     "react-materialize": "^1.0.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
+    "babel-eslint": "7.2.3",
+    "eslint": "4.3.0",
+    "eslint-config-last": "0.0.3",
+    "eslint-config-prettier": "2.3.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-prettier": "2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "prettier": "1.5.3",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "./node_modules/.bin/eslint.cmd --fix ."
   }
 }
