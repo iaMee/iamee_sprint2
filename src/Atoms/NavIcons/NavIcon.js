@@ -8,10 +8,9 @@ import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaUsers from 'react-icons/lib/fa/user';
 
-
 class NavIcon extends Component {
   render() {
-  return (
+    return (
       <div className="navicon-box" id={this.props.id}>
         <Link to={this.props.path}>
           <div className="navicon-image">
@@ -19,7 +18,7 @@ class NavIcon extends Component {
           </div>
         </Link>
       </div>
-    )
+    );
   }
 }
 
