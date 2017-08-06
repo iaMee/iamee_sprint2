@@ -11,7 +11,7 @@ class DropButton extends Component {
   }
 
   getNavItems() {
-    var array = this.state.navItems;
+    const array = this.state.navItems;
     console.log(array);
 
     this.setState({});

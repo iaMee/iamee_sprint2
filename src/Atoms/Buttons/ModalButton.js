@@ -4,7 +4,7 @@ import style2 from './ModalButton.css';
 import { Button } from 'react-materialize';
 
 const ModalButton = ({ points, img, className, onClick, title, subtext }) =>
-  <Button onClick={onClick} className={`base-button ${className}`}>
+  (<Button onClick={onClick} className={`base-button ${className}`}>
     <div className="inline-display">
       <h6>COMPLETE</h6>
       <img
@@ -16,6 +16,6 @@ const ModalButton = ({ points, img, className, onClick, title, subtext }) =>
         {points} pts
       </h6>
     </div>
-  </Button>;
+  </Button>);
 
 export default ModalButton;

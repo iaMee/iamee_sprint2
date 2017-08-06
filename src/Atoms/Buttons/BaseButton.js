@@ -5,10 +5,10 @@ import { Button } from 'react-materialize';
 const BaseButton = ({
   className,
   onClick,
-  title
+  title,
   }) =>
-  <Button onClick={onClick} className={`base-button ${className}`}>
+  (<Button onClick={onClick} className={`base-button ${className}`}>
     {title}
-  </Button>;
+  </Button>);
 
 export default BaseButton;

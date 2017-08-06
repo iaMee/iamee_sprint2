@@ -26,12 +26,12 @@ class CreateTask extends Component {
     !document.getElementById('materialize-modal-overlay-1')
       ? null
       : (document.getElementById('materialize-modal-overlay-1').style.display =
-          'none'); //remove modal overlay from previous
+          'none'); // remove modal overlay from previous
   }
 
   addNewEmail() {
     const URL = 'https://iamee.leaanthony.com/api/invite';
-    axios.get(URL + '?email=' + this.state.newEmail).then(
+    axios.get(`${URL}?email=${this.state.newEmail}`).then(
       this.setState({
         emailFormholder: 'Your invite has been sent!',
       }),
@@ -39,8 +39,8 @@ class CreateTask extends Component {
   }
 
   render() {
-    var experiences = this.state.experiences;
-    var match = this.props.match;
+    const experiences = this.state.experiences;
+    const match = this.props.match;
 
     return (
       <div>
@@ -49,13 +49,13 @@ class CreateTask extends Component {
           title={match.params.experience}
         />
 
-        {/*<div>
+        {/* <div>
             {experiences.tasks.map(task =>
               <Pill
                 tasks = {task}
               />
             )}
-          </div>*/}
+          </div> */}
 
         <div className="text-center margin-top">Set Reminder Frequency</div>
 
@@ -80,7 +80,7 @@ class CreateTask extends Component {
           {this.state.emailFormholder}
         </div>
 
-        {/*<div className="margin-top">
+        {/* <div className="margin-top">
               <Input
                   type="email"
                   label="Email"
@@ -92,7 +92,7 @@ class CreateTask extends Component {
                   waves='light'
                   icon='add'
                   onClick={this.addNewEmail}
-              />*/}
+              /> */}
         {/*
               <FormGroup className="no-wrap">
                 <Input className="activity-input" onChange={(e)=>this.changeEmail(e)} value={this.state.newEmail} type="activity" name="activity" id="activity" placeholder="Enter your friend's email address" />
@@ -103,8 +103,8 @@ class CreateTask extends Component {
                   >
                     <FaPlus />
                   </Button>
-              </FormGroup>*/}
-        {/*</div>*/}
+              </FormGroup> */}
+        {/* </div> */}
 
         <div className="createTaskInput">
           <div className="addInput">

@@ -15,18 +15,12 @@ class ExperiencePage extends Component {
   }
 
   render() {
-    var match = this.props.match;
-    const Experiences = props => {
-      return <Experience {...props} />;
-    };
+    const match = this.props.match;
+    const Experiences = props => <Experience {...props} />;
 
-    const CreateTasks = props => {
-      return <CreateTask {...props} />;
-    };
+    const CreateTasks = props => <CreateTask {...props} />;
 
-    const AspirationShows = props => {
-      return <AspirationShow {...props} />;
-    };
+    const AspirationShows = props => <AspirationShow {...props} />;
 
     return (
       <div>

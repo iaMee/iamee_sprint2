@@ -63,7 +63,7 @@ class Experience extends Component {
   }
 
   render() {
-    var match = this.props.match;
+    const match = this.props.match;
     return (
       <div>
         <div className="main-content">
@@ -71,7 +71,7 @@ class Experience extends Component {
           <p className="text-center">How do you want to feel?</p>
           <div className="circles">
             {this.state.experiences.map(experience =>
-              <div className="modal-selector">
+              (<div className="modal-selector">
                 <Modal
                   trigger={
                     <div className="circle-margin">
@@ -100,7 +100,7 @@ class Experience extends Component {
                     <Button title="START TO BUILD" />
                   </Link>
                 </Modal>
-              </div>,
+              </div>),
             )}
             <div className="exp-button">
               <Button title={'CUSTOMIZE YOUR OWN'} />

@@ -15,7 +15,7 @@ class ExperienceModal extends Component {
   }
 
   render() {
-    var experience = this.props.experience;
+    const experience = this.props.experience;
     return (
       <div>
         <Circle
