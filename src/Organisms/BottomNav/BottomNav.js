@@ -10,70 +10,70 @@ import FaUsers from 'react-icons/lib/fa/user';
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
 
 class BottomNav extends Component {
-  constructor(){
-    super()
-    this.state={
+  constructor() {
+    super();
+    this.state = {
       icons: [
         {
           text: '',
-          iconImage: "home",
+          iconImage: 'home',
           path: '/',
-          id:"home"
+          id: 'home'
         },
         {
           text: '',
-          iconImage: "notifications",
+          iconImage: 'notifications',
           path: '/',
-          id:"notifications"
+          id: 'notifications'
         },
         {
           text: '',
-          iconImage: "create",
+          iconImage: 'create',
           path: '/',
-          id:"create"
+          id: 'create'
         },
         {
           text: '',
-          iconImage: "find",
+          iconImage: 'find',
           path: '/',
-          id:"find"
+          id: 'find'
         },
         {
           text: '',
-          iconImage: "buddies",
+          iconImage: 'buddies',
           path: '/',
-          id:"buddies"
-        },
+          id: 'buddies'
+        }
       ],
       size: 23
-    }
+    };
   }
 
   getFavicon = (iconImage, size) => {
-    switch(iconImage){
-      case "home":
-        return <FaHome color="white" size={size}/>
-        break
-      case "notifications":
-        return <FaChart color="white" size={size}/>
-        break
-      case "create":
-        return <FaMapMarker color="white" size={size}/>
-        break
-      case "find":
-        return <FaSearch color="white" size={size}/>
-        break
-      case "buddies":
-        return <FaUsers color="white" size={size}/>
-        break
-      case "back":
-        return <FaArrowLeft color="white" size={size}/>
-        break
-      case "user":
-        return <FaUsers color="white" size={size}/>
-        break
+    switch (iconImage) {
+      case 'home':
+        return <FaHome color="white" size={size} />;
+        break;
+      case 'notifications':
+        return <FaChart color="white" size={size} />;
+        break;
+      case 'create':
+        return <FaMapMarker color="white" size={size} />;
+        break;
+      case 'find':
+        return <FaSearch color="white" size={size} />;
+        break;
+      case 'buddies':
+        return <FaUsers color="white" size={size} />;
+        break;
+      case 'back':
+        return <FaArrowLeft color="white" size={size} />;
+        break;
+      case 'user':
+        return <FaUsers color="white" size={size} />;
+        break;
     }
-  }
+  };
 
   render() {
     return (
@@ -81,16 +81,16 @@ class BottomNav extends Component {
         <div className="nav-bar">
           {this.state.icons.map(icon =>
             <NavIcon
-              id = {icon.id}
-              iconImage = {this.getFavicon(icon.iconImage, this.state.size)}
-              text = {icon.text}
-              path = {icon.path}
+              id={icon.id}
+              iconImage={this.getFavicon(icon.iconImage, this.state.size)}
+              text={icon.text}
+              path={icon.path}
             />
           )}
         </div>
       </div>
     );
   }
-};
+}
 
 export default BottomNav;
