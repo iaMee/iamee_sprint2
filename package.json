@@ -10,7 +10,9 @@
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
     "react-materialize": "^1.0.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "recompose": "^0.24.0",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
