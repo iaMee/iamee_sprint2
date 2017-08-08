@@ -16,14 +16,12 @@ class App extends Component {
   render() {
     return (
       <Router history={history}>
-        <div>
-          <Switch>
-            <Route exact path="/" component={SignUp} />
-            <Route path="/experiences" component={ExperiencePage} />
-            <Route path="/test" component={Test} />
-            <Route path="/signup" component={SignUp} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={SignUp} />
+          <Route path="/experiences" component={ExperiencePage} />
+          <Route path="/test" component={Test} />
+          <Route path="/signup" component={SignUp} />
+        </Switch>
       </Router>
     );
   }
