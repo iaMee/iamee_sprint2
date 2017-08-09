@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import CreateTask from 'Templates/CreateTask/CreateTask';
 import Experience from 'Templates/Experience/Experience';
-import TopNav from 'Organisms/TopNav/TopNav';
-import BottomNav from 'Organisms/BottomNav/BottomNav';
+import TopNav from 'organisms/TopNav/TopNav';
+import BottomNav from 'organisms/BottomNav/BottomNav';
 import AspirationShow from 'Templates/AspirationShow/AspirationShow';
 
 const history = createBrowserHistory();

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import ActivityShow from '../ActivityShow/ActivityShow';
 import DiaryShow from '../DiaryShow/DiaryShow';
-import PointBanner from 'Organisms/PointBanner/PointBanner';
+import PointBanner from 'organisms/PointBanner/PointBanner';
 import Banners from 'atoms/Banners/Banner';
 import PersonalShow from '../PersonalShow/PersonalShow';
 

@@ -6,7 +6,7 @@ import heart from 'assets/Images/heart.jpg';
 import { Input, Button, Modal } from 'react-materialize';
 import style from '../ActivityShow/ActivityShow.css';
 import style2 from '../PersonalShow/PersonalShow.css';
-import BottomNav from 'Organisms/BottomNav/BottomNav';
+import BottomNav from 'organisms/BottomNav/BottomNav';
 import AddForm from 'molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
