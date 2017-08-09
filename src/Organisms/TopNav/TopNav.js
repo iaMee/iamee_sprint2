@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import style from './TopNav.css';
 import PropTypes from 'prop-types';
 import NavIcon from 'Atoms/NavIcons/NavIcon';
-import LogoPic from '../../Assets/Images/navLogo.png';
+import LogoPic from 'Assets/Images/navLogo.png';
 import FaHome from 'react-icons/lib/fa/home';
 import FaBell from 'react-icons/lib/fa/bell';
 import FaPlusCircle from 'react-icons/lib/fa/plus-circle';

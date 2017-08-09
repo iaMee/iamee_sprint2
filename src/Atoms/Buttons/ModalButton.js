@@ -9,7 +9,7 @@ const ModalButton = ({ points, img, className, onClick, title, subtext }) =>
       <h6>COMPLETE</h6>
       <img
         className="modal-image"
-        src={require('../../Assets/Images/point.png')}
+        src={require('Assets/Images/point.png')}
         alt=""
       />
       <h6>
