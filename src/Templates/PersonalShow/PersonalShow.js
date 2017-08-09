@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ModalButton from 'Atoms/Buttons/ModalButton';
 import Circle from 'Atoms/Circles/Circle';
 import _ from 'lodash';
-import heart from 'Assets/Images/heart.jpg';
+import heart from 'assets/Images/heart.jpg';
 import { Input, Button, Modal } from 'react-materialize';
 import style from '../ActivityShow/ActivityShow.css';
 import style2 from '../PersonalShow/PersonalShow.css';
@@ -137,7 +137,7 @@ class PersonalShow extends Component {
                   points={10}
                   className={'modal-close'}
                   onClick={() => this.handleClick(attribute)}
-                  img={require('Assets/Images/point.png')}
+                  img={require('assets/Images/point.png')}
                   title={'CLICK HERE'}
                 />
               </Modal>
