@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './CreateTask.css';
-import TopNav from '../../Organisms/TopNav/TopNav';
-import BottomNav from '../../Organisms/BottomNav/BottomNav';
+import TopNav from 'Organisms/TopNav/TopNav';
+import BottomNav from 'Organisms/BottomNav/BottomNav';
 import Circle from '../../Atoms/Circles/Circle';
 import BaseButton from '../../Atoms/Buttons/BaseButton';
 import Banner from '../../Atoms/Banners/Banner';

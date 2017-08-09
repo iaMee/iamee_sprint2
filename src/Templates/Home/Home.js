@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-materialize';
-import TopNav from '../../Organisms/TopNav/TopNav';
+import TopNav from 'Organisms/TopNav/TopNav';
 
-import BottomNav from '../../Organisms/BottomNav/BottomNav';
+import BottomNav from 'Organisms/BottomNav/BottomNav';
 
 class Home extends Component {
   constructor() {

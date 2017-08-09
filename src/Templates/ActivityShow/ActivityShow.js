@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopNav from '../../Organisms/TopNav/TopNav';
+import TopNav from 'Organisms/TopNav/TopNav';
 import ModalButton from '../../Atoms/Buttons/ModalButton';
 import Circle from '../../Atoms/Circles/Circle';
 import _ from 'lodash';
@@ -7,7 +7,7 @@ import yoga from '../../Assets/Images/yoga.png';
 import CustomSlider from '../../Atoms/Slider/Slider';
 import { Input, Button, Modal } from 'react-materialize';
 import style from './ActivityShow.css';
-import BottomNav from '../../Organisms/BottomNav/BottomNav';
+import BottomNav from 'Organisms/BottomNav/BottomNav';
 import AddForm from 'Molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
