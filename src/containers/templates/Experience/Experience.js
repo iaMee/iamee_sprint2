@@ -3,10 +3,10 @@ import CreateTask from '../CreateTask/CreateTask';
 import { Modal } from 'react-materialize';
 import style from './Experience.css';
 import { Switch, Route, Link } from 'react-router-dom';
-import TopNav from 'organisms/TopNav/TopNav';
-import BottomNav from 'organisms/BottomNav/BottomNav';
-import Circle from 'atoms/Circles/Circle';
-import Button from 'atoms/Buttons/BaseButton';
+import TopNav from 'components/organisms/TopNav/TopNav';
+import BottomNav from 'components/organisms/BottomNav/BottomNav';
+import Circle from 'components/atoms/Circles/Circle';
+import Button from 'components/atoms/Buttons/BaseButton';
 import ExperienceModal from './ExperienceModal';
 
 class Experience extends Component {

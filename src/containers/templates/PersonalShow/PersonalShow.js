@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import ModalButton from 'atoms/Buttons/ModalButton';
-import Circle from 'atoms/Circles/Circle';
+import ModalButton from 'components/atoms/Buttons/ModalButton';
+import Circle from 'components/atoms/Circles/Circle';
 import _ from 'lodash';
 import heart from 'assets/Images/heart.jpg';
 import { Input, Button, Modal } from 'react-materialize';
 import style from '../ActivityShow/ActivityShow.css';
 import style2 from '../PersonalShow/PersonalShow.css';
-import BottomNav from 'organisms/BottomNav/BottomNav';
-import AddForm from 'molecules/InputForms/AddForm';
+import BottomNav from 'components/organisms/BottomNav/BottomNav';
+import AddForm from 'components/molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
   return function update(state, props) {

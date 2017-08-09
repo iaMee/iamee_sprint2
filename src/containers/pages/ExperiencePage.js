@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import CreateTask from 'templates/CreateTask/CreateTask';
-import Experience from 'templates/Experience/Experience';
-import TopNav from 'organisms/TopNav/TopNav';
-import BottomNav from 'organisms/BottomNav/BottomNav';
-import AspirationShow from 'templates/AspirationShow/AspirationShow';
+import CreateTask from 'containers/templates/CreateTask/CreateTask';
+import Experience from 'containers/templates/Experience/Experience';
+import TopNav from 'components/organisms/TopNav/TopNav';
+import BottomNav from 'components/organisms/BottomNav/BottomNav';
+import AspirationShow from 'containers/templates/AspirationShow/AspirationShow';
 
 const history = createBrowserHistory();
 
