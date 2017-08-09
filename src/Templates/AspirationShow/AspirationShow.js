@@ -4,7 +4,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import ActivityShow from '../ActivityShow/ActivityShow';
 import DiaryShow from '../DiaryShow/DiaryShow';
 import PointBanner from 'Organisms/PointBanner/PointBanner';
-import Banners from 'Atoms/Banners/Banner';
+import Banners from 'atoms/Banners/Banner';
 import PersonalShow from '../PersonalShow/PersonalShow';
 
 const history = createBrowserHistory();

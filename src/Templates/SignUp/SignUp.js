@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './SignUp.css';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import BaseButton from 'Atoms/Buttons/BaseButton';
+import BaseButton from 'atoms/Buttons/BaseButton';
 import { Input } from 'react-materialize';
 
 class SignUp extends Component {

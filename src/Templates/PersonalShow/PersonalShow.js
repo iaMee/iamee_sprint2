@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ModalButton from 'Atoms/Buttons/ModalButton';
-import Circle from 'Atoms/Circles/Circle';
+import ModalButton from 'atoms/Buttons/ModalButton';
+import Circle from 'atoms/Circles/Circle';
 import _ from 'lodash';
 import heart from 'assets/Images/heart.jpg';
 import { Input, Button, Modal } from 'react-materialize';
