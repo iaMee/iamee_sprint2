@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import TopNav from 'Organisms/TopNav/TopNav';
-import ModalButton from 'Atoms/Buttons/ModalButton';
-import Circle from 'Atoms/Circles/Circle';
+import TopNav from 'organisms/TopNav/TopNav';
+import ModalButton from 'atoms/Buttons/ModalButton';
+import Circle from 'atoms/Circles/Circle';
 import _ from 'lodash';
-import yoga from 'Assets/Images/yoga.png';
-import CustomSlider from 'Atoms/Slider/Slider';
+import yoga from 'assets/Images/yoga.png';
+import CustomSlider from 'atoms/Slider/Slider';
 import { Input, Button, Modal } from 'react-materialize';
 import style from './ActivityShow.css';
-import BottomNav from 'Organisms/BottomNav/BottomNav';
-import AddForm from 'Molecules/InputForms/AddForm';
+import BottomNav from 'organisms/BottomNav/BottomNav';
+import AddForm from 'molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
   return function update(state, props) {
@@ -145,7 +145,7 @@ class ActivityShow extends Component {
                     className={'modal-close'}
                     points={this.state.value}
                     onClick={() => this.handleClick(attribute)}
-                    img={require('Assets/Images/point.png')}
+                    img={require('assets/Images/point.png')}
                     title={'CLICK HERE'}
                   />
                 </Modal>

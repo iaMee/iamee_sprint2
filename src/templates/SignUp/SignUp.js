@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './SignUp.css';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import BaseButton from 'Atoms/Buttons/BaseButton';
+import BaseButton from 'atoms/Buttons/BaseButton';
 import { Input } from 'react-materialize';
 
 class SignUp extends Component {
@@ -11,7 +11,7 @@ class SignUp extends Component {
         <div className="logo-image">
           <img
             className="logo"
-            src={require('Assets/Images/logo.png')}
+            src={require('assets/Images/logo.png')}
             alt=""
           />
         </div>
