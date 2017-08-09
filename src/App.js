@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Home from './Templates/Home/Home';
 import SignUp from './Templates/SignUp/SignUp';
-import ExperiencePage from './Pages/ExperiencePage';
+import ExperiencePage from 'Pages/ExperiencePage';
 import Test from './Templates/Test/Test';
 
 const history = createBrowserHistory();
