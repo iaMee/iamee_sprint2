@@ -1,38 +1,42 @@
-import React, { Component } from 'react';
-import styles from './SignUp.css';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import BaseButton from 'components/atoms/Buttons/BaseButton';
-import { Input } from 'react-materialize';
+import React, { Component } from "react";
+import styles from "./SignUp.css";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import BaseButton from "components/atoms/Buttons/BaseButton";
+import Button from "components/atoms/Button";
+import { Input } from "react-materialize";
 
 class SignUp extends Component {
   render() {
     return (
-      <div>
+      <main>
         <div className="logo-image">
           <img
             className="logo"
-            src={require('assets/Images/logo.png')}
+            src={require("assets/Images/logo.png")}
             alt=""
           />
         </div>
 
         <div>
           <div className="createTaskInput">
-            <div>
+            {/* <div>
               <Link to="/experiences">
                 <BaseButton title={'SIGN UP WITH FACEBOOK'} />
               </Link>
-            </div>
+            </div> */}
+            <Button bold fullWidth onClick={() => console.log("clicked")}>
+              Sign up with facebook
+            </Button>
 
             <div className="spacer" />
             <h5 className="text-center">OR</h5>
             <div className="spacer" />
 
             <div className="addInput">
-              <Input type={'email'} label={'EMAIL'} />
+              <Input type={"email"} label={"EMAIL"} />
             </div>
             <div className="addInput">
-              <Input type={'password'} label={'PASSWORD'} />
+              <Input type={"password"} label={"PASSWORD"} />
             </div>
 
             <div className="spacer" />
@@ -40,7 +44,7 @@ class SignUp extends Component {
 
             <div>
               <Link to="/experiences">
-                <BaseButton title={'SIGN UP'} />
+                <BaseButton title={"SIGN UP"} />
               </Link>
             </div>
 
@@ -49,7 +53,7 @@ class SignUp extends Component {
             </p>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 }
