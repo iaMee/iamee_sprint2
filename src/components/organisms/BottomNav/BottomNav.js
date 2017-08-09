@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavIcon from 'atoms/NavIcons/NavIcon';
+import NavIcon from 'components/atoms/NavIcons/NavIcon';
 import style from './BottomNav.css';
 import PropTypes from 'prop-types';
 import FaHome from 'react-icons/lib/fa/home';

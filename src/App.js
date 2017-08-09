@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Home from 'templates/Home/Home';
-import SignUp from 'templates/SignUp/SignUp';
-import ExperiencePage from 'pages/ExperiencePage';
-import Test from 'templates/Test/Test';
+import Home from 'containers/templates/Home/Home';
+import SignUp from 'containers/templates/SignUp/SignUp';
+import ExperiencePage from 'containers/pages/ExperiencePage';
+import Test from 'containers/templates/Test/Test';
 
 const history = createBrowserHistory();
 

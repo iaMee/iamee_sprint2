@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './TopNav.css';
 import PropTypes from 'prop-types';
-import NavIcon from 'atoms/NavIcons/NavIcon';
+import NavIcon from 'components/atoms/NavIcons/NavIcon';
 import LogoPic from 'assets/Images/navLogo.png';
 import FaHome from 'react-icons/lib/fa/home';
 import FaBell from 'react-icons/lib/fa/bell';
