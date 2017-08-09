@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './Experience.css';
-import Circle from '../../Atoms/Circles/Circle';
-import Button from '../../Atoms/Buttons/BaseButton';
+import Circle from 'Atoms/Circles/Circle';
+import Button from 'Atoms/Buttons/BaseButton';
 
 class ExperienceModal extends Component {
   constructor(props) {

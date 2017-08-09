@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import style from './CreateTask.css';
-import TopNav from '../../Organisms/TopNav/TopNav';
-import BottomNav from '../../Organisms/BottomNav/BottomNav';
-import Circle from '../../Atoms/Circles/Circle';
-import BaseButton from '../../Atoms/Buttons/BaseButton';
-import Banner from '../../Atoms/Banners/Banner';
+import TopNav from 'Organisms/TopNav/TopNav';
+import BottomNav from 'Organisms/BottomNav/BottomNav';
+import Circle from 'Atoms/Circles/Circle';
+import BaseButton from 'Atoms/Buttons/BaseButton';
+import Banner from 'Atoms/Banners/Banner';
 import { Link } from 'react-router-dom';
 import { Row, Input, Button } from 'react-materialize';
 import axios from 'axios';
-import AddForm from '../../Molecules/InputForms/AddForm';
+import AddForm from 'Molecules/InputForms/AddForm';
 
 class CreateTask extends Component {
   constructor(props) {

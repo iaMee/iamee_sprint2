@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import ModalButton from '../../Atoms/Buttons/ModalButton';
-import Circle from '../../Atoms/Circles/Circle';
+import ModalButton from 'Atoms/Buttons/ModalButton';
+import Circle from 'Atoms/Circles/Circle';
 import _ from 'lodash';
-import heart from '../../Assets/Images/heart.jpg';
+import heart from 'Assets/Images/heart.jpg';
 import { Input, Button, Modal } from 'react-materialize';
 import style from '../ActivityShow/ActivityShow.css';
 import style2 from '../PersonalShow/PersonalShow.css';
-import BottomNav from '../../Organisms/BottomNav/BottomNav';
-import AddForm from '../../Molecules/InputForms/AddForm';
+import BottomNav from 'Organisms/BottomNav/BottomNav';
+import AddForm from 'Molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
   return function update(state, props) {
@@ -137,7 +137,7 @@ class PersonalShow extends Component {
                   points={10}
                   className={'modal-close'}
                   onClick={() => this.handleClick(attribute)}
-                  img={require('../../Assets/Images/point.png')}
+                  img={require('Assets/Images/point.png')}
                   title={'CLICK HERE'}
                 />
               </Modal>
