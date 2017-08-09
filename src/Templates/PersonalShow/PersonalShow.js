@@ -7,7 +7,7 @@ import { Input, Button, Modal } from 'react-materialize';
 import style from '../ActivityShow/ActivityShow.css';
 import style2 from '../PersonalShow/PersonalShow.css';
 import BottomNav from 'Organisms/BottomNav/BottomNav';
-import AddForm from 'Molecules/InputForms/AddForm';
+import AddForm from 'molecules/InputForms/AddForm';
 
 function toggleArray(array, object) {
   return function update(state, props) {

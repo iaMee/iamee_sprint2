@@ -8,7 +8,7 @@ import Banner from 'Atoms/Banners/Banner';
 import { Link } from 'react-router-dom';
 import { Row, Input, Button } from 'react-materialize';
 import axios from 'axios';
-import AddForm from 'Molecules/InputForms/AddForm';
+import AddForm from 'molecules/InputForms/AddForm';
 
 class CreateTask extends Component {
   constructor(props) {
