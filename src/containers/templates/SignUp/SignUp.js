@@ -1,61 +1,20 @@
-import React, { Component } from "react";
-import styles from "./SignUp.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import BaseButton from "components/atoms/Buttons/BaseButton";
-import Button from "components/atoms/Button";
-import { Input } from "react-materialize";
+import React, { Component } from 'react';
+import BaseButton from 'components/atoms/Buttons/BaseButton';
+import Button from 'components/atoms/Button';
+import SignUp from 'components/templates/SignUp';
+import { Input } from 'react-materialize';
 
-class SignUp extends Component {
+class SignUpContainer extends Component {
   render() {
     return (
-      <main>
-        <div className="logo-image">
-          <img
-            className="logo"
-            src={require("assets/Images/logo.png")}
-            alt=""
-          />
-        </div>
-
-        <div>
-          <div className="createTaskInput">
-            {/* <div>
-              <Link to="/experiences">
-                <BaseButton title={'SIGN UP WITH FACEBOOK'} />
-              </Link>
-            </div> */}
-            <Button bold fullWidth onClick={() => console.log("clicked")}>
-              Sign up with facebook
-            </Button>
-
-            <div className="spacer" />
-            <h5 className="text-center">OR</h5>
-            <div className="spacer" />
-
-            <div className="addInput">
-              <Input type={"email"} label={"EMAIL"} />
-            </div>
-            <div className="addInput">
-              <Input type={"password"} label={"PASSWORD"} />
-            </div>
-
-            <div className="spacer" />
-            <div className="spacer" />
-
-            <div>
-              <Link to="/experiences">
-                <BaseButton title={"SIGN UP"} />
-              </Link>
-            </div>
-
-            <p className="text-center">
-              Already have an account? <strong>Log In</strong>
-            </p>
-          </div>
-        </div>
-      </main>
+      <SignUp
+        listeners={{
+          onClickFacebook: () => console.log('fb click'),
+          onClickSignUp: () => console.log('signup click')
+        }}
+      />
     );
   }
 }
 
-export default SignUp;
+export default SignUpContainer;
