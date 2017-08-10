@@ -10,7 +10,7 @@ class SignUpContainer extends Component {
       <SignUp
         listeners={{
           onClickFacebook: () => console.log('fb click'),
-          onClickSignUp: () => console.log('signup click')
+          onSubmitSignUp: (e) => {e.preventDefault(); console.log('signup click')}
         }}
       />
     );

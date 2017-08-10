@@ -1,12 +1,15 @@
 import React from 'react';
 import Button from 'components/atoms/Button';
+import HiddenSpan from 'components/atoms/HiddenSpan';
 import InputSubmit from 'components/atoms/InputSubmit';
+import InputText from 'components/atoms/InputText';
+import LabelBlock from 'components/atoms/LabelBlock';
 import Logo from 'components/atoms/Logo';
 import Divider from './Divider';
 import Wrapper from './Wrapper';
 import { Input } from 'react-materialize';
 
-const SignUp = ({ listeners: { onClickFacebook, onClickSignUp } }) => {
+const SignUp = ({ listeners: { onClickFacebook, onSubmitSignUp } }) => {
   return (
     <Wrapper>
       <header>
@@ -17,9 +20,17 @@ const SignUp = ({ listeners: { onClickFacebook, onClickSignUp } }) => {
           Sign up with facebook
         </Button>
         <Divider>OR</Divider>
-        <Input type={'email'} label={'EMAIL'} />
-        <Input type={'password'} label={'PASSWORD'} />
-        <InputSubmit bold fullWidth onClick={onClickSignUp} value="Sign up" />
+        <form onSubmit={onSubmitSignUp}>
+          <LabelBlock verticalMargin={'1rem'}>
+            <HiddenSpan>Email</HiddenSpan>
+            <InputText fullWidth placeholder={'Email'} />
+          </LabelBlock>
+          <LabelBlock verticalMargin={'1rem'}>
+            <HiddenSpan>Password</HiddenSpan>
+            <InputText fullWidth placeholder="Password" type="password" />
+          </LabelBlock>
+          <InputSubmit bold fullWidth value="Sign up" />
+        </form>
         <p>
           Already have an account? <a>Log In</a>
         </p>
