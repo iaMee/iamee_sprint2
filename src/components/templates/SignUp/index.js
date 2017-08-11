@@ -3,7 +3,7 @@ import Button from 'components/atoms/Button';
 import HiddenSpan from 'components/atoms/HiddenSpan';
 import InputSubmit from 'components/atoms/InputSubmit';
 import InputText from 'components/atoms/InputText';
-import LabelBlock from 'components/atoms/LabelBlock';
+import LabelBlock from 'components/molecules/LabelBlock';
 import Logo from 'components/atoms/Logo';
 import Divider from './Divider';
 import Wrapper from './Wrapper';
@@ -21,14 +21,8 @@ const SignUp = ({ listeners: { onClickFacebook, onSubmitSignUp } }) => {
         </Button>
         <Divider>OR</Divider>
         <form onSubmit={onSubmitSignUp}>
-          <LabelBlock verticalMargin={'1rem'}>
-            <HiddenSpan>Email</HiddenSpan>
-            <InputText fullWidth placeholder={'Email'} />
-          </LabelBlock>
-          <LabelBlock verticalMargin={'1rem'}>
-            <HiddenSpan>Password</HiddenSpan>
-            <InputText fullWidth placeholder="Password" type="password" />
-          </LabelBlock>
+          <LabelBlock text="Email" placeholder="Email"/> 
+          <LabelBlock text="Password" placeholder="Password" type="password"/>
           <InputSubmit bold fullWidth value="Sign up" />
         </form>
         <p>
