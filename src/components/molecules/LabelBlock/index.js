@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HiddenSpan from 'components/atoms/HiddenSpan';
 import InputText from 'components/atoms/InputText';
+import { pure } from 'recompose';
 import Label from './Label';
 
 const LabelBlock = ({
@@ -39,4 +40,4 @@ LabelBlock.defaultProps = {
   verticalMargin: '1rem'
 };
 
-export default LabelBlock;
+export default pure(LabelBlock);
