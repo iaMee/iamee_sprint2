@@ -1,13 +1,10 @@
 import React from 'react';
 import Button from 'components/atoms/Button';
-import HiddenSpan from 'components/atoms/HiddenSpan';
 import InputSubmit from 'components/atoms/InputSubmit';
-import InputText from 'components/atoms/InputText';
 import LabelBlock from 'components/molecules/LabelBlock';
 import Logo from 'components/atoms/Logo';
 import Divider from './Divider';
 import Wrapper from './Wrapper';
-import { Input } from 'react-materialize';
 
 const SignUp = ({ listeners: { onClickFacebook, onSubmitSignUp } }) => {
   return (

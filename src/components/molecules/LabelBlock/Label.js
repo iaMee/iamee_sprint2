@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { inputTextStyle } from 'styles/input';
 
 const createVerticalMargin = verticalMargin => `margin: ${verticalMargin} 0`;
 
