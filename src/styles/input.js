@@ -15,4 +15,4 @@ const inputTextStyle = css`
   }
 `;
 
-export { inputTextStyle }
+export { inputTextStyle };

@@ -18,8 +18,8 @@ const SignUp = ({ listeners: { onClickFacebook, onSubmitSignUp } }) => {
         </Button>
         <Divider>OR</Divider>
         <form onSubmit={onSubmitSignUp}>
-          <LabelBlock text="Email" placeholder="Email"/> 
-          <LabelBlock text="Password" placeholder="Password" type="password"/>
+          <LabelBlock text="Email" placeholder="Email" />
+          <LabelBlock text="Password" placeholder="Password" type="password" />
           <InputSubmit bold fullWidth value="Sign up" />
         </form>
         <p>

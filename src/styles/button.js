@@ -10,4 +10,4 @@ const buttonStyle = css`
   ${props => (props.bold ? 'font-weight: bold' : '')};
 `;
 
-export { buttonStyle }
+export { buttonStyle };
