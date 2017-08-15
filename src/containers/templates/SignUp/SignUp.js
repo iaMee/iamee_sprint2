@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import SignUp from 'components/templates/SignUp';
 
 const SignUpContainer = ({ history }) => {
@@ -24,4 +23,4 @@ SignUpContainer.propTypes = {
   }).isRequired
 };
 
-export default withRouter(SignUpContainer);
+export default SignUpContainer;
