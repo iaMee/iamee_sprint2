@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import SignUp from 'components/templates/SignUp';
 
-class SignUpContainer extends Component {
-  render() {
-    return (
-      <SignUp
-        listeners={{
-          onClickFacebook: () => console.log('fb click'),
-          onSubmitSignUp: e => {
-            e.preventDefault();
-            console.log('signup click');
-          }
-        }}
-      />
-    );
-  }
-}
+const SignUpContainer = ({ history }) => {
+  return (
+    <SignUp
+      listeners={{
+        onClickFacebook: () => console.log('fb click'),
+        onSubmitSignUp: e => {
+          e.preventDefault();
+          console.log('signup click');
+          history.push('/experiences');
+        }
+      }}
+    />
+  );
+};
 
-export default SignUpContainer;
+SignUpContainer.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired
+};
+
+export default withRouter(SignUpContainer);
