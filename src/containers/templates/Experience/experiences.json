@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Bold",
+    "description": "Feel more confident",
+    "tag": "bold"
+  },
+  {
+    "title": "Relaxed",
+    "description": "Take time out to relax",
+    "tag": "relaxed"
+  },
+  {
+    "title": "Positive",
+    "description": "Yay!",
+    "tag": "positive"
+  },
+  {
+    "title": "Inquisitive",
+    "description": "What mate?!",
+    "tag": "inquisitive"
+  },
+  {
+    "title": "Yourself",
+    "description": "Yeah nah!",
+    "tag": "yourself"
+  },
+  {
+    "title": "Grateful",
+    "description": "nah!",
+    "tag": "grateful"
+  },
+  {
+    "title": "Loving",
+    "description": "cheerio!",
+    "tag": "loving"
+  },
+  {
+    "title": "Kind",
+    "description": "Not me!!",
+    "tag": "kind"
+  }
+]
