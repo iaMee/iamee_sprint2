@@ -5,18 +5,6 @@ import { buttonStyle } from 'styles/button';
 
 const LinkButton =  styled(Link)`
   ${buttonStyle};
-
-  &.${props => props.activeClassName} {
-    background-color: ${props => props.theme.active};
-  }
 `;
-
-LinkButton.propTypes = {
-  activeClassName: PropTypes.string,
-}
-
-LinkButton.defaultProps = {
-  activeClassName: 'active',
-}
 
 export default LinkButton;

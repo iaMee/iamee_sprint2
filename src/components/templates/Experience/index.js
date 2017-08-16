@@ -8,11 +8,12 @@ import Button from 'components/atoms/Button';
 import LinkButton from 'components/atoms/LinkButton';
 import ExperienceModal from './ExperienceModal';
 import CircleTitle from './CircleTitle';
+import CirclesWrapper from './CirclesWrapper';
 import Wrapper from './Wrapper';
 import H2 from './H2';
 
 const circle = {
-  height: '10em',
+  height: '10rem',
   radius: '100%'
 };
 
@@ -23,7 +24,7 @@ const getModalTrigger = ({ experience }) => {
     </CircleTitle>
   );
   return (
-    <div className="circle-margin">
+    <div>
       <Circle
         title={circleTitle}
         tag={experience.tag}
@@ -47,13 +48,13 @@ const getExperiences = ({ experiences, match }) => {
 
 const Experience = ({ experiences, match }) => {
   return (
-    <Wrapper className="main-content">
-      <H2 className="text-center exp-header">Build your aspirations</H2>
-      <p className="text-center">How do you want to feel?</p>
-      <div className="circles">
+    <Wrapper>
+      <H2>Build your aspirations</H2>
+      <p>How do you want to feel?</p>
+      <CirclesWrapper>
         {getExperiences({ experiences, match })}
         <Button>Customize Your Own</Button>
-      </div>
+      </CirclesWrapper>
     </Wrapper>
   );
 };
