@@ -1,0 +1,39 @@
+.top-nav{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: url('../../../assets/Images/topNavBg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/*the logo image is set as a third of the navbar*/
+.logo-pic{
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* this is setting the images width and height*/
+.logo-pic img{
+  height: 2.5em;
+  width: auto;
+  margin: 0 auto;
+}
+
+/*the back icon is set as a third of the navbar*/
+#back{
+  flex: 1;
+}
+
+
+/*the user icon is set as a third of the navbar*/
+#user{
+  flex:1;
+}
