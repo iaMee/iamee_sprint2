@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import style from './Experience.css';
 import Circle from 'components/atoms/Circles/Circle';
 import Button from 'components/atoms/Buttons/BaseButton';
 
