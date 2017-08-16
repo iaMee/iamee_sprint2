@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-materialize';
-import style from './Experience.css';
-import { Link } from 'react-router-dom';
-import Circle from 'components/atoms/Circles/Circle';
 import Button from 'components/atoms/Button';
+import ButtonCircle from 'components/atoms/ButtonCircle';
 import LinkButton from 'components/atoms/LinkButton';
 import ExperienceModal from './ExperienceModal';
-import CircleTitle from './CircleTitle';
 import CirclesWrapper from './CirclesWrapper';
 import Wrapper from './Wrapper';
 import H2 from './H2';
@@ -17,27 +14,17 @@ const circle = {
   radius: '100%'
 };
 
-const getModalTrigger = ({ experience }) => {
-  const circleTitle = (
-    <CircleTitle>
-      {experience.title}
-    </CircleTitle>
-  );
+const getModalTrigger = ({ experience: { name } }) => {
   return (
-    <div>
-      <Circle
-        title={circleTitle}
-        tag={experience.tag}
-        height={circle.height}
-        radius={circle.radius}
-      />
-    </div>
+    <ButtonCircle capitalize height={circle.height} backgroundThemeColor={name}>
+      {name}
+    </ButtonCircle>
   );
 };
 
 const getExperiences = ({ experiences, match }) => {
   return experiences.map(experience =>
-    <Modal key={experience.title} trigger={getModalTrigger({ experience })}>
+    <Modal key={experience.name} trigger={getModalTrigger({ experience })}>
       <ExperienceModal experience={experience} />
       <LinkButton to={`${match.url}/${experience.title}/createtask`}>
         Start to build
