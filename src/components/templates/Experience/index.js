@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-materialize';
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import Button from 'components/atoms/Button';
 import ButtonCircle from 'components/atoms/ButtonCircle';
 import LinkButton from 'components/atoms/LinkButton';
@@ -40,7 +39,7 @@ const getExperiences = ({
       <div key={experience.name}>
         {getModalTrigger({ experience, setCurrentExperience })}
         {
-          <ReactModal
+          <Modal
             isOpen={experience.name === currentExperience}
             contentLabel={`Experience-${experience.name}`}
             onRequestClose={() => setCurrentExperience('')}
@@ -50,7 +49,7 @@ const getExperiences = ({
             <LinkButton to={`${match.url}/${experience.name}/createtask`}>
               Start to build
             </LinkButton>
-          </ReactModal>
+          </Modal>
         }
       </div>
   );
