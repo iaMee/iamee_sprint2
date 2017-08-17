@@ -53,15 +53,6 @@ const getExperiences = ({
           </ReactModal>
         }
       </div>
-    // <Modal
-    //   key={experience.name}
-    //   trigger={getModalTrigger({ experience, setCurrentExperience })}
-    // >
-    //   <ExperienceModal experience={experience} />
-    //   <LinkButton to={`${match.url}/${experience.title}/createtask`}>
-    //     Start to build
-    //   </LinkButton>
-    // </Modal>
   );
 };
 

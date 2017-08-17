@@ -39,14 +39,16 @@
   opacity: 0;
 }
 
-.ReactModalPortal .ReactModal__Overlay {
-  transition: opacity 50ms ease-in-out;
+.ReactModalPortal .ReactModal__Overlay,
+.ReactModalPortal .ReactModal__Overlay > div {
+  transition: opacity 300ms ease-in-out;
   background: rgba(0, 0, 0, 0.15);
 }
 
 .ReactModalPortal .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
 .ReactModalPortal .ReactModal__Overlay--after-open {
   opacity: 1;
 }
