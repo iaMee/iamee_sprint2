@@ -10,42 +10,36 @@ import AspirationShow from 'containers/templates/AspirationShow/AspirationShow';
 const history = createBrowserHistory();
 
 class ExperiencePage extends Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  render() {
-    var match = this.props.match;
-    const Experiences = props => {
-      return <Experience {...props} />;
-    };
+	render() {
+		var match = this.props.match;
+		const Experiences = props => {
+			return <Experience {...props} />;
+		};
 
-    const CreateTasks = props => {
-      return <CreateTask {...props} />;
-    };
+		const CreateTasks = props => {
+			return <CreateTask {...props} />;
+		};
 
-    const AspirationShows = props => {
-      return <AspirationShow {...props} />;
-    };
+		const AspirationShows = props => {
+			return <AspirationShow {...props} />;
+		};
 
-    return (
-      <div>
-        <TopNav />
-        <Switch>
-          <Route exact path={`${match.url}`} render={Experiences} />
-          <Route
-            path={`${match.url}/:experience/createtask`}
-            render={CreateTasks}
-          />
-          <Route
-            path={`${match.url}/:experience/show`}
-            render={AspirationShows}
-          />
-        </Switch>
-        <BottomNav />
-      </div>
-    );
-  }
+		return (
+			<div>
+				<TopNav />
+				<Switch>
+					<Route exact path={`${match.url}`} render={Experiences} />
+					<Route path={`${match.url}/tasks/:taskId`} render={CreateTasks} />
+					<Route path={`${match.url}/:experience/show`} render={AspirationShows} />
+				</Switch>
+				<BottomNav />
+			</div>
+		);
+	}
 }
 
 export default ExperiencePage;
