@@ -1,14 +1,26 @@
 import React from 'react';
+import { compose, withState } from 'recompose';
 import Experience from 'components/templates/Experience';
 import experiences from './experiences.json';
 
-const ExperienceContainer = ({ match }) => {
+const enhancer = compose(
+  withState('currentExperience', 'setCurrentExperience', '')
+);
+
+const ExperienceContainer = ({
+  currentExperience,
+  match,
+  setCurrentExperience
+}) => {
+  console.log('STATE!', currentExperience);
   return (
-    <Experience 
+    <Experience
+      currentExperience={currentExperience}
       experiences={experiences}
       match={match}
+      setCurrentExperience={setCurrentExperience}
     />
   );
 };
 
-export default ExperienceContainer;
+export default enhancer(ExperienceContainer);
