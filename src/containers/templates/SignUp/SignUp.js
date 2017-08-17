@@ -7,7 +7,7 @@ const provider = new firebase.auth.FacebookAuthProvider();
 provider.addScope('email');
 
 const signInWithFacebook = () => {
-	firebase.auth().signInWithRedirect(provider);
+  firebase.auth().signInWithRedirect(provider);
 };
 // firebase
 // 	.auth()
@@ -33,24 +33,24 @@ const signInWithFacebook = () => {
 // 	});
 
 const SignUpContainer = ({ history }) => {
-	return (
-		<SignUp
-			listeners={{
-				onClickFacebook: signInWithFacebook,
-				onSubmitSignUp: e => {
-					e.preventDefault();
-					console.log('signup click');
-					history.push('/experiences');
-				},
-			}}
-		/>
-	);
+  return (
+    <SignUp
+      listeners={{
+        onClickFacebook: signInWithFacebook,
+        onSubmitSignUp: e => {
+          e.preventDefault();
+          console.log('signup click');
+          history.push('/experiences');
+        }
+      }}
+    />
+  );
 };
 
 SignUpContainer.propTypes = {
-	history: PropTypes.shape({
-		push: PropTypes.func,
-	}).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired
 };
 
 export default SignUpContainer;

@@ -10,33 +10,35 @@ import FaSearch from 'react-icons/lib/fa/search';
 import FaUsers from 'react-icons/lib/fa/user';
 
 const PlainButton = styled.button`
-	background: none;
-	border: none;
+  background: none;
+  border: none;
 `;
 
 const linkWrapper = path => props =>
-	<Link to={path}>
-		{props.children}
-	</Link>;
+  <Link to={path}>
+    {props.children}
+  </Link>;
 const buttonWrapper = onClick => props =>
-	<PlainButton onClick={onClick}>
-		{props.children}
-	</PlainButton>;
+  <PlainButton onClick={onClick}>
+    {props.children}
+  </PlainButton>;
 
 class NavIcon extends Component {
-	render() {
-		const Wrapper = this.props.path ? linkWrapper(this.props.path) : buttonWrapper(this.props.onClick);
+  render() {
+    const Wrapper = this.props.path
+      ? linkWrapper(this.props.path)
+      : buttonWrapper(this.props.onClick);
 
-		return (
-			<div className="navicon-box" id={this.props.id}>
-				<Wrapper>
-					<div className="navicon-image">
-						{this.props.iconImage}
-					</div>
-				</Wrapper>
-			</div>
-		);
-	}
+    return (
+      <div className="navicon-box" id={this.props.id}>
+        <Wrapper>
+          <div className="navicon-image">
+            {this.props.iconImage}
+          </div>
+        </Wrapper>
+      </div>
+    );
+  }
 }
 
 export default NavIcon;
