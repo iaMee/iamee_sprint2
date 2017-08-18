@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import Button from 'components/atoms/Button';
 import ButtonCircle from 'components/atoms/ButtonCircle';
+import Circle from 'components/atoms/Circle';
 import LinkButton from 'components/atoms/LinkButton';
 import { modal } from 'styles/theme';
-import ExperienceModal from './ExperienceModal';
 import CirclesWrapper from './CirclesWrapper';
+import ModalContent from './ModalContent';
 import Wrapper from './Wrapper';
 import H2 from './H2';
 
@@ -28,30 +29,41 @@ const getModalTrigger = ({ experience: { name }, setCurrentExperience }) => {
   );
 };
 
+const getModalContent = ({ experience: { name }, match }) => {
+  return (
+    <ModalContent>
+      <Circle capitalize height="16rem" backgroundThemeColor={name}>
+        <h5>
+          {name}
+        </h5>
+      </Circle>
+      <LinkButton to={`${match.url}/${name}/createtask`}>
+        Start to build
+      </LinkButton>
+    </ModalContent>
+  );
+};
+
 const getExperiences = ({
   currentExperience,
   experiences,
   match,
   setCurrentExperience
 }) => {
-  return experiences.map(
-    experience =>
-      <div key={experience.name}>
-        {getModalTrigger({ experience, setCurrentExperience })}
-        {
-          <Modal
-            isOpen={experience.name === currentExperience}
-            contentLabel={`Experience-${experience.name}`}
-            onRequestClose={() => setCurrentExperience('')}
-            style={modal}
-          >
-            <ExperienceModal experience={experience} />
-            <LinkButton to={`${match.url}/${experience.name}/createtask`}>
-              Start to build
-            </LinkButton>
-          </Modal>
-        }
-      </div>
+  return experiences.map(experience =>
+    <div key={experience.name}>
+      {getModalTrigger({ experience, setCurrentExperience })}
+      {
+        <Modal
+          isOpen={experience.name === currentExperience}
+          contentLabel={`Experience-${experience.name}`}
+          onRequestClose={() => setCurrentExperience('')}
+          style={modal}
+        >
+          {getModalContent({ experience, match })}
+        </Modal>
+      }
+    </div>
   );
 };
 
