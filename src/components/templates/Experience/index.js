@@ -113,8 +113,8 @@ const Experience = ({
 Experience.propTypes = {
   experiences: PropTypes.arrayOf(
     PropTypes.shape({
+      description: PropTypes.string,
       title: PropTypes.string,
-      tag: PropTypes.string
     })
   ).isRequired,
   match: PropTypes.shape({
