@@ -30,7 +30,7 @@ const modal = {
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     background: '#222',
-    border: 0,
+    border: 0
   }
 };
 

@@ -1,8 +1,9 @@
 import ButtonCircle from 'components/atoms/ButtonCircle';
 
 export default ButtonCircle.extend`
+  display: table;
   & > * {
-    line-height: ${props => props.height};
-    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
   }
 `.withComponent('div');
