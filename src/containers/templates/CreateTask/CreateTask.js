@@ -47,13 +47,13 @@ class CreateTask extends Component {
     base.removeBinding(this.binding);
   }
 
-  onFrequencyChange(event) {
+  onFrequencyChange = event => {
     this.setState({
       stagedFrequency: event.target.value
     });
-  }
+  };
 
-  setReminder() {
+  setReminder = () => {
     this.setState(state => ({
       task: {
         ...state.task,
@@ -62,7 +62,7 @@ class CreateTask extends Component {
     }));
 
     this.showMessage('Reminder set!');
-  }
+  };
 
   showMessage(message) {
     this.setState({
@@ -78,7 +78,7 @@ class CreateTask extends Component {
     );
   }
 
-  sendInvite() {
+  sendInvite = () => {
     if (this.state.email.length === 0) {
       return;
     }
@@ -91,7 +91,7 @@ class CreateTask extends Component {
         this.showMessage('Invite sent!');
       })
       .catch(console.error);
-  }
+  };
 
   render() {
     // var experiences = this.state.experiences;
@@ -128,7 +128,7 @@ class CreateTask extends Component {
             className="margin"
             type="select"
             value={this.state.stagedFrequency}
-            onChange={this.onFrequencyChange.bind(this)}
+            onChange={this.onFrequencyChange}
           >
             <option className="text-center" value="none">
               None
@@ -140,10 +140,7 @@ class CreateTask extends Component {
         </div>
 
         <div className="exp-button width-80 btn-blue">
-          <BaseButton
-            title={'SET REMINDER'}
-            onClick={this.setReminder.bind(this)}
-          />
+          <BaseButton title={'SET REMINDER'} onClick={this.setReminder} />
         </div>
 
         <br />
@@ -193,10 +190,7 @@ class CreateTask extends Component {
         <br />
 
         <div className="exp-button width-80 btn-blue">
-          <BaseButton
-            onClick={this.sendInvite.bind(this)}
-            title={'INVITE MY FRIEND!'}
-          />
+          <BaseButton onClick={this.sendInvite} title={'INVITE MY FRIEND!'} />
         </div>
 
         <div className="big-margin-top width-80 btn-blue">
