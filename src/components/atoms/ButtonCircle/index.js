@@ -24,14 +24,13 @@ const ButtonCircle = styled.button`
   width: ${props => props.height};
   color: ${props => props.color};
   ${getBackground} border-radius: 50%;
-  ${props => props.capitalize && 'text-transform: capitalize;'}
-  border: 0;
+  ${props => props.capitalize && 'text-transform: capitalize;'} border: 0;
 `;
 
 ButtonCircle.propTypes = {
   height: PropTypes.string,
-  color: PropTypes.string,
-}
+  color: PropTypes.string
+};
 
 ButtonCircle.defaultProps = {
   height: '1rem',

@@ -8,6 +8,8 @@ import ExperienceModal from './ExperienceModal';
 import CirclesWrapper from './CirclesWrapper';
 import Wrapper from './Wrapper';
 import H2 from './H2';
+import { firebase, base } from 'data/firebase';
+import { withRouter } from 'react-router-dom';
 
 const circle = {
   height: '10rem',
@@ -22,16 +24,34 @@ const getModalTrigger = ({ experience: { name } }) => {
   );
 };
 
-const getExperiences = ({ experiences, match }) => {
-  return experiences.map(experience =>
-    <Modal key={experience.name} trigger={getModalTrigger({ experience })}>
-      <ExperienceModal experience={experience} />
-      <LinkButton to={`${match.url}/${experience.title}/createtask`}>
-        Start to build
-      </LinkButton>
-    </Modal>
-  );
+const makeExperience = (match, experience, history) => () => {
+  const userId = firebase.auth().currentUser.uid;
+  //`${match.url}/${experience.name}/createtask`
+  const thenableReference = base.push(`users/${userId}/tasks`, {
+    data: {
+      experience: experience
+    }
+  });
+
+  thenableReference.catch(console.error);
+
+  history.push(`${match.url}/tasks/${thenableReference.key}`);
 };
+
+const Experiences = withRouter(({ experiences, match, history }) => {
+  return (
+    <div>
+      {experiences.map(experience =>
+        <Modal key={experience.name} trigger={getModalTrigger({ experience })}>
+          <ExperienceModal experience={experience} />
+          <button onClick={makeExperience(match, experience.name, history)}>
+            Start to build
+          </button>
+        </Modal>
+      )}
+    </div>
+  );
+});
 
 const Experience = ({ experiences, match }) => {
   return (
@@ -39,7 +59,7 @@ const Experience = ({ experiences, match }) => {
       <H2>Build your aspirations</H2>
       <p>How do you want to feel?</p>
       <CirclesWrapper>
-        {getExperiences({ experiences, match })}
+        <Experiences experiences={experiences} match={match} />
         <Button>Customize Your Own</Button>
       </CirclesWrapper>
     </Wrapper>

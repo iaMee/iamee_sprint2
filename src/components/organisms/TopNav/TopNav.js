@@ -10,6 +10,7 @@ import FaSearch from 'react-icons/lib/fa/search';
 import FaUsers from 'react-icons/lib/fa/user';
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
 import createBrowserHistory from 'history/createBrowserHistory';
+import { firebase } from 'data/firebase';
 
 const history = createBrowserHistory();
 
@@ -33,6 +34,11 @@ class TopNav extends Component {
 
   goBack = () => {
     history.goBack();
+  };
+
+  logout = () => {
+    firebase.auth().signOut();
+    // TODO: Catch errors and do something useful with them!
   };
 
   getFavicon = (iconImage, size) => {
@@ -83,7 +89,7 @@ class TopNav extends Component {
               this.state.size
             )}
             text={this.state.userIcon.text}
-            path={this.state.userIcon.path}
+            onClick={this.logout}
           />
         </div>
       </div>
