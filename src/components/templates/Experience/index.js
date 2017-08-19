@@ -10,10 +10,26 @@ import CirclesWrapper from './CirclesWrapper';
 import ModalContent from './ModalContent';
 import Wrapper from './Wrapper';
 import H2 from './H2';
+import { firebase, base } from 'data/firebase';
+import { withRouter } from 'react-router-dom';
 
 const circle = {
   height: '10rem',
   radius: '100%'
+};
+
+const makeExperience = ({ match, experience, history }) => () => {
+  console.log('MAKING EXPERIENCE');
+  const userId = firebase.auth().currentUser.uid;
+  const thenableReference = base.push(`users/${userId}/tasks`, {
+    data: {
+      experience: experience
+    }
+  });
+
+  thenableReference.catch(console.error);
+
+  history.push(`${match.url}/tasks/${thenableReference.key}`);
 };
 
 const getModalTrigger = ({ experience: { name }, setCurrentExperience }) => {
@@ -29,7 +45,8 @@ const getModalTrigger = ({ experience: { name }, setCurrentExperience }) => {
   );
 };
 
-const getModalContent = ({ experience: { name }, match }) => {
+const getModalContent = ({ experience, history, match }) => {
+  const { name } = experience;
   return (
     <ModalContent>
       <Circle capitalize height="16rem" backgroundThemeColor={name}>
@@ -37,9 +54,9 @@ const getModalContent = ({ experience: { name }, match }) => {
           {name}
         </h5>
       </Circle>
-      <LinkButton to={`${match.url}/${name}/createtask`}>
+      <Button onClick={makeExperience({ match, experience, history })}>
         Start to build
-      </LinkButton>
+      </Button>
     </ModalContent>
   );
 };
@@ -47,6 +64,7 @@ const getModalContent = ({ experience: { name }, match }) => {
 const getExperiences = ({
   currentExperience,
   experiences,
+  history,
   match,
   setCurrentExperience
 }) => {
@@ -60,7 +78,7 @@ const getExperiences = ({
           onRequestClose={() => setCurrentExperience('')}
           style={modal}
         >
-          {getModalContent({ experience, match })}
+          {getModalContent({ experience, history, match })}
         </Modal>
       }
     </div>
@@ -70,6 +88,7 @@ const getExperiences = ({
 const Experience = ({
   currentExperience,
   experiences,
+  history,
   match,
   setCurrentExperience
 }) => {
@@ -81,6 +100,7 @@ const Experience = ({
         {getExperiences({
           currentExperience,
           experiences,
+          history,
           match,
           setCurrentExperience
         })}

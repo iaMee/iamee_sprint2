@@ -9,6 +9,7 @@ const enhancer = compose(
 
 const ExperienceContainer = ({
   currentExperience,
+  history,
   match,
   setCurrentExperience
 }) => {
@@ -17,6 +18,7 @@ const ExperienceContainer = ({
     <Experience
       currentExperience={currentExperience}
       experiences={experiences}
+      history={history}
       match={match}
       setCurrentExperience={setCurrentExperience}
     />

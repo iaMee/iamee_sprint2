@@ -33,10 +33,7 @@ class ExperiencePage extends Component {
         <TopNav />
         <Switch>
           <Route exact path={`${match.url}`} render={Experiences} />
-          <Route
-            path={`${match.url}/:experience/createtask`}
-            render={CreateTasks}
-          />
+          <Route path={`${match.url}/tasks/:taskId`} render={CreateTasks} />
           <Route
             path={`${match.url}/:experience/show`}
             render={AspirationShows}
