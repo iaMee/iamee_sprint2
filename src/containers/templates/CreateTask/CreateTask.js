@@ -103,10 +103,10 @@ class CreateTask extends Component {
 
     return (
       <div>
-        <Banner
+        {/* <Banner
           id={this.state.task.experience}
           title={this.state.task.experience}
-        />
+        /> */}
 
         {/*<div>
             {experiences.tasks.map(task =>

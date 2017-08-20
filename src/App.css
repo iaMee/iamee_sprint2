@@ -4,7 +4,7 @@
   padding-top: 2.5em;
 }
 
-.spacer{
+.spacer {
   padding-bottom: 1.5em;
 }
 
@@ -17,16 +17,38 @@
   height: 2.5em;
   flex-wrap: nowrap;
   justify-content: inherit;
-  align-items: inherit
+  align-items: inherit;
 }
 
-
-.modal{
- background-color: rgba(255, 255, 255, 0.5)!important;
+.modal {
+  background-color: rgba(255, 255, 255, 0.5) !important;
   box-shadow: none;
   top: 20% !important;
 }
 
-.modal-footer{
+.modal-footer {
   display: none;
+}
+
+/* React modal */
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay,
+.ReactModalPortal .ReactModal__Overlay > div {
+  transition: opacity 300ms ease-in-out;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
 }
