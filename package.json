@@ -11,6 +11,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
+    "react-loadable": "^4.0.4",
     "react-materialize": "^1.0.1",
     "react-modal": "^2.2.4",
     "react-router-dom": "^4.1.1",
