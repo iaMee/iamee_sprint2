@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose, withProps } from 'recompose';
 import SignUp from 'components/templates/SignUp';
 import { firebase } from 'data/firebase';
 
 const provider = new firebase.auth.FacebookAuthProvider();
 provider.addScope('email');
 
-const signInWithFacebook = () => {
+const onClickFacebook = () => {
   firebase.auth().signInWithRedirect(provider);
 };
 // firebase
@@ -32,25 +33,10 @@ const signInWithFacebook = () => {
 // 		// ...
 // 	});
 
-const SignUpContainer = ({ history }) => {
-  return (
-    <SignUp
-      listeners={{
-        onClickFacebook: signInWithFacebook,
-        onSubmitSignUp: e => {
-          e.preventDefault();
-          console.log('signup click');
-          history.push('/experiences');
-        }
-      }}
-    />
-  );
-};
+const enhancer = compose(
+  withProps({
+    listeners: { onClickFacebook }
+  })
+);
 
-SignUpContainer.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func
-  }).isRequired
-};
-
-export default SignUpContainer;
+export default enhancer(SignUp);
