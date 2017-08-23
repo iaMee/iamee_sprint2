@@ -2,6 +2,7 @@ const colors = {
   main: '#00bc77',
   mid: '#999',
   active: '#c3ff00',
+  disabled: '#bbb',
 
   bold: 'linear-gradient(red, #F1808B)',
   relaxed: 'linear-gradient(#95D7F4, #31DDDC)',

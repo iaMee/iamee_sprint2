@@ -12,9 +12,13 @@ const circle = {
   radius: '100%'
 };
 
-const getModalTrigger = ({ experience: { name }, setCurrentExperience }) =>
+const getModalTrigger = ({
+  experience: { name, enabled },
+  setCurrentExperience
+}) =>
   <ButtonCircle
     capitalize
+    disabled={!enabled}
     height={circle.height}
     backgroundThemeColor={name}
     onClick={() => setCurrentExperience(name)}

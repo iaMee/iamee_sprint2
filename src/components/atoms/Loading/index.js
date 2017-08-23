@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props) => {
+export default props => {
   if (props.isLoading) {
     // While our other component is loading...
     if (props.timedOut) {
@@ -20,4 +20,4 @@ export default (props) => {
     // This case shouldn't happen... but we'll return null anyways.
     return null;
   }
-}
+};
