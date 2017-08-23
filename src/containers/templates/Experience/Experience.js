@@ -2,7 +2,6 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import { compose, withState, withProps } from 'recompose';
 import Loading from 'components/atoms/Loading';
-import experiences from './experiences.json';
 import { firebase, base } from 'data/firebase';
 
 const makeExperienceFactory = ({ history, match }) => ({
