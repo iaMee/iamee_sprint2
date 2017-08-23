@@ -35,8 +35,8 @@ const onClickFacebook = () => {
 
 const enhancer = compose(
   withProps({
-    listeners : { onClickFacebook },
-  }),
+    listeners: { onClickFacebook }
+  })
 );
 
 export default enhancer(SignUp);

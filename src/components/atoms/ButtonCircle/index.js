@@ -34,8 +34,8 @@ const ButtonCircle = styled.button`
   color: ${props => (props.disabled ? '#eee' : props.color)};
   border-radius: 50%;
   border: 0;
-  ${getBackground} ${props =>
-      props.capitalize && 'text-transform: capitalize;'};
+  ${getBackground};
+  ${props => props.capitalize && 'text-transform: capitalize;'};
 `;
 
 ButtonCircle.propTypes = {
