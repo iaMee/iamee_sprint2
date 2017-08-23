@@ -1,7 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 import { compose, withState, withProps } from 'recompose';
-import Experience from 'components/templates/Experience';
 import Loading from 'components/atoms/Loading';
 import experiences from './experiences.json';
 import { firebase, base } from 'data/firebase';
@@ -9,7 +8,6 @@ import { firebase, base } from 'data/firebase';
 const makeExperienceFactory = ({ history, match }) => ({
   experience
 }) => () => {
-  console.log('MAKING EXPERIENCE');
   const userId = firebase.auth().currentUser.uid;
   const thenableReference = base.push(`users/${userId}/tasks`, {
     data: {
@@ -21,16 +19,9 @@ const makeExperienceFactory = ({ history, match }) => ({
   history.push(`${match.url}/tasks/${thenableReference.key}`);
 };
 
-// const enhancer = compose(
-//   withProps(({ history, match }) => ({
-//     experiences,
-//     makeExperience: makeExperienceFactory({ history, match })
-//   })),
-//   withState('currentExperience', 'setCurrentExperience', '')
-// );
-
 const experienceLoader = async () => {
   const aspirations = await base.fetch('aspirations', { asArray: true });
+  const Experience = await import(/* webpackChunkName: "Experience" */ 'components/templates/Experience');
   const sortedMappedAspirations = aspirations
     .map(asp => {
       // renaming key to name
@@ -48,12 +39,13 @@ const experienceLoader = async () => {
     withState('currentExperience', 'setCurrentExperience', '')
   );
 
-  return enhancer(Experience);
+  return enhancer(Experience.default);
 };
 
+// not sure if i'm using Loadable correctly here,
+// since this is a main component, not sure if I should split the chunk by using dynamic import
+// but the main reason i'm using `Loadable` for the ease of use to make loading state for component
 export default Loadable({
   loader: experienceLoader,
   loading: Loading
 });
-
-// export default enhancer(Experience);
