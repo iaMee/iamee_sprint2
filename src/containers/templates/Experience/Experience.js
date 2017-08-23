@@ -19,8 +19,13 @@ const makeExperienceFactory = ({ history, match }) => ({
 };
 
 const experienceLoader = async () => {
-  const aspirations = await base.fetch('aspirations', { asArray: true });
-  const Experience = await import(/* webpackChunkName: "Experience" */ 'components/templates/Experience');
+  const [aspirations, Experience] = await Promise.all([
+    // get list of aspirations from firebase
+    base.fetch('aspirations', { asArray: true }),
+    // import Experience container
+    import(/* webpackChunkName: "Experience" */ 'components/templates/Experience')
+  ]);
+
   const sortedMappedAspirations = aspirations
     .map(asp => {
       // renaming key to name
