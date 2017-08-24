@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './TopNav.css';
 import NavIcon from 'components/atoms/NavIcons/NavIcon';
-import LogoPic from 'assets/Images/navLogo.png';
+import Logo from 'assets/Images/navLogo.png';
 import FaHome from 'react-icons/lib/fa/home';
 import FaBell from 'react-icons/lib/fa/bell';
 import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
@@ -11,14 +11,43 @@ import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { firebase } from 'data/firebase';
 
+import NavWrapper from './NavWrapper';
+import NavOffset from './NavOffset';
+import ButtonPlain from 'components/atoms/ButtonPlain';
+import { Link } from 'react-router-dom';
+import HiddenH1 from './HiddenH1';
+import LogoWrapper from './LogoWrapper';
+
 const history = createBrowserHistory();
+
+const TopNav2 = ({ history }) => {
+  return (
+    <div>
+      <NavWrapper>
+        <ButtonPlain>
+          <FaArrowLeft color="#fff" size="1.5rem" />
+        </ButtonPlain>
+        <Link to="/">
+          <LogoWrapper src={Logo} alt="iaMee logo" />
+          <HiddenH1>
+            iaMee
+          </HiddenH1>
+        </Link>
+        <ButtonPlain>
+          <FaUsers color="#fff" size="1.5rem" />;
+        </ButtonPlain>
+      </NavWrapper>
+      <NavOffset />
+    </div>
+  );
+};
 
 class TopNav extends Component {
   constructor() {
     super();
     this.state = {
       //this is the main difference from the bottom nav
-      logoPic: LogoPic,
+      logoPic: Logo,
       //this is the main difference from the bottom nav
       userIcon: {
         text: '',
@@ -91,4 +120,4 @@ class TopNav extends Component {
   }
 }
 
-export default TopNav;
+export default TopNav2;
