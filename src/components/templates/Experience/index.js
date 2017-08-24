@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'components/atoms/Button';
 import ButtonCircle from 'components/atoms/ButtonCircle';
 import CirclesWrapper from './CirclesWrapper';
 import Wrapper from './Wrapper';
@@ -52,7 +51,6 @@ const Experience = props => {
       <p>How do you want to feel?</p>
       <CirclesWrapper>
         {getExperiences(props)}
-        <Button>Customize Your Own</Button>
       </CirclesWrapper>
     </Wrapper>
   );

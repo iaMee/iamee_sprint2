@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import style from './TopNav.css';
-import PropTypes from 'prop-types';
 import NavIcon from 'components/atoms/NavIcons/NavIcon';
 import LogoPic from 'assets/Images/navLogo.png';
 import FaHome from 'react-icons/lib/fa/home';
@@ -45,25 +44,20 @@ class TopNav extends Component {
     switch (iconImage) {
       case 'home':
         return <FaHome color="white" size={size} />;
-        break;
       case 'notifications':
         return <FaBell color="white" size={size} />;
-        break;
       case 'create':
         return <FaPlusCircle color="white" size={size} />;
-        break;
       case 'find':
         return <FaSearch color="white" size={size} />;
-        break;
       case 'buddies':
         return <FaUsers color="white" size={size} />;
-        break;
       case 'back':
         return <FaArrowLeft color="white" size={size} />;
-        break;
       case 'user':
         return <FaUsers color="white" size={size} />;
-        break;
+      default:
+        return;
     }
   };
 
