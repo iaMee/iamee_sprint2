@@ -1,4 +1,3 @@
-import React from 'react';
 import Loadable from 'react-loadable';
 import { compose, withState, withProps } from 'recompose';
 import Loading from 'components/atoms/Loading';

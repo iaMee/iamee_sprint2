@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavIcon from 'components/atoms/NavIcons/NavIcon';
 import style from './BottomNav.css';
-import PropTypes from 'prop-types';
 import FaHome from 'react-icons/lib/fa/home';
 import FaChart from 'react-icons/lib/fa/line-chart';
 import FaMapMarker from 'react-icons/lib/fa/map-marker';
@@ -53,25 +52,20 @@ class BottomNav extends Component {
     switch (iconImage) {
       case 'home':
         return <FaHome color="white" size={size} />;
-        break;
       case 'notifications':
         return <FaChart color="white" size={size} />;
-        break;
       case 'create':
         return <FaMapMarker color="white" size={size} />;
-        break;
       case 'find':
         return <FaSearch color="white" size={size} />;
-        break;
       case 'buddies':
         return <FaUsers color="white" size={size} />;
-        break;
       case 'back':
         return <FaArrowLeft color="white" size={size} />;
-        break;
       case 'user':
         return <FaUsers color="white" size={size} />;
-        break;
+      default:
+        return;
     }
   };
 
@@ -83,6 +77,7 @@ class BottomNav extends Component {
             <NavIcon
               id={icon.id}
               iconImage={this.getFavicon(icon.iconImage, this.state.size)}
+              key={icon.id}
               text={icon.text}
               path={icon.path}
             />

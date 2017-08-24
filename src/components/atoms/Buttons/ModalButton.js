@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import style from './BaseButton.css';
-import style2 from './ModalButton.css';
+import React from 'react';
 import { Button } from 'react-materialize';
 
 const ModalButton = ({ points, img, className, onClick, title, subtext }) =>
