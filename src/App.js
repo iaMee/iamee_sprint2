@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import SignUp from 'containers/templates/SignUp/SignUp';
-import ExperiencePage from 'containers/pages/ExperiencePage';
+import BasePage from 'containers/pages/BasePage';
 import Test from 'containers/templates/Test/Test';
 import { firebase } from 'data/firebase';
 
@@ -52,7 +52,7 @@ class App extends React.PureComponent {
         <Router history={history}>
           <Switch>
             <Redirect exact path="/" to="/experiences" />
-            <Route path="/experiences" component={ExperiencePage} />
+            <Route path="/experiences" component={BasePage} />
             <Route path="/test" component={Test} />
           </Switch>
         </Router>
