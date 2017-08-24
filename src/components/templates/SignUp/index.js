@@ -1,9 +1,6 @@
 import React from 'react';
 import Button from 'components/atoms/Button';
-import InputSubmit from 'components/atoms/InputSubmit';
-import LabelBlock from 'components/molecules/LabelBlock';
 import Logo from 'components/atoms/Logo';
-import Divider from './Divider';
 import Wrapper from './Wrapper';
 
 const SignUp = ({ listeners: { onClickFacebook } }) => {

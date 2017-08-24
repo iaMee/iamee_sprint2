@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { compose, withProps } from 'recompose';
 import SignUp from 'components/templates/SignUp';
 import { firebase } from 'data/firebase';
