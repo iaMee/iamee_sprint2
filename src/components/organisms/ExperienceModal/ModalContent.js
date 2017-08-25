@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Circle from 'components/atoms/Circle';
 import Button from 'components/atoms/Button';
 
 const ModalContentWrapper = styled.div`

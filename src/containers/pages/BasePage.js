@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CreateTask from 'containers/templates/CreateTask/CreateTask';
 import Experience from 'containers/templates/Experience/Experience';
-import TopNav from 'components/organisms/TopNav/TopNav';
+import TopNav from 'containers/organisms/TopNav';
 import BottomNav from 'components/organisms/BottomNav/BottomNav';
 import AspirationShow from 'containers/templates/AspirationShow/AspirationShow';
 

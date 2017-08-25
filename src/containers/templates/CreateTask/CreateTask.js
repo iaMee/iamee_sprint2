@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import style from './CreateTask.css';
-import TopNav from 'components/organisms/TopNav/TopNav';
 import BottomNav from 'components/organisms/BottomNav/BottomNav';
 import Circle from 'components/atoms/Circles/Circle';
 import BaseButton from 'components/atoms/Buttons/BaseButton';

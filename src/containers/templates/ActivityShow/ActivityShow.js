@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TopNav from 'components/organisms/TopNav/TopNav';
 import ModalButton from 'components/atoms/Buttons/ModalButton';
 import Circle from 'components/atoms/Circles/Circle';
 import _ from 'lodash';
