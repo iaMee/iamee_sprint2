@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import { compose, withState, withProps } from 'recompose';
+import { compose, withHandlers, withState, withProps } from 'recompose';
 import Loading from 'components/atoms/Loading';
 import { firebase, base } from 'data/firebase';
 
@@ -35,10 +35,12 @@ const experienceLoader = async () => {
     .sort((a, b) => a.index - b.index);
 
   const enhancer = compose(
-    withProps(({ history, match }) => ({
-      experiences: sortedMappedAspirations,
-      makeExperience: makeExperienceFactory({ history, match })
-    })),
+    withHandlers({
+      makeExperience: props => makeExperienceFactory(props)
+    }),
+    withProps({
+      experiences: sortedMappedAspirations
+    }),
     withState('currentExperience', 'setCurrentExperience', '')
   );
 
