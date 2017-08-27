@@ -199,6 +199,7 @@ class CreateTask extends Component {
         </div>
         <div className="spacer" />
         <div className="spacer" />
+        <Link to={`${match.url}/completion`}>COMPLETE</Link>
       </div>
     );
   }

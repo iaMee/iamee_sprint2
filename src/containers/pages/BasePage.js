@@ -5,6 +5,7 @@ import Experience from 'containers/templates/Experience/Experience';
 import TopNav from 'containers/organisms/TopNav';
 import BottomNav from 'components/organisms/BottomNav/BottomNav';
 import AspirationShow from 'containers/templates/AspirationShow/AspirationShow';
+import Completion from 'containers/templates/Completion';
 
 const BasePage = ({ match }) => {
   return (
@@ -12,7 +13,8 @@ const BasePage = ({ match }) => {
       <TopNav />
       <Switch>
         <Route exact path={`${match.url}`} component={Experience} />
-        <Route path={`${match.url}/tasks/:taskId`} component={CreateTask} />
+        <Route exact path={`${match.url}/tasks/:taskId`} component={CreateTask} />
+        <Route exact path={`${match.url}/tasks/:taskId/completion`} component={Completion} />
         <Route
           path={`${match.url}/:experience/show`}
           component={AspirationShow}

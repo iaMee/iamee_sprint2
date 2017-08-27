@@ -1,30 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HiddenSpan from 'components/atoms/HiddenSpan';
-import InputText from 'components/atoms/InputText';
 import { pure } from 'recompose';
 import Label from './Label';
 
+const getText = ({ hideText, text }) => {
+  if (!text) {
+    return;
+  }
+
+  return hideText
+    ? <HiddenSpan>
+        {text}
+      </HiddenSpan>
+    : text;
+};
+
 const LabelBlock = ({
+  children,
   fullWidth,
-  hiddenText,
+  hideText,
   inputType,
   placeholder,
   text,
   verticalMargin
 }) =>
   <Label verticalMargin={verticalMargin}>
-    {hiddenText
-      ? <HiddenSpan>
-          {text}
-        </HiddenSpan>
-      : { text }}
-    <InputText fullWidth placeholder={placeholder} />
+    {getText({ hideText, text })}
+    {children}
   </Label>;
 
 LabelBlock.propTypes = {
   fullWidth: PropTypes.bool,
-  hiddenText: PropTypes.bool,
+  hideText: PropTypes.bool,
   inputType: PropTypes.string,
   placeholder: PropTypes.string,
   text: PropTypes.string,
@@ -33,7 +41,7 @@ LabelBlock.propTypes = {
 
 LabelBlock.defaultProps = {
   fullWidth: true,
-  hiddenText: true,
+  hideText: false,
   inputType: 'text',
   placeholder: '',
   text: '',
