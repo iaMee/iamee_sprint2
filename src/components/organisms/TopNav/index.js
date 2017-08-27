@@ -23,7 +23,7 @@ const TopNav = ({ onBackButtonClick, onLogoutButtonClick }) => {
           </HiddenH1>
         </Link>
         <ButtonPlain onClick={onLogoutButtonClick}>
-          <FaUsers color="#fff" size="1.5rem" />;
+          <FaUsers color="#fff" size="1.5rem" />
         </ButtonPlain>
       </NavWrapper>
       <NavOffset />
