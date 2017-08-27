@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Circle from 'components/atoms/Circle';
 import Button from 'components/atoms/Button';
 
 const ModalContentWrapper = styled.div`
@@ -8,8 +7,9 @@ const ModalContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  > * + * {
-    margin-top: 1rem;
+  > h3 {
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 `;
 
@@ -17,17 +17,13 @@ const ModalContent = ({ experience, makeExperience }) => {
   const { name, description } = experience;
   return (
     <ModalContentWrapper>
-      <Circle capitalize height="16rem" backgroundThemeColor={name}>
-        <div>
-          <h5>
-            {name}
-          </h5>
-          <p>
-            {description}
-          </p>
-        </div>
-      </Circle>
-      <Button onClick={makeExperience({ experience })}>Start to build</Button>
+      <h3>
+        {name.toUpperCase()}
+      </h3>
+      <p>
+        {description}
+      </p>
+      <Button onClick={makeExperience({ experience })}>Get Started</Button>
     </ModalContentWrapper>
   );
 };

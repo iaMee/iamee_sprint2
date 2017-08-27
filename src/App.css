@@ -21,7 +21,6 @@
 }
 
 .modal {
-  background-color: rgba(255, 255, 255, 0.5) !important;
   box-shadow: none;
   top: 20% !important;
 }
@@ -31,24 +30,46 @@
 }
 
 /* React modal */
-.ReactModal__Body--open {
-  overflow: hidden;
-}
-
-.ReactModalPortal > div {
-  opacity: 0;
-}
-
-.ReactModalPortal .ReactModal__Overlay,
-.ReactModalPortal .ReactModal__Overlay > div {
-  transition: opacity 300ms ease-in-out;
-  background: rgba(0, 0, 0, 0.15);
-}
-
 .ReactModalPortal .ReactModal__Overlay--before-close {
   opacity: 0;
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
   opacity: 1;
+}
+
+.modalContent {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+  position: absolute;
+  background: #fff;
+  padding: 1rem;
+}
+
+.modalOverlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  opacity: 0;
+}
+
+.modalOverlay,
+.modalOverlay > div {
+  transition: opacity 300ms ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .modalContent {
+    max-width: 768px;
+  }
 }

@@ -9,19 +9,16 @@ import FaPlusCircle from 'react-icons/lib/fa/plus-circle';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaUsers from 'react-icons/lib/fa/user';
 
-const PlainButton = styled.button`
-  background: none;
-  border: none;
-`;
+import ButtonPlain from 'components/atoms/ButtonPlain';
 
 const linkWrapper = path => props =>
   <Link to={path}>
     {props.children}
   </Link>;
 const buttonWrapper = onClick => props =>
-  <PlainButton onClick={onClick}>
+  <ButtonPlain onClick={onClick}>
     {props.children}
-  </PlainButton>;
+  </ButtonPlain>;
 
 class NavIcon extends Component {
   render() {
