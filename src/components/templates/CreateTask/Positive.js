@@ -31,18 +31,26 @@ export default class extends React.Component {
 			console.error(error);
 		})
 
+		const firebasePath = `/users/${userId}/tasks/${this.props.taskId}/diaryEntry`;
+		base.syncState(firebasePath, {
+			context: this,
+			state: 'diaryEntry',
+			defaultValue: '',
+		});
+	}
 
-		// const firebasePath = `users/${userId}/tasks/${this.props.match.params.taskId}/experience`;
-
+	updateEntry = event => {
+		this.setState({
+			diaryEntry: event.target.value
+		})
 	}
 
 	render() {
 		return (
 			<div>
 				<img src={turtle} />
-				Positive
 				<div>{this.state.question}</div>
-				<textarea />
+				<textarea value={this.state.diaryEntry} onChange={this.updateEntry} />
 			</div>
 		)
 	}
