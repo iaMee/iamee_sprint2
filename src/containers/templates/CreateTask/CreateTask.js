@@ -10,11 +10,16 @@ import AddForm from 'components/molecules/InputForms/AddForm';
 import { firebase, base } from 'data/firebase';
 import Relaxed from 'components/templates/CreateTask/Relaxed';
 import Positive from 'components/templates/CreateTask/Positive';
+import styled from 'styled-components';
 
 const components = {
 	relaxed: Relaxed,
 	positive: Positive
 };
+
+const Wrapper = styled.div`
+	padding: 1em;
+`;
 
 class CreateTask extends Component {
 	constructor(props) {
@@ -56,12 +61,12 @@ class CreateTask extends Component {
 		const Component = components[this.state.experience]
 
 		return (
-			<div>
+			<Wrapper>
 				<Component taskId={match.params.taskId} />
 				<div className="spacer" />
 				<div className="spacer" />
 				<Link to={`${match.url}/completion`}>COMPLETE</Link>
-			</div>
+			</Wrapper>
 		);
 	}
 }
