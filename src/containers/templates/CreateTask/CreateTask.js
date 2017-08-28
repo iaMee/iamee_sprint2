@@ -8,201 +8,62 @@ import { Link } from 'react-router-dom';
 import { Row, Input, Button } from 'react-materialize';
 import AddForm from 'components/molecules/InputForms/AddForm';
 import { firebase, base } from 'data/firebase';
+import Relaxed from 'components/templates/CreateTask/Relaxed';
+import Positive from 'components/templates/CreateTask/Positive';
+
+const components = {
+	relaxed: Relaxed,
+	positive: Positive
+};
 
 class CreateTask extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      emailFormholder: 'Invite a friend to be positive with you!'
-    };
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
 
-    const userId = firebase.auth().currentUser.uid;
-    this.firebasePath = `users/${userId}/tasks/${props.match.params.taskId}`;
-  }
+	}
 
-  componentDidMount() {
-    this.forceUpdate();
-    !document.getElementById('materialize-modal-overlay-1')
-      ? null
-      : (document.getElementById('materialize-modal-overlay-1').style.display =
-          'none'); //remove modal overlay from previous
+	componentDidMount() {
+		this.forceUpdate();
+		!document.getElementById('materialize-modal-overlay-1')
+			? null
+			: (document.getElementById('materialize-modal-overlay-1').style.display =
+				'none'); //remove modal overlay from previous
 
-    this.binding = base.syncState(this.firebasePath, {
-      context: this,
-      state: 'task',
-      then: () => {
-        this.setState(state => {
-          return {
-            loading: false,
-            stagedFrequency: state.task.reminderFrequency || 'none'
-          };
-        });
-      }
-    });
-  }
 
-  componentWillUnmount() {
-    base.removeBinding(this.binding);
-  }
+		const userId = firebase.auth().currentUser.uid;
+		const firebasePath = `users/${userId}/tasks/${this.props.match.params.taskId}/experience`;
+		this.binding = base.bindToState(firebasePath, {
+			context: this,
+			state: 'experience'
+		});
+	}
 
-  onFrequencyChange = event => {
-    this.setState({
-      stagedFrequency: event.target.value
-    });
-  };
+	componentWillUnmount() {
+		base.removeBinding(this.binding);
+	}
 
-  setReminder = () => {
-    this.setState(state => ({
-      task: {
-        ...state.task,
-        reminderFrequency: this.state.stagedFrequency
-      }
-    }));
+	render() {
+		// var experiences = this.state.experiences;
+		var match = this.props.match;
 
-    this.showMessage('Reminder set!');
-  };
+		if (!this.state.experience) {
+			return <div>Loading...</div>;
+		}
 
-  showMessage(message) {
-    this.setState({
-      message
-    });
+		console.log(this.state.experience);
+		const Component = components[this.state.experience]
 
-    setTimeout(
-      () =>
-        this.setState({
-          message: undefined
-        }),
-      2000
-    );
-  }
-
-  sendInvite = () => {
-    if (this.state.email.length === 0) {
-      return;
-    }
-
-    base
-      .push(`${this.firebasePath}/invites`, {
-        data: this.state.email
-      })
-      .then(() => {
-        this.showMessage('Invite sent!');
-      })
-      .catch(console.error);
-  };
-
-  render() {
-    // var experiences = this.state.experiences;
-    var match = this.props.match;
-
-    if (this.state.loading) {
-      return <div>Loading...</div>;
-    }
-
-    return (
-      <div>
-        {/* <Banner
-          id={this.state.task.experience}
-          title={this.state.task.experience}
-        /> */}
-
-        {/*<div>
-            {experiences.tasks.map(task =>
-              <Pill
-                tasks = {task}
-              />
-            )}
-          </div>*/}
-
-        {this.state.message &&
-          <div>
-            {this.state.message}
-          </div>}
-
-        <div className="text-center margin-top">Set Reminder Frequency</div>
-
-        <div className="dropDown margin-top">
-          <Input
-            className="margin"
-            type="select"
-            value={this.state.stagedFrequency}
-            onChange={this.onFrequencyChange}
-          >
-            <option className="text-center" value="none">
-              None
-            </option>
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-          </Input>
-        </div>
-
-        <div className="exp-button width-80 btn-blue">
-          <BaseButton title={'SET REMINDER'} onClick={this.setReminder} />
-        </div>
-
-        <br />
-        <br />
-
-        <div className="text-center">
-          {this.state.emailFormholder}
-        </div>
-
-        {/*<div className="margin-top">
-              <Input
-                  type="email"
-                  label="Email"
-              />
-               <Button
-                  floating
-                  large
-                  className="inputEmail blue"
-                  waves='light'
-                  icon='add'
-                  onClick={this.addNewEmail}
-              />*/}
-        {/*
-              <FormGroup className="no-wrap">
-                <Input className="activity-input" onChange={(e)=>this.changeEmail(e)} value={this.state.newEmail} type="activity" name="activity" id="activity" placeholder="Enter your friend's email address" />
-                <Button
-                  onClick={this.addNewEmail}
-                  color="primary"
-                  className="circle-button"
-                  >
-                    <FaPlus />
-                  </Button>
-              </FormGroup>*/}
-        {/*</div>*/}
-
-        <div className="createTaskInput">
-          <div className="addInput">
-            <Input
-              type={'email'}
-              label={"Enter your friend's email"}
-              value={this.state.email}
-              onChange={event => this.setState({ email: event.target.value })}
-            />
-          </div>
-        </div>
-
-        <br />
-
-        <div className="exp-button width-80 btn-blue">
-          <BaseButton onClick={this.sendInvite} title={'INVITE MY FRIEND!'} />
-        </div>
-
-        <div className="big-margin-top width-80 btn-blue">
-          <Link to={`/experiences/${match.params.experience}/show`}>
-            <BaseButton title={'NEXT'} />
-          </Link>
-        </div>
-        <div className="spacer" />
-        <div className="spacer" />
-        <Link to={`${match.url}/completion`}>COMPLETE</Link>
-      </div>
-    );
-  }
+		return (
+			<div>
+				<Component taskId={match.params.taskId} />
+				<div className="spacer" />
+				<div className="spacer" />
+				<Link to={`${match.url}/completion`}>COMPLETE</Link>
+			</div>
+		);
+	}
 }
 
 export default CreateTask;
