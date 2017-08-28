@@ -12,6 +12,6 @@ export default styled.nav`
   background-size: 100%;
   height: 4rem;
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
   padding: 0 ${spacing.pageGutter};
 `;
