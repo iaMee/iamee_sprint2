@@ -18,9 +18,7 @@ const TopNav = ({ onBackButtonClick, onLogoutButtonClick }) => {
         </ButtonPlain>
         <Link to="/">
           <LogoWrapper src={Logo} alt="iaMee logo" />
-          <HiddenH1>
-            iaMee
-          </HiddenH1>
+          <HiddenH1>iaMee</HiddenH1>
         </Link>
         <ButtonPlain onClick={onLogoutButtonClick}>
           <FaUsers color="#fff" size="1.5rem" />

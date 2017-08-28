@@ -38,7 +38,7 @@ Completion.defaultProps = {
   sliderValues: {
     min: 1,
     max: 10,
-    step: 1,
+    step: 1
   }
 };
 
