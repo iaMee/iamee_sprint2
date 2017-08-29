@@ -11,13 +11,14 @@ import { firebase, base } from 'data/firebase';
 import Relaxed from 'components/templates/CreateTask/Relaxed';
 import Positive from 'components/templates/CreateTask/Positive';
 import styled from 'styled-components';
+import { templateWrapper } from 'styles/layout';
 
 const components = {
   relaxed: Relaxed,
   positive: Positive
 };
 
-const Wrapper = styled.div`padding: 1em;`;
+const Wrapper = styled.main`${templateWrapper}`;
 
 class CreateTask extends Component {
   constructor(props) {
@@ -26,12 +27,6 @@ class CreateTask extends Component {
   }
 
   componentDidMount() {
-    this.forceUpdate();
-    !document.getElementById('materialize-modal-overlay-1')
-      ? null
-      : (document.getElementById('materialize-modal-overlay-1').style.display =
-          'none'); //remove modal overlay from previous
-
     const userId = firebase.auth().currentUser.uid;
     const firebasePath = `users/${userId}/tasks/${this.props.match.params
       .taskId}/experience`;
