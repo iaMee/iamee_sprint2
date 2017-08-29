@@ -50,11 +50,7 @@ class App extends React.PureComponent {
     } else {
       return (
         <Router history={history}>
-          <Switch>
-            <Redirect exact path="/" to="/experiences" />
-            <Route path="/experiences" component={BasePage} />
-            <Route path="/test" component={Test} />
-          </Switch>
+          <Route path="/" component={BasePage} />
         </Router>
       );
     }

@@ -6,12 +6,14 @@ import TopNav from 'containers/organisms/TopNav';
 import BottomNav from 'components/organisms/BottomNav/BottomNav';
 import AspirationShow from 'containers/templates/AspirationShow/AspirationShow';
 import Completion from 'containers/templates/Completion';
+import Home from 'containers/templates/Home';
 
 const BasePage = ({ match }) => {
   return (
     <div>
       <TopNav />
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path={`${match.url}`} component={Experience} />
         <Route
           exact
