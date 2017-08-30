@@ -14,19 +14,19 @@ const BasePage = ({ match }) => {
       <TopNav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path={`${match.url}`} component={Experience} />
+        <Route exact path="/experiences" component={Experience} />
         <Route
           exact
-          path={`${match.url}/tasks/:taskId`}
+          path="/experiences/tasks/:taskId"
           component={CreateTask}
         />
         <Route
           exact
-          path={`${match.url}/tasks/:taskId/completion`}
+          path="/experiences/tasks/:taskId/completion"
           component={Completion}
         />
         <Route
-          path={`${match.url}/:experience/show`}
+          path="/experiences/:experience/show"
           component={AspirationShow}
         />
       </Switch>
