@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LinkCircle from 'components/atoms/LinkCircle';
 import LinkButton from 'components/atoms/LinkButton';
+import ActivityEntry from './ActivityEntry';
 import Wrapper from './Wrapper';
 import PetWrapper from './PetWrapper';
 import HiddenH2 from './HiddenH2';
@@ -9,15 +11,17 @@ import turtle from 'assets/Images/turtle.png';
 
 const getActivities = ({ activities }) => {
   if (!activities) {
-    return null;
+    return <div>No activity</div>;
   }
 
   return (
     <ul>
       {activities.map(activity =>
-        <li key={activity}>
-          {activity}
-        </li>
+        <ActivityEntry key={activity.key}>
+          <Link to={activity.link}>
+            {activity.name}
+          </Link>
+        </ActivityEntry>
       )}
     </ul>
   );

@@ -15,11 +15,7 @@ const BasePage = ({ match }) => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/experiences" component={Experience} />
-        <Route
-          exact
-          path="/experiences/tasks/:taskId"
-          component={CreateTask}
-        />
+        <Route exact path="/experiences/tasks/:taskId" component={CreateTask} />
         <Route
           exact
           path="/experiences/tasks/:taskId/completion"

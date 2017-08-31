@@ -5,4 +5,4 @@ export default styled.h3`
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-`
+`;

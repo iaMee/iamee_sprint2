@@ -13,6 +13,7 @@ const enhancer = compose(
   withHandlers({
     onFormSubmit: props => e => {
       e.preventDefault();
+      props.history.push('/');
       console.log(props.ratingValue);
     }
   }),
