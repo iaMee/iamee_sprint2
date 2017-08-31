@@ -83,6 +83,7 @@ class BottomNav extends Component {
             />
           )}
         </div>
+        <div className="bottom-nav-placeholder" />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { spacing } from 'styles/variables';
+import { spacing, zIndexes } from 'styles/variables';
 import navBackground from 'assets/Images/topNavBg.jpg';
 
 export default styled.nav`
@@ -14,4 +14,5 @@ export default styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 0 ${spacing.pageGutter};
+  z-index: ${zIndexes.navigation};
 `;

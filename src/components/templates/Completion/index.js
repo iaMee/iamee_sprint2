@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import StreakWrapper from './StreakWrapper';
 import H2 from './H2';

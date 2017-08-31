@@ -3,7 +3,7 @@ import { firebase, base } from 'data/firebase';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-import turtle from './turtle.png';
+import turtle from 'assets/Images/turtle.png';
 
 const TurtleWrapper = styled.div`
   margin: 1em 0;

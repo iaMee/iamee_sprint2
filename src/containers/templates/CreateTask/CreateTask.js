@@ -18,7 +18,7 @@ const components = {
   positive: Positive
 };
 
-const Wrapper = styled.main`${templateWrapper}`;
+const Wrapper = styled.main`${templateWrapper};`;
 
 class CreateTask extends Component {
   constructor(props) {

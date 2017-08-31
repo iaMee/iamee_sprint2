@@ -1,10 +1,11 @@
-.bottom-nav{
+.nav-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
   justify-content: space-around;
+  background-color: #84D1F7;
 }
 
-.bottom-nav{
-  background-color: #84D1F7;
+.bottom-nav-placeholder {
+  height: 35px;
 }
