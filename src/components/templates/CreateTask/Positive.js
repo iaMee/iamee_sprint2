@@ -1,10 +1,10 @@
-import React from "react";
-import { firebase, base } from "data/firebase";
-import Modal from "react-modal";
-import styled from "styled-components";
-import moment from "moment";
+import React from 'react';
+import { firebase, base } from 'data/firebase';
+import Modal from 'react-modal';
+import styled from 'styled-components';
+import moment from 'moment';
 
-import turtle from "assets/Images/turtle.png";
+import turtle from 'assets/Images/turtle.png';
 
 const TurtleWrapper = styled.div`
   margin: 1em 0;
@@ -47,7 +47,7 @@ export default class extends React.Component {
 
     const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
 
-    const questionsPath = "aspirations/positive/turtle-questions";
+    const questionsPath = 'aspirations/positive/turtle-questions';
 
     this.getOrCreateLatestEntry().then(latestEntryId => {
       const firebasePath = `/users/${this
@@ -55,17 +55,17 @@ export default class extends React.Component {
 
       this.binding = base.syncState(firebasePath, {
         context: this,
-        state: "task",
+        state: 'task',
         then: () => {
           if (!this.state.task.question) {
             base
-              .fetch(questionsPath + "/count", {
+              .fetch(questionsPath + '/count', {
                 context: this
               })
               .then(count => {
                 this.questionNumber = random(0, count);
 
-                return base.fetch(questionsPath + "/" + this.questionNumber, {
+                return base.fetch(questionsPath + '/' + this.questionNumber, {
                   context: this
                 });
               })
@@ -84,7 +84,7 @@ export default class extends React.Component {
       `/users/${this.userId}/tutorial/showExplanation/positive`,
       {
         context: this,
-        state: "showExplanation",
+        state: 'showExplanation',
         defaultValue: true
       }
     );
@@ -95,7 +95,7 @@ export default class extends React.Component {
       .fetch(`/users/${this.userId}/tasks/positive/entries`, {
         asArray: true,
         queries: {
-          orderByChild: "dateTimeCreated",
+          orderByChild: 'dateTimeCreated',
           limitToLast: 1
         }
       })
@@ -104,7 +104,7 @@ export default class extends React.Component {
           const lastEntry = lastEntries[0];
 
           const lastEntryCreatedMoment = moment(lastEntry.dateTimeCreated);
-          const isToday = moment().diff(lastEntryCreatedMoment, "days") === 0;
+          const isToday = moment().diff(lastEntryCreatedMoment, 'days') === 0;
 
           if (isToday) {
             return lastEntries[0].key;
@@ -121,7 +121,7 @@ export default class extends React.Component {
     return base
       .push(`/users/${this.userId}/tasks/positive/entries`, {
         data: {
-          diaryEntry: "",
+          diaryEntry: '',
           dateTimeCreated: currentEpoch
         }
       })
@@ -165,14 +165,14 @@ export default class extends React.Component {
           contentLabel={`Blah`}
           onRequestClose={this.rememberExplained}
           className={{
-            base: "modalContent",
-            afterOpen: "ReactModal__Content--after-open",
-            beforeClose: "ReactModal__Content--before-close"
+            base: 'modalContent',
+            afterOpen: 'ReactModal__Content--after-open',
+            beforeClose: 'ReactModal__Content--before-close'
           }}
           overlayClassName={{
-            base: "modalOverlay",
-            afterOpen: "ReactModal__Overlay--after-open",
-            beforeClose: "ReactModal__Overlay--before-close"
+            base: 'modalOverlay',
+            afterOpen: 'ReactModal__Overlay--after-open',
+            beforeClose: 'ReactModal__Overlay--before-close'
           }}
         >
           Sam is here to guide your thoughts toward feeling more positive

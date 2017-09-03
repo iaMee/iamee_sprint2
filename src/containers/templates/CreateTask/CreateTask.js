@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import style from "./CreateTask.css";
-import BottomNav from "components/organisms/BottomNav/BottomNav";
-import Circle from "components/atoms/Circles/Circle";
-import BaseButton from "components/atoms/Buttons/BaseButton";
-import Banner from "components/atoms/Banners/Banner";
-import { Link } from "react-router-dom";
-import { Row, Input, Button } from "react-materialize";
-import AddForm from "components/molecules/InputForms/AddForm";
-import { firebase, base } from "data/firebase";
-import Relaxed from "components/templates/CreateTask/Relaxed";
-import Positive from "components/templates/CreateTask/Positive";
-import styled from "styled-components";
-import { templateWrapper } from "styles/layout";
+import React, { Component } from 'react';
+import style from './CreateTask.css';
+import BottomNav from 'components/organisms/BottomNav/BottomNav';
+import Circle from 'components/atoms/Circles/Circle';
+import BaseButton from 'components/atoms/Buttons/BaseButton';
+import Banner from 'components/atoms/Banners/Banner';
+import { Link } from 'react-router-dom';
+import { Row, Input, Button } from 'react-materialize';
+import AddForm from 'components/molecules/InputForms/AddForm';
+import { firebase, base } from 'data/firebase';
+import Relaxed from 'components/templates/CreateTask/Relaxed';
+import Positive from 'components/templates/CreateTask/Positive';
+import styled from 'styled-components';
+import { templateWrapper } from 'styles/layout';
 
 const components = {
   relaxed: Relaxed,
