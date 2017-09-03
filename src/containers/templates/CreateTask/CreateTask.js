@@ -1,60 +1,45 @@
-import React, { Component } from 'react';
-import style from './CreateTask.css';
-import BottomNav from 'components/organisms/BottomNav/BottomNav';
-import Circle from 'components/atoms/Circles/Circle';
-import BaseButton from 'components/atoms/Buttons/BaseButton';
-import Banner from 'components/atoms/Banners/Banner';
-import { Link } from 'react-router-dom';
-import { Row, Input, Button } from 'react-materialize';
-import AddForm from 'components/molecules/InputForms/AddForm';
-import { firebase, base } from 'data/firebase';
-import Relaxed from 'components/templates/CreateTask/Relaxed';
-import Positive from 'components/templates/CreateTask/Positive';
-import styled from 'styled-components';
-import { templateWrapper } from 'styles/layout';
+import React, { Component } from "react";
+import style from "./CreateTask.css";
+import BottomNav from "components/organisms/BottomNav/BottomNav";
+import Circle from "components/atoms/Circles/Circle";
+import BaseButton from "components/atoms/Buttons/BaseButton";
+import Banner from "components/atoms/Banners/Banner";
+import { Link } from "react-router-dom";
+import { Row, Input, Button } from "react-materialize";
+import AddForm from "components/molecules/InputForms/AddForm";
+import { firebase, base } from "data/firebase";
+import Relaxed from "components/templates/CreateTask/Relaxed";
+import Positive from "components/templates/CreateTask/Positive";
+import styled from "styled-components";
+import { templateWrapper } from "styles/layout";
 
 const components = {
-	relaxed: Relaxed,
-	positive: Positive
+  relaxed: Relaxed,
+  positive: Positive
 };
 
 const Wrapper = styled.main`${templateWrapper};`;
 
 class CreateTask extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-	componentDidMount() {
-		const userId = firebase.auth().currentUser.uid;
-		// const firebasePath = `users/${userId}/tasks/${this.props.match.params
-		//   .taskId}/experience`;
-		// this.binding = base.bindToState(firebasePath, {
-		//   context: this,
-		//   state: 'experience'
-		// });
-	}
+  render() {
+    var match = this.props.match;
 
-	componentWillUnmount() {
-		// base.removeBinding(this.binding);
-	}
+    const Component = components[this.props.match.params.experienceId];
 
-	render() {
-		// var experiences = this.state.experiences;
-		var match = this.props.match;
-
-		const Component = components[this.props.match.params.experienceId];
-
-		return (
-			<Wrapper>
-				<Component />
-				<div className="spacer" />
-				<div className="spacer" />
-				<Link to={`${match.url}/completion`}>COMPLETE</Link>
-			</Wrapper>
-		);
-	}
+    return (
+      <Wrapper>
+        <Component />
+        <div className="spacer" />
+        <div className="spacer" />
+        <Link to={`${match.url}/completion`}>COMPLETE</Link>
+      </Wrapper>
+    );
+  }
 }
 
 export default CreateTask;
