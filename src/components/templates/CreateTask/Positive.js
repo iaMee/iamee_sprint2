@@ -2,6 +2,7 @@ import React from 'react';
 import { firebase, base } from 'data/firebase';
 import Modal from 'react-modal';
 import styled from 'styled-components';
+import moment from 'moment';
 
 import turtle from 'assets/Images/turtle.png';
 
@@ -42,45 +43,45 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    const userId = firebase.auth().currentUser.uid;
+    this.userId = firebase.auth().currentUser.uid;
 
     const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
 
     const questionsPath = 'aspirations/positive/turtle-questions';
 
-    const firebasePath = `/users/${userId}/tasks/${this.props.taskId}`;
-    this.binding = base.syncState(firebasePath, {
-      context: this,
-      state: 'task',
-      defaultValue: {
-        diaryEntry: ''
-      },
-      then: () => {
-        if (!this.state.task.question) {
-          base
-            .fetch(questionsPath + '/count', {
-              context: this
-            })
-            .then(count => {
-              this.questionNumber = random(0, count);
+    this.getOrCreateLatestEntry().then(latestEntryId => {
+      const firebasePath = `/users/${this
+        .userId}/tasks/positive/entries/${latestEntryId}`;
 
-              return base.fetch(questionsPath + '/' + this.questionNumber, {
+      this.binding = base.syncState(firebasePath, {
+        context: this,
+        state: 'task',
+        then: () => {
+          if (!this.state.task.question) {
+            base
+              .fetch(questionsPath + '/count', {
                 context: this
+              })
+              .then(count => {
+                this.questionNumber = random(0, count);
+
+                return base.fetch(questionsPath + '/' + this.questionNumber, {
+                  context: this
+                });
+              })
+              .then(question => {
+                this.setState(({ task }) => ({ task: { ...task, question } }));
+              })
+              .catch(error => {
+                console.error(error);
               });
-            })
-            .then(question => {
-              console.log(question);
-              this.setState(({ task }) => ({ task: { ...task, question } }));
-            })
-            .catch(error => {
-              console.error(error);
-            });
+          }
         }
-      }
+      });
     });
 
-    this.otherBinding = base.syncState(
-      `/users/${userId}/tutorial/showExplanation/positive`,
+    this.explanationBinding = base.syncState(
+      `/users/${this.userId}/tutorial/showExplanation/positive`,
       {
         context: this,
         state: 'showExplanation',
@@ -89,9 +90,47 @@ export default class extends React.Component {
     );
   }
 
+  getOrCreateLatestEntry() {
+    return base
+      .fetch(`/users/${this.userId}/tasks/positive/entries`, {
+        asArray: true,
+        queries: {
+          orderByChild: 'dateTimeCreated',
+          limitToLast: 1
+        }
+      })
+      .then(lastEntries => {
+        if (lastEntries.length > 0) {
+          const lastEntry = lastEntries[0];
+
+          const lastEntryCreatedMoment = moment(lastEntry.dateTimeCreated);
+          const isToday = moment().diff(lastEntryCreatedMoment, 'days') === 0;
+
+          if (isToday) {
+            return lastEntries[0].key;
+          }
+        }
+
+        return this.createNewEntry();
+      });
+  }
+
+  createNewEntry() {
+    const currentEpoch = new Date().getTime();
+
+    return base
+      .push(`/users/${this.userId}/tasks/positive/entries`, {
+        data: {
+          diaryEntry: '',
+          dateTimeCreated: currentEpoch
+        }
+      })
+      .then(newLocation => newLocation.key);
+  }
+
   componentWillUnmount() {
     base.removeBinding(this.binding);
-    base.removeBinding(this.otherBinding);
+    base.removeBinding(this.explanationBinding);
   }
 
   updateEntry = event => {

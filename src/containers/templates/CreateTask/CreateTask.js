@@ -26,34 +26,14 @@ class CreateTask extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    const userId = firebase.auth().currentUser.uid;
-    const firebasePath = `users/${userId}/tasks/${this.props.match.params
-      .taskId}/experience`;
-    this.binding = base.bindToState(firebasePath, {
-      context: this,
-      state: 'experience'
-    });
-  }
-
-  componentWillUnmount() {
-    base.removeBinding(this.binding);
-  }
-
   render() {
-    // var experiences = this.state.experiences;
     var match = this.props.match;
 
-    if (!this.state.experience) {
-      return <div>Loading...</div>;
-    }
-
-    console.log(this.state.experience);
-    const Component = components[this.state.experience];
+    const Component = components[this.props.match.params.experienceId];
 
     return (
       <Wrapper>
-        <Component taskId={match.params.taskId} />
+        <Component />
         <div className="spacer" />
         <div className="spacer" />
         <Link to={`${match.url}/completion`}>COMPLETE</Link>

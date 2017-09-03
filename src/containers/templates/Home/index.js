@@ -20,7 +20,6 @@ class HomeContainer extends React.Component {
   componentDidMount() {
     const userId = firebase.auth().currentUser.uid;
     const firebasePath = `users/${userId}/tasks`;
-    console.log('USER ID', userId);
     this.binding = base.bindToState(firebasePath, {
       asArray: true,
       context: this,
@@ -35,7 +34,7 @@ class HomeContainer extends React.Component {
   render() {
     const processedActivities = this.state.activities.map(activity => ({
       key: activity.key,
-      name: activity.experience,
+      name: activity.key,
       link: `/experiences/tasks/${activity.key}`
     }));
 

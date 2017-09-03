@@ -6,15 +6,15 @@ import { firebase, base } from 'data/firebase';
 const makeExperienceFactory = ({ history, match }) => ({
   experience
 }) => () => {
-  const userId = firebase.auth().currentUser.uid;
-  const thenableReference = base.push(`users/${userId}/tasks`, {
-    data: {
-      experience: experience.name
-    }
-  });
+  // const userId = firebase.auth().currentUser.uid;
+  // const thenableReference = base.push(`users/${userId}/tasks`, {
+  //   data: {
+  //     experience: experience.name
+  //   }
+  // });
 
-  thenableReference.catch(console.error);
-  history.push(`${match.url}/tasks/${thenableReference.key}`);
+  // thenableReference.catch(console.error);
+  history.push(`${match.url}/tasks/${experience.name}`);
 };
 
 const experienceLoader = async () => {
