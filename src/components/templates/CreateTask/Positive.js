@@ -4,36 +4,64 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 import moment from 'moment';
 
-import turtle from 'assets/Images/turtle.png';
+import turtle from 'assets/Images/turtle.svg';
 
 const TurtleWrapper = styled.div`
   margin: 1em 0;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+`;
+
+const TurtleImage = styled.img`
+  align-self: flex-start;
+  margin: 1em;
 `;
 
 const Bubble = styled.div`
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  background: #84d1f7;
-  border-radius: .4em;
-  padding: 1em;
+  height: auto;
+  min-height: 4em;
 
-  &:after {
-    content: '';
+  border: 4px solid #b0e4fc;
+
+  border-radius: 10px;
+
+  &:before {
+    content: ' ';
     position: absolute;
-    right: 0;
-    top: 50%;
     width: 0;
     height: 0;
-    border: 13px solid transparent;
-    border-left-color: #84d1f7;
-    border-right: 0;
-    border-top: 0;
-    margin-top: -6.5px;
-    margin-right: -13px;
+    left: 76px;
+    right: auto;
+    top: auto;
+    bottom: -40px;
+    border: 20px solid;
+    border-color: #b0e4fc transparent transparent #b0e4fc;
   }
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 80px;
+    right: auto;
+    top: auto;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: white transparent transparent white;
+  }
+`;
+
+const BubbleInner = styled.div`
+  padding: 2em;
+  text-align: left;
+  line-height: 1.5em;
 `;
 
 export default class extends React.Component {
@@ -104,7 +132,7 @@ export default class extends React.Component {
           const lastEntry = lastEntries[0];
 
           const lastEntryCreatedMoment = moment(lastEntry.dateTimeCreated);
-          const isToday = moment().diff(lastEntryCreatedMoment, 'days') === 0;
+          const isToday = lastEntryCreatedMoment.isSame(moment(), 'day');
 
           if (isToday) {
             return lastEntries[0].key;
@@ -153,7 +181,7 @@ export default class extends React.Component {
           <Bubble>
             {this.state.task.question}
           </Bubble>
-          <img src={turtle} />
+          <TurtleImage src={turtle} />
         </TurtleWrapper>
 
         <textarea

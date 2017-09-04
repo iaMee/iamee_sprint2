@@ -36,7 +36,7 @@ class CreateTask extends Component {
         <Component />
         <div className="spacer" />
         <div className="spacer" />
-        <Link to={`${match.url}/completion`}>COMPLETE</Link>
+        <Link to={`${match.url}/completion`}>Respond</Link>
       </Wrapper>
     );
   }
