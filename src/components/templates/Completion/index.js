@@ -30,7 +30,7 @@ const Completion = ({
       <StreakWrapper>
         <div className="progress-title">Streak Progress</div>
         <div className="progress-bar">
-          <div className="streak-progress">1 / 21</div>
+          <div className="streak-progress">{global.starpuff_count+1} / 21</div>
         </div>
       </StreakWrapper>
 

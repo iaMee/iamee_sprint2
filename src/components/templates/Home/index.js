@@ -15,8 +15,14 @@ import turtle from 'assets/Images/turtle.png';
 import starFish from 'assets/Images/starfish.svg';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
+global.starpuff_count = 0;
 
 const getActivities = ({ activities }) => {
+    global.starpuff_count = 0;
+    {activities.map(activity =>
+      global.starpuff_count += Object.keys(activity.entry_data).length
+    )}
+
   if (!activities.length) {
     return (
       <div>
@@ -31,9 +37,13 @@ const getActivities = ({ activities }) => {
       </div>
     );
   }else{
+  //console.log(Object.keys(activities.entry_data).length);
+
     return (
+
       <div>
         {activities.map(activity =>
+
           <RowWrapper className="activity" key={activity.key}>
             <LinkCircle height="75px" to={activity.link} backgroundThemeColor={activity.name} color="#121212" className="uppercase">{activity.name}</LinkCircle>
             <div className="activity-description">Enter Daily {activity.name}</div>
@@ -47,7 +57,7 @@ const getActivities = ({ activities }) => {
         <RowWrapper>
           <div className="progress-title">Streak Progress</div>
           <div className="progress-bar">
-            <div className="streak-progress">1 / 21</div>
+            <div className="streak-progress">{global.starpuff_count} / 21</div>
           </div>
         </RowWrapper>
       </div>
@@ -71,6 +81,17 @@ const getTitle = ({ activities }) => {
   }
 
 };
+const getStarPuff = ({ activities }) => {
+    var total_starpuff = 0
+    {activities.map(activity =>
+      total_starpuff += Object.keys(activity.entry_data).length
+    )}
+
+    return (
+      <div>{total_starpuff*10} Starpuffs</div>
+    );
+
+};
 
 const Home = ({ activities }) => {
   return (
@@ -89,7 +110,7 @@ const Home = ({ activities }) => {
       <RowWrapper>
         <div className="starfish">
           <img src={starFish}/> 
-          <div>30 starpuffs</div>
+          {getStarPuff({activities})}
         </div>
       </RowWrapper>
       <H3>CURRENT JOURNEY</H3>

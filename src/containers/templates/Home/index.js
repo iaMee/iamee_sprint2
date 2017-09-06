@@ -35,6 +35,7 @@ class HomeContainer extends React.Component {
     const processedActivities = this.state.activities.map(activity => ({
       key: activity.key,
       name: activity.key,
+      entry_data:activity.entries,
       link: `/experiences/tasks/${activity.key}`
     }));
 
