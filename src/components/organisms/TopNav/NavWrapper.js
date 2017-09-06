@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { spacing, zIndexes } from 'styles/variables';
-import navBackground from 'assets/Images/topNavBg.jpg';
+import navBackground from '../../../Assets/Images/topNavBg.jpg';
 
 export default styled.nav`
   position: fixed;

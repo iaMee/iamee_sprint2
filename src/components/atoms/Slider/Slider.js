@@ -4,11 +4,11 @@ import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import style from './Slider.css';
 
-import Feel_1 from 'assets/Images/feel_1.svg';
-import Feel_2 from 'assets/Images/feel_2.svg';
-import Feel_3 from 'assets/Images/feel_3.svg';
-import Feel_4 from 'assets/Images/feel_4.svg';
-import Feel_5 from 'assets/Images/feel_5.svg';
+import Feel_1 from '../../../Assets/Images/feel_1.svg';
+import Feel_2 from '../../../Assets/Images/feel_2.svg';
+import Feel_3 from '../../../Assets/Images/feel_3.svg';
+import Feel_4 from '../../../Assets/Images/feel_4.svg';
+import Feel_5 from '../../../Assets/Images/feel_5.svg';
 
 class CustomSlider extends Component {
   constructor(props) {

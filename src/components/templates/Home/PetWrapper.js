@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { media } from 'styles/media';
-import imgChat from 'assets/Images/no-activity-chat.svg';
+import imgChat from '../../../Assets/Images/no-activity-chat.svg';
 
 
 const circleWidth = '68%';

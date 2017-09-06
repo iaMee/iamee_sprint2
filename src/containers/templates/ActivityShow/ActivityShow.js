@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ModalButton from 'components/atoms/Buttons/ModalButton';
 import Circle from 'components/atoms/Circles/Circle';
 import _ from 'lodash';
-import yoga from 'assets/Images/yoga.png';
+import yoga from '../../../Assets/Images/yoga.png';
 import CustomSlider from 'components/atoms/Slider/Slider';
 import { Input, Button, Modal } from 'react-materialize';
 import style from './ActivityShow.css';
@@ -144,7 +144,7 @@ class ActivityShow extends Component {
                     className={'modal-close'}
                     points={this.state.value}
                     onClick={() => this.handleClick(attribute)}
-                    img={require('assets/Images/point.png')}
+                    img={require('../../../Assets/Images/point.png')}
                     title={'CLICK HERE'}
                   />
                 </Modal>

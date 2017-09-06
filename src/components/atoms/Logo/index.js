@@ -5,7 +5,7 @@ const Logo = () =>
   <Wrapper>
     <img
       className="logo"
-      src={require('assets/Images/logo.png')}
+      src={require('../../../Assets/Images/logo.png')}
       alt="iamee logo"
     />
   </Wrapper>;

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import NavIcon from 'components/atoms/NavIcons/NavIcon';
 import style from './BottomNav.css';
 
-import iconHome from 'assets/Images/home-icon.svg';
-import iconChart from 'assets/Images/line-chart-icon.svg';
-import iconSearch from 'assets/Images/magnifier-icon.svg';
-import iconStar from 'assets/Images/starfish-icon.svg';
+import iconHome from '../../../Assets/Images/home-icon.svg';
+import iconChart from '../../../Assets/Images/line-chart-icon.svg';
+import iconSearch from '../../../Assets/Images/magnifier-icon.svg';
+import iconStar from '../../../Assets/Images/starfish-icon.svg';
 
 class BottomNav extends Component {
   constructor() {
