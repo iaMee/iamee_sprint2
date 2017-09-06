@@ -1,0 +1,22 @@
+<svg width="36" height="34" viewBox="0 0 36 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>magnifier-tool</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(250 -1417)">
+<g id="magnifier-tool">
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(-250 1417)" fill="#FFFFFF"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-228.021 1437.76)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 27 12.75C 27 5.70899 20.9555 0 13.5001 0C 6.04486 0 3.52406e-12 5.70899 3.52406e-12 12.75C 3.52406e-12 19.791 6.04486 25.4997 13.5001 25.4997C 20.9555 25.4997 27 19.791 27 12.75ZM 13.5001 22.3121C 7.9168 22.3121 3.37512 18.0231 3.37512 12.7501C 3.37512 7.47698 7.9168 3.18765 13.5001 3.18765C 19.0832 3.18765 23.6253 7.47698 23.6253 12.7501C 23.6253 18.0231 19.0832 22.3121 13.5001 22.3121Z"/>
+<path id="path1_fill" d="M 13.032 7.80071L 4.77302 8.04051e-07C 3.54242 1.80751 1.91385 3.34483 -5.61532e-07 4.50711L 8.25965 12.3078C 9.57824 13.5529 11.7162 13.5529 13.0319 12.3078C 14.3506 11.0648 14.3506 9.04569 13.032 7.80071Z"/>
+</defs>
+</svg>

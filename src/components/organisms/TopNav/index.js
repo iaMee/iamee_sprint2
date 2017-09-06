@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FaUsers from 'react-icons/lib/fa/user';
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left';
-import Logo from 'assets/Images/navLogo.png';
+import Logo from 'assets/Images/navLogo.svg';
+import iconLogout from 'assets/Images/logout.svg';
 import ButtonPlain from 'components/atoms/ButtonPlain';
 import HiddenH1 from './HiddenH1';
 import LogoWrapper from './LogoWrapper';
@@ -20,8 +21,8 @@ const TopNav = ({ onBackButtonClick, onLogoutButtonClick }) => {
           <LogoWrapper src={Logo} alt="iaMee logo" />
           <HiddenH1>iaMee</HiddenH1>
         </Link>
-        <ButtonPlain onClick={onLogoutButtonClick}>
-          <FaUsers color="#fff" size="1.5rem" />
+        <ButtonPlain onClick={onLogoutButtonClick} className="btn-logout">
+          <img src={iconLogout} />
         </ButtonPlain>
       </NavWrapper>
       <NavOffset />

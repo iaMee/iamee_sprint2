@@ -4,6 +4,8 @@ import ButtonCircle from 'components/atoms/ButtonCircle';
 import CirclesWrapper from './CirclesWrapper';
 import Wrapper from './Wrapper';
 import H2 from './H2';
+import Description from './Description';
+
 import ExperienceModal from 'components/organisms/ExperienceModal';
 
 const circle = {
@@ -47,8 +49,8 @@ const getExperiences = ({
 const Experience = props => {
   return (
     <Wrapper>
-      <H2>Build your aspirations</H2>
-      <p>How do you want to feel?</p>
+      <H2>How do you want to feel?</H2>
+      <Description><p>Each journey is different.</p><p>Tap on one to find out more</p></Description>
       <CirclesWrapper>
         {getExperiences(props)}
       </CirclesWrapper>

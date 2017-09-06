@@ -1,0 +1,32 @@
+.rating-slider{
+	height: 60px;
+	margin-top:10px;
+}
+.rating-slider .rc-slider-rail{
+	height: 2px;
+	background-color: #4F4F4F;
+    margin-left: -3px	
+}
+
+.rating-slider .rc-slider-track {
+	background-color: transparent;
+}
+.rating-slider .rc-slider-handle{
+	width: 18px;
+	height: 18px;
+	background: #21246A;
+	border: none;
+	margin-top: -8px;
+    margin-left: -12px;	
+}
+.rating-slider .rc-slider-step .rc-slider-dot{
+	width: 2px;
+	height: 40px;
+	border-radius: 0px;
+	border:none;
+	background-color: #4F4F4F;
+	bottom: -17px;
+}
+.rating-slider .rc-slider-mark {
+	margin-top:12px;
+}

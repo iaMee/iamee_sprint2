@@ -12,6 +12,7 @@ import Relaxed from 'components/templates/CreateTask/Relaxed';
 import Positive from 'components/templates/CreateTask/Positive';
 import styled from 'styled-components';
 import { templateWrapper } from 'styles/layout';
+import ButtonRound from 'components/atoms/ButtonRound';
 
 const components = {
   relaxed: Relaxed,
@@ -25,9 +26,13 @@ class CreateTask extends Component {
     super(props);
     this.state = {};
   }
+  onRespond() {
+     var match = this.props.match;
+     this.props.history.push(`${match.url}/completion`);
+  }
 
   render() {
-    var match = this.props.match;
+    
 
     const Component = components[this.props.match.params.experienceId];
 
@@ -36,7 +41,7 @@ class CreateTask extends Component {
         <Component />
         <div className="spacer" />
         <div className="spacer" />
-        <Link to={`${match.url}/completion`}>Respond</Link>
+        <ButtonRound onClick={this.onRespond.bind(this)}>Respond</ButtonRound>          
       </Wrapper>
     );
   }

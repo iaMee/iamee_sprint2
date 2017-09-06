@@ -3,9 +3,8 @@ import { firebase, base } from 'data/firebase';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import moment from 'moment';
-
 import turtle from 'assets/Images/turtle.svg';
-
+import imgChat from 'assets/Images/chat.svg';
 const TurtleWrapper = styled.div`
   margin: 1em 0;
   display: flex;
@@ -13,51 +12,32 @@ const TurtleWrapper = styled.div`
 `;
 
 const TurtleImage = styled.img`
-  align-self: flex-start;
-  margin: 1em;
+  align-self: flex-start;  
 `;
 
 const Bubble = styled.div`
-  margin: 40px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
   height: auto;
-  min-height: 4em;
+  height: 140px;
+  background-image: url(${imgChat});
+  background-size: 100%;
+  background-repeat: no-repeat; 
+  background-position-y: 15px;
+  margin: 10px 20px 0px 60px;
+  padding: 0px 20px;
 
-  border: 4px solid #b0e4fc;
-
-  border-radius: 10px;
-
-  &:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 76px;
-    right: auto;
-    top: auto;
-    bottom: -40px;
-    border: 20px solid;
-    border-color: #b0e4fc transparent transparent #b0e4fc;
-  }
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 80px;
-    right: auto;
-    top: auto;
-    bottom: -30px;
-    border: 15px solid;
-    border-color: white transparent transparent white;
-  }
 `;
-
+const AnswerText = styled.textarea` 
+  height:80px;
+  border:solid 3px #0C38A9;
+  margin-top:57px;
+  border-radius:5px;
+`;
 const BubbleInner = styled.div`
   padding: 2em;
   text-align: left;
@@ -184,9 +164,9 @@ export default class extends React.Component {
           <TurtleImage src={turtle} />
         </TurtleWrapper>
 
-        <textarea
+        <AnswerText
           value={this.state.task.diaryEntry}
-          onChange={this.updateEntry}
+          onChange={this.updateEntry} placeholder="Enter text"
         />
         <Modal
           isOpen={this.state.showExplanation}
