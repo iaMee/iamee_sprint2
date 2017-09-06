@@ -15,4 +15,12 @@ export default styled.nav`
   justify-content: space-between;
   padding: 0 ${spacing.pageGutter};
   z-index: ${zIndexes.navigation};
+
+  .btn-logout {
+    padding-left:0px;
+    padding-right:0px;
+    img {
+      margin-top:5px;
+    }
+  }  
 `;

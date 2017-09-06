@@ -2,10 +2,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 49px;
   justify-content: space-around;
-  background-color: #84D1F7;
+  background-color: #36B8E1;
 }
 
 .bottom-nav-placeholder {
-  height: 35px;
+  height: 49px;
 }
