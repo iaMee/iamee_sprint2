@@ -9,7 +9,7 @@ class PointBanner extends Component {
           <div>
             <img
               className="badge-image"
-              src={require('../../../Assets/Images/point.png')}
+              src={require('assets/Images/point.png')}
               alt=""
             />
             <h6 className="badge-text">
@@ -21,7 +21,7 @@ class PointBanner extends Component {
           <div>
             <img
               className="badge-image"
-              src={require('../../../Assets/Images/boost.png')}
+              src={require('assets/Images/boost.png')}
               alt=""
             />
             <h6 className="badge-text">BOOST</h6>
@@ -31,7 +31,7 @@ class PointBanner extends Component {
           <div>
             <img
               className="badge-image"
-              src={require('../../../Assets/Images/badge.png')}
+              src={require('assets/Images/badge.png')}
               alt=""
             />
             <h6 className="badge-text">BADGE</h6>

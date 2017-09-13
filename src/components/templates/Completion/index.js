@@ -6,8 +6,8 @@ import PetWrapper from './PetWrapper';
 import H2 from './H2';
 import InputSubmit from 'components/atoms/InputSubmit';
 import CustomSlider from 'components/atoms/Slider/Slider';
-import starFish from '../../../Assets/Images/starfish_big.svg';
-import fish from '../../../Assets/Images/fish.svg';
+import starFish from 'assets/Images/starfish_big.svg';
+import fish from 'assets/Images/fish.svg';
 
 const Completion = ({
   ratingValue,

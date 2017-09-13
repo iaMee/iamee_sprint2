@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Button from 'components/atoms/Button';
 import ButtonPlain from 'components/atoms/ButtonPlain';
 
-import imgTurtle from '../../../Assets/Images/modal_turtle.svg';
-import iconClose from '../../../Assets/Images/close.svg';
+import imgTurtle from 'assets/Images/modal_turtle.svg';
+import iconClose from 'assets/Images/close.svg';
 
 const ModalContentWrapper = styled.div`
   text-align: center;
