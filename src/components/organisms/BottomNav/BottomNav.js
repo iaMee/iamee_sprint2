@@ -40,7 +40,6 @@ class BottomNav extends Component {
       size: 23
     };
   }
-  
 
   render() {
     return (

@@ -27,13 +27,11 @@ class CreateTask extends Component {
     this.state = {};
   }
   onRespond() {
-     var match = this.props.match;
-     this.props.history.push(`${match.url}/completion`);
+    var match = this.props.match;
+    this.props.history.push(`${match.url}/completion`);
   }
 
   render() {
-    
-
     const Component = components[this.props.match.params.experienceId];
 
     return (
@@ -41,7 +39,7 @@ class CreateTask extends Component {
         <Component />
         <div className="spacer" />
         <div className="spacer" />
-        <ButtonRound onClick={this.onRespond.bind(this)}>Respond</ButtonRound>          
+        <ButtonRound onClick={this.onRespond.bind(this)}>Respond</ButtonRound>
       </Wrapper>
     );
   }

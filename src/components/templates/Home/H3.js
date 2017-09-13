@@ -5,9 +5,9 @@ export default styled.h3`
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-  background-color:#BBD8E5;
+  background-color: #bbd8e5;
   padding: 13px 0px;
   margin-top: 13px;
-  margin-left:-4vw;  
-  margin-right:-4vw;  
+  margin-left: -4vw;
+  margin-right: -4vw;
 `;

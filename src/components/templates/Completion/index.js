@@ -22,22 +22,30 @@ const Completion = ({
       <figure />
       <div>
         <PetWrapper>
-          <img alt="fish" src={fish} className="fish"/>
-          <img alt="star fish" src={starFish} className="starpuffs"/>
-          <div className="starpuffs-text">10 Starpuffs<br/>awarded</div>
+          <img alt="fish" src={fish} className="fish" />
+          <img alt="star fish" src={starFish} className="starpuffs" />
+          <div className="starpuffs-text">
+            10 Starpuffs<br />awarded
+          </div>
         </PetWrapper>
       </div>
       <StreakWrapper>
         <div className="progress-title">Streak Progress</div>
         <div className="progress-bar">
-          <div className="streak-progress">{totalStreak + 1} / 21</div>
+          <div className="streak-progress">
+            {totalStreak + 1} / 21
+          </div>
         </div>
       </StreakWrapper>
 
       <form onSubmit={onFormSubmit}>
         <div className="rating-text">How do you feel?</div>
-        <CustomSlider min={1} max={5} onChange={e => onRatingChange(e.target.value)}></CustomSlider>
-        <InputSubmit fullWidth value="Finito!" className="btn-submit"/>
+        <CustomSlider
+          min={1}
+          max={5}
+          onChange={e => onRatingChange(e.target.value)}
+        />
+        <InputSubmit fullWidth value="Finito!" className="btn-submit" />
       </form>
     </Wrapper>
   );

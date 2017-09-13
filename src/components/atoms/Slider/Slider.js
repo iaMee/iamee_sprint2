@@ -34,7 +34,7 @@ class CustomSlider extends Component {
         onChange={this.props.onSliderChange}
         min={this.props.min}
         max={this.props.max}
-        className = "rating-slider"
+        className="rating-slider"
       />
     );
   }
