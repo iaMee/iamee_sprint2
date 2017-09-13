@@ -5,7 +5,6 @@ import PetWrapper from './PetWrapper';
 
 import H2 from './H2';
 import InputSubmit from 'components/atoms/InputSubmit';
-import LabelBlock from 'components/molecules/LabelBlock';
 import CustomSlider from 'components/atoms/Slider/Slider';
 import starFish from 'assets/Images/starfish_big.svg';
 import fish from 'assets/Images/fish.svg';
@@ -14,7 +13,8 @@ const Completion = ({
   ratingValue,
   onRatingChange,
   onFormSubmit,
-  sliderValues: { min, max, step }
+  sliderValues: { min, max, step },
+  totalStreak
 }) => {
   return (
     <Wrapper>
@@ -22,15 +22,15 @@ const Completion = ({
       <figure />
       <div>
         <PetWrapper>
-          <img src={fish} className="fish"/>
-          <img src={starFish} className="starpuffs"/>
+          <img alt="fish" src={fish} className="fish"/>
+          <img alt="star fish" src={starFish} className="starpuffs"/>
           <div className="starpuffs-text">10 Starpuffs<br/>awarded</div>
         </PetWrapper>
       </div>
       <StreakWrapper>
         <div className="progress-title">Streak Progress</div>
         <div className="progress-bar">
-          <div className="streak-progress">{global.starpuff_count+1} / 21</div>
+          <div className="streak-progress">{totalStreak + 1} / 21</div>
         </div>
       </StreakWrapper>
 

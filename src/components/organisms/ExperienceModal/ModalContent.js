@@ -36,10 +36,10 @@ const ModalContent = ({ experience, makeExperience }) => {
   return (
     <ModalContentWrapper>
       <ButtonPlain  className="btn-close">
-        <img src={iconClose} />
+        <img alt="icon close" src={iconClose} />
       </ButtonPlain>
 
-      <img src ={imgTurtle} />
+      <img alt="turtle" src ={imgTurtle} />
       <h3>
         You are about to go on a journey to feel more {name.toUpperCase()}.         
       </h3>

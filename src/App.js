@@ -3,13 +3,10 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
 } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import SignUp from 'containers/templates/SignUp/SignUp';
 import BasePage from 'containers/pages/BasePage';
-import Test from 'containers/templates/Test/Test';
 import { firebase } from 'data/firebase';
 
 import { ThemeProvider } from 'styled-components';
