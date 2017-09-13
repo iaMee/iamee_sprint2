@@ -3,8 +3,8 @@ import { firebase, base } from 'data/firebase';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import moment from 'moment';
-import turtle from '../../../Assets/Images/turtle.svg';
-import imgChat from '../../../Assets/Images/chat.svg';
+import turtle from 'assets/Images/turtle.svg';
+import imgChat from 'assets/Images/chat.svg';
 const TurtleWrapper = styled.div`
   margin: 1em 0;
   display: flex;

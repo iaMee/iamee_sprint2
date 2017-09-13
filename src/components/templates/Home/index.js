@@ -11,8 +11,8 @@ import RowWrapper from './RowWrapper';
 
 import HiddenH2 from './HiddenH2';
 import H3 from './H3';
-import turtle from '../../../Assets/Images/turtle.png';
-import starFish from '../../../Assets/Images/starfish.svg';
+import turtle from 'assets/Images/turtle.png';
+import starFish from 'assets/Images/starfish.svg';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
 const getEmptyActivity = () =>
