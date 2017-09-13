@@ -50,7 +50,10 @@ const Experience = props => {
   return (
     <Wrapper>
       <H2>How do you want to feel?</H2>
-      <Description><p>Each journey is different.</p><p>Tap on one to find out more</p></Description>
+      <Description>
+        <p>Each journey is different.</p>
+        <p>Tap on one to find out more</p>
+      </Description>
       <CirclesWrapper>
         {getExperiences(props)}
       </CirclesWrapper>

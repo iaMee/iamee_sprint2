@@ -17,10 +17,10 @@ export default styled.nav`
   z-index: ${zIndexes.navigation};
 
   .btn-logout {
-    padding-left:0px;
-    padding-right:0px;
+    padding-left: 0px;
+    padding-right: 0px;
     img {
-      margin-top:5px;
+      margin-top: 5px;
     }
-  }  
+  }
 `;

@@ -35,10 +35,16 @@ class HomeContainer extends React.Component {
     const processedActivities = this.state.activities.map(activity => ({
       key: activity.key,
       name: activity.key,
+      entries: activity.entries,
       link: `/experiences/tasks/${activity.key}`
     }));
 
-    return <Home activities={processedActivities} />;
+    const totalStreak = this.state.activities.reduce((acc, currentActivity) => {
+      acc += Object.keys(currentActivity.entries).length;
+      return acc;
+    }, 0);
+
+    return <Home activities={processedActivities} totalStreak={totalStreak} />;
   }
 }
 

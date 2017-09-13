@@ -11,12 +11,9 @@ const TurtleWrapper = styled.div`
   flex-direction: column;
 `;
 
-const TurtleImage = styled.img`
-  align-self: flex-start;  
-`;
+const TurtleImage = styled.img`align-self: flex-start;`;
 
 const Bubble = styled.div`
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,17 +23,16 @@ const Bubble = styled.div`
   height: 140px;
   background-image: url(${imgChat});
   background-size: 100%;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position-y: 15px;
   margin: 10px 20px 0px 60px;
   padding: 0px 20px;
-
 `;
-const AnswerText = styled.textarea` 
-  height:80px;
-  border:solid 3px #0C38A9;
-  margin-top:57px;
-  border-radius:5px;
+const AnswerText = styled.textarea`
+  height: 80px;
+  border: solid 3px #0c38a9;
+  margin-top: 57px;
+  border-radius: 5px;
 `;
 const BubbleInner = styled.div`
   padding: 2em;
@@ -166,7 +162,8 @@ export default class extends React.Component {
 
         <AnswerText
           value={this.state.task.diaryEntry}
-          onChange={this.updateEntry} placeholder="Enter text"
+          onChange={this.updateEntry}
+          placeholder="Enter text"
         />
         <Modal
           isOpen={this.state.showExplanation}

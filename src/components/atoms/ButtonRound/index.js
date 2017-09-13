@@ -34,8 +34,8 @@ const ButtonRound = styled.button`
   color: ${props => (props.disabled ? '#eee' : props.color)};
   border-radius: ${props => props.radius};
   border: 0;
-  font-size:20px;
-  font-weight:bold;
+  font-size: 20px;
+  font-weight: bold;
   ${getBackground};
   ${props => props.capitalize && 'text-transform: capitalize;'};
 `;
@@ -44,7 +44,7 @@ ButtonRound.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-  radius:PropTypes.string
+  radius: PropTypes.string
 };
 
 ButtonRound.defaultProps = {
