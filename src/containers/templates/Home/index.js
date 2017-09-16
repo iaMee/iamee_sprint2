@@ -40,7 +40,7 @@ class HomeContainer extends React.Component {
     }));
 
     const totalStreak = this.state.activities.reduce((acc, currentActivity) => {
-      acc += Object.keys(currentActivity.entries).length;
+      acc += Object.keys(currentActivity.entries || {}).length;
       return acc;
     }, 0);
 
