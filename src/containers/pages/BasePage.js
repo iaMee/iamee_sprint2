@@ -22,7 +22,7 @@ const BasePage = ({ match }) => {
         />
         <Route
           exact
-          path="/experiences/tasks/:experienceId/completion"
+          path="/experiences/tasks/:experienceId/completion/:entryId"
           component={Completion}
         />
         <Route

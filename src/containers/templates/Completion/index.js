@@ -11,7 +11,6 @@ const sliderValues = {
 };
 
 const enhancer = compose(
-  withState('ratingValue', 'onRatingChange', 3),
   withHandlers({
     onFormSubmit: props => e => {
       e.preventDefault();
@@ -34,16 +33,32 @@ class CompletionContainer extends React.Component {
 
   componentDidMount() {
     const userId = firebase.auth().currentUser.uid;
-    const firebasePath = `users/${userId}/tasks`;
-    this.binding = base.bindToState(firebasePath, {
+    const tasksFirebasePath = `users/${userId}/tasks`;
+    this.tasksBinding = base.bindToState(tasksFirebasePath, {
       asArray: true,
       context: this,
       state: 'activities'
     });
+
+    const { experienceId, entryId } = this.props.match.params;
+    const moodFirebasePath = `/users/${userId}/tasks/${experienceId}/entries/${entryId}/mood`;
+
+    this.moodBinding = base.syncState(moodFirebasePath, {
+      context: this,
+      state: 'mood',
+      default: 3
+    });
   }
 
+  onRatingChange = rating => {
+    this.setState({
+      mood: rating
+    });
+  };
+
   componentWillUnmount() {
-    base.removeBinding(this.binding);
+    base.removeBinding(this.tasksBinding);
+    base.removeBinding(this.moodBinding);
   }
 
   render() {
@@ -52,7 +67,13 @@ class CompletionContainer extends React.Component {
       return acc;
     }, 0);
 
-    return <EnhancedCompletion totalStreak={totalStreak} />;
+    return (
+      <EnhancedCompletion
+        totalStreak={totalStreak}
+        onRatingChange={this.onRatingChange}
+        rating={this.state.mood}
+      />
+    );
   }
 }
 

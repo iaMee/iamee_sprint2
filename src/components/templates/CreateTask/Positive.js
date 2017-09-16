@@ -62,6 +62,7 @@ export default class extends React.Component {
     const questionsPath = 'aspirations/positive/turtle-questions';
 
     this.getOrCreateLatestEntry().then(latestEntryId => {
+      this.entryId = latestEntryId;
       const firebasePath = `/users/${this
         .userId}/tasks/positive/entries/${latestEntryId}`;
 
@@ -160,14 +161,18 @@ export default class extends React.Component {
 
   onRespond = () => {
     var match = this.props.match;
-
-    this.setState(state => ({
-      task: {
-        ...state.task,
-        complete: true
-      }
-    }));
-    this.props.history.push(`${match.url}/completion`);
+    if (this.state.task.complete) {
+      this.props.history.goBack();
+    } else {
+      base
+        .update(
+          `/users/${this.userId}/tasks/positive/entries/${this.entryId}`,
+          { data: { complete: true } }
+        )
+        .then(() => {
+          this.props.history.push(`${match.url}/completion/${this.entryId}`);
+        });
+    }
   };
 
   render() {
@@ -187,9 +192,18 @@ export default class extends React.Component {
           disabled={this.state.task.complete || false}
         />
 
+        {this.state.task.complete &&
+          <div>
+            You felt {this.state.task.mood}
+          </div>}
+
         <div className="spacer" />
         <div className="spacer" />
-        <ButtonRound onClick={this.onRespond}>Respond</ButtonRound>
+
+        <ButtonRound onClick={this.onRespond}>
+          {this.state.task.complete ? 'Back' : 'Respond'}
+        </ButtonRound>
+
         <Modal
           isOpen={this.state.showExplanation}
           contentLabel={`Blah`}
