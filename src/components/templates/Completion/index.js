@@ -10,11 +10,11 @@ import starFish from 'assets/Images/starfish_big.svg';
 import fish from 'assets/Images/fish.svg';
 
 const Completion = ({
-  ratingValue,
   onRatingChange,
   onFormSubmit,
   sliderValues: { min, max, step },
-  totalStreak
+  totalStreak,
+  rating
 }) => {
   return (
     <Wrapper>
@@ -43,7 +43,8 @@ const Completion = ({
         <CustomSlider
           min={1}
           max={5}
-          onChange={e => onRatingChange(e.target.value)}
+          value={rating}
+          onSliderChange={onRatingChange}
         />
         <InputSubmit fullWidth value="Finito!" className="btn-submit" />
       </form>
@@ -56,7 +57,8 @@ Completion.defaultProps = {
     min: 1,
     max: 10,
     step: 1
-  }
+  },
+  rating: 3
 };
 
 export default Completion;

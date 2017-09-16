@@ -3,8 +3,11 @@ import { firebase, base } from 'data/firebase';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import moment from 'moment';
+
+import ButtonRound from 'components/atoms/ButtonRound';
 import turtle from 'assets/Images/turtle.svg';
 import imgChat from 'assets/Images/chat.svg';
+
 const TurtleWrapper = styled.div`
   margin: 1em 0;
   display: flex;
@@ -33,6 +36,11 @@ const AnswerText = styled.textarea`
   border: solid 3px #0c38a9;
   margin-top: 57px;
   border-radius: 5px;
+
+  &[disabled] {
+    background: #8ed9ff;
+    border: none;
+  }
 `;
 const BubbleInner = styled.div`
   padding: 2em;
@@ -54,6 +62,7 @@ export default class extends React.Component {
     const questionsPath = 'aspirations/positive/turtle-questions';
 
     this.getOrCreateLatestEntry().then(latestEntryId => {
+      this.entryId = latestEntryId;
       const firebasePath = `/users/${this
         .userId}/tasks/positive/entries/${latestEntryId}`;
 
@@ -150,6 +159,22 @@ export default class extends React.Component {
     });
   };
 
+  onRespond = () => {
+    var match = this.props.match;
+    if (this.state.task.complete) {
+      this.props.history.goBack();
+    } else {
+      base
+        .update(
+          `/users/${this.userId}/tasks/positive/entries/${this.entryId}`,
+          { data: { complete: true } }
+        )
+        .then(() => {
+          this.props.history.push(`${match.url}/completion/${this.entryId}`);
+        });
+    }
+  };
+
   render() {
     return (
       <div>
@@ -164,7 +189,21 @@ export default class extends React.Component {
           value={this.state.task.diaryEntry}
           onChange={this.updateEntry}
           placeholder="Enter text"
+          disabled={this.state.task.complete || false}
         />
+
+        {this.state.task.complete &&
+          <div>
+            You felt {this.state.task.mood}
+          </div>}
+
+        <div className="spacer" />
+        <div className="spacer" />
+
+        <ButtonRound onClick={this.onRespond}>
+          {this.state.task.complete ? 'Back' : 'Respond'}
+        </ButtonRound>
+
         <Modal
           isOpen={this.state.showExplanation}
           contentLabel={`Blah`}
