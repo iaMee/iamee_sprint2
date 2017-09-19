@@ -28,11 +28,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    return (
-      <ThemeProvider theme={colors}>
-        {this.inner()}
-      </ThemeProvider>
-    );
+    return <ThemeProvider theme={colors}>{this.inner()}</ThemeProvider>;
   }
 
   inner() {

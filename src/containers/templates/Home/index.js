@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  compose,
-  lifecycle,
-  withHandlers,
-  withState,
-  withProps
-} from 'recompose';
+import { compose, lifecycle, withHandlers, withState, withProps } from 'recompose';
 import Home from 'components/templates/Home';
 import LoadingTimed from 'containers/molecules/LoadingTimed';
 import { firebase, base } from 'data/firebase';

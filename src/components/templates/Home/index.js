@@ -15,7 +15,7 @@ import turtle from 'assets/Images/turtle.png';
 import starFish from 'assets/Images/starfish.svg';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
-const getEmptyActivity = () =>
+const getEmptyActivity = () => (
   <div>
     <RowWrapper className="activity">
       <LinkCircle height="75px" to="" disabled />
@@ -25,7 +25,8 @@ const getEmptyActivity = () =>
       </div>
     </RowWrapper>
     <LinkRound to="/experiences">Start a journey</LinkRound>
-  </div>;
+  </div>
+);
 
 const getActivities = ({ activities, totalStreak }) => {
   if (!activities.length) {
@@ -34,32 +35,22 @@ const getActivities = ({ activities, totalStreak }) => {
 
   return (
     <div>
-      {activities.map(activity =>
+      {activities.map(activity => (
         <RowWrapper className="activity" key={activity.key}>
-          <LinkCircle
-            backgroundThemeColor={activity.name}
-            color="#121212"
-            height="75px"
-            to={activity.link}
-            uppercase
-          >
+          <LinkCircle backgroundThemeColor={activity.name} color="#121212" height="75px" to={activity.link} uppercase>
             {activity.name}
           </LinkCircle>
-          <div className="activity-description">
-            Enter Daily {activity.name}
-          </div>
+          <div className="activity-description">Enter Daily {activity.name}</div>
           <div className="activity-link">
             <Link to={activity.link}>
               <FaAngleRight color="#F4BA23" size="42" />
             </Link>
           </div>
         </RowWrapper>
-      )}
+      ))}
       <StreakWrapper>
         <StreakTitle>Streak Progress</StreakTitle>
-        <StreakProgress>
-          {totalStreak} / 21
-        </StreakProgress>
+        <StreakProgress>{totalStreak} / 21</StreakProgress>
       </StreakWrapper>
     </div>
   );
@@ -68,19 +59,14 @@ const getActivities = ({ activities, totalStreak }) => {
 const getTitle = ({ activities }) => {
   if (!activities.length) {
     return (
-      <div className="title no-activity">
-        Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!
-      </div>
+      <div className="title no-activity">Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!</div>
     );
   }
 
   return <div className="title">Life is too short to not smile</div>;
 };
 
-const getStarPuff = ({ activities, totalStreak }) =>
-  <div>
-    {totalStreak * 10} Starpuffs
-  </div>;
+const getStarPuff = ({ activities, totalStreak }) => <div>{totalStreak * 10} Starpuffs</div>;
 
 const Home = ({ activities, totalStreak }) => {
   return (
@@ -89,21 +75,10 @@ const Home = ({ activities, totalStreak }) => {
         {getTitle({ activities })}
         <img src={turtle} alt="turtle" />
         <LinkRow>
-          <LinkCircle
-            background="#934FE9"
-            height="75px"
-            to="/dashboard"
-            uppercase
-          >
+          <LinkCircle background="#934FE9" height="75px" to="/dashboard" uppercase>
             Shop
           </LinkCircle>
-          <LinkCircle
-            background="#E94F4F"
-            height="75px"
-            lineHeight="15px"
-            to="/dashboard"
-            uppercase
-          >
+          <LinkCircle background="#E94F4F" height="75px" lineHeight="15px" to="/dashboard" uppercase>
             Dash<br />board
           </LinkCircle>
         </LinkRow>

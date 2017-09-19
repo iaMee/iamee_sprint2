@@ -93,18 +93,14 @@ class PersonalShow extends Component {
     return (
       <div className="content">
         <div className="circles less-padding">
-          {this.state.attributes.map(attribute =>
+          {this.state.attributes.map(attribute => (
             <div className="modal-selector">
               <Modal
                 header={this.getDay()}
                 trigger={
                   <div className="circle-margin text-center">
                     <Circle
-                      title={
-                        <h6>
-                          {attribute.title}
-                        </h6>
-                      }
+                      title={<h6>{attribute.title}</h6>}
                       tag={params.toLowerCase()}
                       className={`${params.toLowerCase()}1`}
                       height={circle.height}
@@ -119,17 +115,9 @@ class PersonalShow extends Component {
               >
                 <div className="custom-modal-content text-center">
                   <div>
-                    <img
-                      className="attribute-image"
-                      src={attribute.img}
-                      alt=""
-                    />
+                    <img className="attribute-image" src={attribute.img} alt="" />
                     <p>Why I'm good at this</p>
-                    <input
-                      placeholder="Write your text here"
-                      className="personal-input"
-                      type="text"
-                    />
+                    <input placeholder="Write your text here" className="personal-input" type="text" />
                   </div>
                 </div>
                 <div className="spacer" />
@@ -142,7 +130,7 @@ class PersonalShow extends Component {
                 />
               </Modal>
             </div>
-          )}
+          ))}
         </div>
       </div>
     );

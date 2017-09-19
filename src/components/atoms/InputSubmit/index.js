@@ -4,5 +4,5 @@ import { buttonStyle } from 'styles/button';
 export default styled.input.attrs({
   type: 'submit'
 })`
-  ${buttonStyle}
+  ${buttonStyle};
 `;

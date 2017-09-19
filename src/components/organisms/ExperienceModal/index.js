@@ -2,12 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalContent from './ModalContent';
 
-const ExperienceModal = ({
-  currentExperience,
-  experience,
-  makeExperience,
-  setCurrentExperience
-}) => {
+const ExperienceModal = ({ currentExperience, experience, makeExperience, setCurrentExperience }) => {
   return (
     <Modal
       isOpen={experience.name === currentExperience}

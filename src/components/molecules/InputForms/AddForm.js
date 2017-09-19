@@ -24,14 +24,7 @@ class AddForm extends Component {
         </div>
 
         <div className="buttonInput">
-          <Button
-            floating
-            large
-            className="blue"
-            waves="light"
-            icon="add"
-            onClick={this.props.onClick}
-          />
+          <Button floating large className="blue" waves="light" icon="add" onClick={this.props.onClick} />
         </div>
       </div>
     );

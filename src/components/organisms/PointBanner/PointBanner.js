@@ -7,33 +7,19 @@ class PointBanner extends Component {
       <div className="nav-bar point-banner">
         <div className="badges">
           <div>
-            <img
-              className="badge-image"
-              src={require('assets/Images/point.png')}
-              alt=""
-            />
-            <h6 className="badge-text">
-              {this.props.points} PTS
-            </h6>
+            <img className="badge-image" src={require('assets/Images/point.png')} alt="" />
+            <h6 className="badge-text">{this.props.points} PTS</h6>
           </div>
         </div>
         <div className="badges">
           <div>
-            <img
-              className="badge-image"
-              src={require('assets/Images/boost.png')}
-              alt=""
-            />
+            <img className="badge-image" src={require('assets/Images/boost.png')} alt="" />
             <h6 className="badge-text">BOOST</h6>
           </div>
         </div>
         <div className="badges">
           <div>
-            <img
-              className="badge-image"
-              src={require('assets/Images/badge.png')}
-              alt=""
-            />
+            <img className="badge-image" src={require('assets/Images/badge.png')} alt="" />
             <h6 className="badge-text">BADGE</h6>
           </div>
         </div>

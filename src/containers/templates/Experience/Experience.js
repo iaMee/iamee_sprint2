@@ -3,9 +3,7 @@ import { compose, withHandlers, withState, withProps } from 'recompose';
 import Loading from 'components/atoms/Loading';
 import { firebase, base } from 'data/firebase';
 
-const makeExperienceFactory = ({ history, match }) => ({
-  experience
-}) => () => {
+const makeExperienceFactory = ({ history, match }) => ({ experience }) => () => {
   // const userId = firebase.auth().currentUser.uid;
   // const thenableReference = base.push(`users/${userId}/tasks`, {
   //   data: {
@@ -21,8 +19,8 @@ const experienceLoader = async () => {
   const [aspirations, Experience] = await Promise.all([
     // get list of aspirations from firebase
     base.fetch('aspirations', { asArray: true }),
-    // import Experience container
-    import(/* webpackChunkName: "Experience" */ 'components/templates/Experience')
+    import(// import Experience container
+    /* webpackChunkName: "Experience" */ 'components/templates/Experience')
   ]);
 
   const sortedMappedAspirations = aspirations

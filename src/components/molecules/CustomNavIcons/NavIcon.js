@@ -13,13 +13,9 @@ class NavIcon extends Component {
     return (
       <div className="navicon-box">
         <Link to={this.props.path}>
-          <div className="navicon-image">
-            {this.props.iconImage}
-          </div>
+          <div className="navicon-image">{this.props.iconImage}</div>
           <div className="navicon-text">
-            <p>
-              {this.props.text}
-            </p>
+            <p>{this.props.text}</p>
           </div>
         </Link>
       </div>

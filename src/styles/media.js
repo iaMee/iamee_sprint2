@@ -17,27 +17,15 @@ const minMaxSizes = {
 };
 
 const createMinMedia = minWidth => {
-  return (...args) => css`
-    @media (min-width: ${minWidth}px) {
-      ${css(...args)}
-    }
-  `;
+  return (...args) => css`@media (min-width: ${minWidth}px) {${css(...args)};}`;
 };
 
 const createMaxMedia = maxWidth => {
-  return (...args) => css`
-    @media (max-width: ${maxWidth}px) {
-      ${css(...args)}
-    }
-  `;
+  return (...args) => css`@media (max-width: ${maxWidth}px) {${css(...args)};}`;
 };
 
 const createMinMaxMedia = (minWidth, maxWidth) => {
-  return (...args) => css`
-    @media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px) {
-      ${css(...args)}
-    }
-  `;
+  return (...args) => css`@media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px) {${css(...args)};}`;
 };
 
 const media = {
@@ -45,10 +33,7 @@ const media = {
   tablet: createMinMedia(minMaxSizes.tabletMin),
   tabletOnly: createMinMaxMedia(minMaxSizes.tabletMin, minMaxSizes.tabletMax),
   desktop: createMinMedia(minMaxSizes.desktopMin),
-  desktopOnly: createMinMaxMedia(
-    minMaxSizes.desktopMin,
-    minMaxSizes.desktopMax
-  ),
+  desktopOnly: createMinMaxMedia(minMaxSizes.desktopMin, minMaxSizes.desktopMax),
   giant: createMinMedia(minMaxSizes.giantMin)
 };
 

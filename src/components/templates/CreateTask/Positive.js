@@ -63,8 +63,7 @@ export default class extends React.Component {
 
     this.getOrCreateLatestEntry().then(latestEntryId => {
       this.entryId = latestEntryId;
-      const firebasePath = `/users/${this
-        .userId}/tasks/positive/entries/${latestEntryId}`;
+      const firebasePath = `/users/${this.userId}/tasks/positive/entries/${latestEntryId}`;
 
       this.binding = base.syncState(firebasePath, {
         context: this,
@@ -93,14 +92,11 @@ export default class extends React.Component {
       });
     });
 
-    this.explanationBinding = base.syncState(
-      `/users/${this.userId}/tutorial/showExplanation/positive`,
-      {
-        context: this,
-        state: 'showExplanation',
-        defaultValue: true
-      }
-    );
+    this.explanationBinding = base.syncState(`/users/${this.userId}/tutorial/showExplanation/positive`, {
+      context: this,
+      state: 'showExplanation',
+      defaultValue: true
+    });
   }
 
   getOrCreateLatestEntry() {
@@ -165,10 +161,7 @@ export default class extends React.Component {
       this.props.history.goBack();
     } else {
       base
-        .update(
-          `/users/${this.userId}/tasks/positive/entries/${this.entryId}`,
-          { data: { complete: true } }
-        )
+        .update(`/users/${this.userId}/tasks/positive/entries/${this.entryId}`, { data: { complete: true } })
         .then(() => {
           this.props.history.push(`${match.url}/completion/${this.entryId}`);
         });
@@ -179,9 +172,7 @@ export default class extends React.Component {
     return (
       <div>
         <TurtleWrapper>
-          <Bubble>
-            {this.state.task.question}
-          </Bubble>
+          <Bubble>{this.state.task.question}</Bubble>
           <TurtleImage src={turtle} />
         </TurtleWrapper>
 
@@ -192,17 +183,12 @@ export default class extends React.Component {
           disabled={this.state.task.complete || false}
         />
 
-        {this.state.task.complete &&
-          <div>
-            You felt {this.state.task.mood}
-          </div>}
+        {this.state.task.complete && <div>You felt {this.state.task.mood}</div>}
 
         <div className="spacer" />
         <div className="spacer" />
 
-        <ButtonRound onClick={this.onRespond}>
-          {this.state.task.complete ? 'Back' : 'Respond'}
-        </ButtonRound>
+        <ButtonRound onClick={this.onRespond}>{this.state.task.complete ? 'Back' : 'Respond'}</ButtonRound>
 
         <Modal
           isOpen={this.state.showExplanation}
@@ -219,10 +205,8 @@ export default class extends React.Component {
             beforeClose: 'ReactModal__Overlay--before-close'
           }}
         >
-          Sam is here to guide your thoughts toward feeling more positive
-          everyday. Simply respond to Sam and start feeling the difference! We
-          recommend having a reflection at least 21 times everyday to see the
-          best effect.
+          Sam is here to guide your thoughts toward feeling more positive everyday. Simply respond to Sam and start
+          feeling the difference! We recommend having a reflection at least 21 times everyday to see the best effect.
         </Modal>
       </div>
     );

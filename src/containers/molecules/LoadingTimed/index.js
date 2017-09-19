@@ -32,7 +32,7 @@ class LoadingTimed extends React.Component {
 
   render() {
     const { shouldShowLoadingComp } = this.state;
-    const { loadingComponent : LoadingComponent } = this.props;
+    const { loadingComponent: LoadingComponent } = this.props;
 
     return shouldShowLoadingComp ? <LoadingComponent /> : null;
   }

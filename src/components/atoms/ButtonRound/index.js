@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 const generateBackground = bg => `background: ${bg};`;
 
-const getBackground = ({
-  background,
-  backgroundThemeColor,
-  disabled,
-  theme
-}) => {
+const getBackground = ({ background, backgroundThemeColor, disabled, theme }) => {
   if (disabled) {
     return generateBackground(theme.disabled);
   }

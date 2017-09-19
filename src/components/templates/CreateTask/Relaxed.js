@@ -106,12 +106,7 @@ export default class extends React.Component {
         <div className="text-center margin-top">Set Reminder Frequency</div>
 
         <div className="dropDown margin-top">
-          <Input
-            className="margin"
-            type="select"
-            value={this.state.stagedFrequency}
-            onChange={this.onFrequencyChange}
-          >
+          <Input className="margin" type="select" value={this.state.stagedFrequency} onChange={this.onFrequencyChange}>
             <option className="text-center" value="none">
               None
             </option>
@@ -128,9 +123,7 @@ export default class extends React.Component {
         <br />
         <br />
 
-        <div className="text-center">
-          {this.state.emailFormholder}
-        </div>
+        <div className="text-center">{this.state.emailFormholder}</div>
 
         {/*<div className="margin-top">
               <Input

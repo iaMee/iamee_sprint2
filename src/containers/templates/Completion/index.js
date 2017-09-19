@@ -68,11 +68,7 @@ class CompletionContainer extends React.Component {
     }, 0);
 
     return (
-      <EnhancedCompletion
-        totalStreak={totalStreak}
-        onRatingChange={this.onRatingChange}
-        rating={this.state.mood}
-      />
+      <EnhancedCompletion totalStreak={totalStreak} onRatingChange={this.onRatingChange} rating={this.state.mood} />
     );
   }
 }

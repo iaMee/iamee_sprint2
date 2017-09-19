@@ -9,26 +9,15 @@ const getText = ({ hideText, text }) => {
     return;
   }
 
-  return hideText
-    ? <HiddenSpan>
-        {text}
-      </HiddenSpan>
-    : text;
+  return hideText ? <HiddenSpan>{text}</HiddenSpan> : text;
 };
 
-const LabelBlock = ({
-  children,
-  fullWidth,
-  hideText,
-  inputType,
-  placeholder,
-  text,
-  verticalMargin
-}) =>
+const LabelBlock = ({ children, fullWidth, hideText, inputType, placeholder, text, verticalMargin }) => (
   <Label verticalMargin={verticalMargin}>
     {getText({ hideText, text })}
     {children}
-  </Label>;
+  </Label>
+);
 
 LabelBlock.propTypes = {
   fullWidth: PropTypes.bool,
