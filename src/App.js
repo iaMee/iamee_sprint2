@@ -17,7 +17,7 @@ class App extends React.PureComponent {
 
     this.state = {
       loading: true,
-      user: null
+      user: null,
     };
   }
 

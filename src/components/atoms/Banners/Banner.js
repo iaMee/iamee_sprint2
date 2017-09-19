@@ -18,7 +18,7 @@ class Banner extends Component {
 }
 
 Banner.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Banner;

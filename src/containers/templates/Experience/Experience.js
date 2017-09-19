@@ -18,9 +18,8 @@ const makeExperienceFactory = ({ history, match }) => ({ experience }) => () => 
 const experienceLoader = async () => {
   const [aspirations, Experience] = await Promise.all([
     // get list of aspirations from firebase
-    base.fetch('aspirations', { asArray: true }),
-    import(// import Experience container
-    /* webpackChunkName: "Experience" */ 'components/templates/Experience')
+    base.fetch('aspirations', { asArray: true }), // import Experience container
+    import(/* webpackChunkName: "Experience" */ 'components/templates/Experience'),
   ]);
 
   const sortedMappedAspirations = aspirations
@@ -34,10 +33,10 @@ const experienceLoader = async () => {
 
   const enhancer = compose(
     withHandlers({
-      makeExperience: props => makeExperienceFactory(props)
+      makeExperience: props => makeExperienceFactory(props),
     }),
     withProps({
-      experiences: sortedMappedAspirations
+      experiences: sortedMappedAspirations,
     }),
     withState('currentExperience', 'setCurrentExperience', '')
   );
@@ -50,5 +49,5 @@ const experienceLoader = async () => {
 // but the main reason i'm using `Loadable` for the ease of use to make loading state for component
 export default Loadable({
   loader: experienceLoader,
-  loading: Loading
+  loading: Loading,
 });

@@ -11,12 +11,12 @@ const ExperienceModal = ({ currentExperience, experience, makeExperience, setCur
       className={{
         base: 'modalContent',
         afterOpen: 'ReactModal__Content--after-open',
-        beforeClose: 'ReactModal__Content--before-close'
+        beforeClose: 'ReactModal__Content--before-close',
       }}
       overlayClassName={{
         base: 'modalOverlay',
         afterOpen: 'ReactModal__Overlay--after-open',
-        beforeClose: 'ReactModal__Overlay--before-close'
+        beforeClose: 'ReactModal__Overlay--before-close',
       }}
     >
       <ModalContent experience={experience} makeExperience={makeExperience} />

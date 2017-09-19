@@ -23,11 +23,11 @@ class AspirationShow extends Component {
       value: 8,
       user: {
         id: 'something',
-        points: 0
+        points: 0,
       },
       activities: ['relaxed', 'bold', 'kind'],
       diary: ['positive', 'inquisitive'],
-      personal: ['yourself', 'grateful', 'loving']
+      personal: ['yourself', 'grateful', 'loving'],
     };
   }
 

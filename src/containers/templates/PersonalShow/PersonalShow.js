@@ -57,12 +57,12 @@ class PersonalShow extends Component {
         { title: 'gratitude', img: '' },
         { title: 'hope', img: '' },
         { title: 'humour', img: '' },
-        { title: 'spirituality', img: '' }
+        { title: 'spirituality', img: '' },
       ],
       circle: {
         height: '10em',
-        radius: '100%'
-      }
+        radius: '100%',
+      },
     };
   }
 
@@ -81,7 +81,7 @@ class PersonalShow extends Component {
       4: 'Thursday',
       5: 'Friday',
       6: 'Saturday',
-      0: 'Sunday'
+      0: 'Sunday',
     };
     return days[0];
   };

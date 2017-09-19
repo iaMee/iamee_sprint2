@@ -19,7 +19,7 @@ class Pill extends Component {
 }
 
 Pill.propTypes = {
-  tasks: PropTypes.string.isRequired
+  tasks: PropTypes.string.isRequired,
 };
 
 export default Pill;

@@ -12,7 +12,7 @@ const colors = {
   loving: 'linear-gradient(#3ECBCB, #30A0AF)',
   grateful: 'linear-gradient(#6DBF7A, #50A344)',
   yourself: 'linear-gradient(#F1808B, #F1808B)',
-  kind: 'linear-gradient(red, #F1808B)'
+  kind: 'linear-gradient(red, #F1808B)',
 };
 
 export { colors };

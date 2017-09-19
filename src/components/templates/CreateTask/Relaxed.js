@@ -15,7 +15,7 @@ export default class extends React.Component {
     super(props);
 
     this.state = {
-      emailFormholder: 'Invite a friend to be positive with you!'
+      emailFormholder: 'Invite a friend to be positive with you!',
     };
     const userId = firebase.auth().currentUser.uid;
     this.firebasePath = `users/${userId}/tasks/${props.taskId}`;
@@ -28,16 +28,16 @@ export default class extends React.Component {
       then: () => {
         this.setState(state => {
           return {
-            stagedFrequency: state.task.reminderFrequency || 'none'
+            stagedFrequency: state.task.reminderFrequency || 'none',
           };
         });
-      }
+      },
     });
   }
 
   onFrequencyChange = event => {
     this.setState({
-      stagedFrequency: event.target.value
+      stagedFrequency: event.target.value,
     });
   };
 
@@ -45,8 +45,8 @@ export default class extends React.Component {
     this.setState(state => ({
       task: {
         ...state.task,
-        reminderFrequency: this.state.stagedFrequency
-      }
+        reminderFrequency: this.state.stagedFrequency,
+      },
     }));
 
     this.showMessage('Reminder set!');
@@ -54,13 +54,13 @@ export default class extends React.Component {
 
   showMessage(message) {
     this.setState({
-      message
+      message,
     });
 
     setTimeout(
       () =>
         this.setState({
-          message: undefined
+          message: undefined,
         }),
       2000
     );
@@ -73,7 +73,7 @@ export default class extends React.Component {
 
     base
       .push(`${this.firebasePath}/invites`, {
-        data: this.state.email
+        data: this.state.email,
       })
       .then(() => {
         this.showMessage('Invite sent!');

@@ -1,9 +1,9 @@
 const spacing = {
-  pageGutter: '4vw'
+  pageGutter: '4vw',
 };
 
 const zIndexes = {
-  navigation: 5
+  navigation: 5,
 };
 
 export { spacing, zIndexes };

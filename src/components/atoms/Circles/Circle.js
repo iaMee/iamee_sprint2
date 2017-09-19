@@ -20,7 +20,7 @@ class Circle extends Component {
       color: this.props.boolean ? '' : this.props.font,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     };
   }
 
@@ -41,7 +41,7 @@ Circle.propTypes = {
   tag: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
-  radius: PropTypes.string.isRequired
+  radius: PropTypes.string.isRequired,
 };
 
 export default Circle;

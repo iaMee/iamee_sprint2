@@ -25,7 +25,7 @@ LabelBlock.propTypes = {
   inputType: PropTypes.string,
   placeholder: PropTypes.string,
   text: PropTypes.string,
-  verticalMargin: PropTypes.string
+  verticalMargin: PropTypes.string,
 };
 
 LabelBlock.defaultProps = {
@@ -34,7 +34,7 @@ LabelBlock.defaultProps = {
   inputType: 'text',
   placeholder: '',
   text: '',
-  verticalMargin: '1rem'
+  verticalMargin: '1rem',
 };
 
 export default pure(LabelBlock);

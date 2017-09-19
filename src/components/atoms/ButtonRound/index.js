@@ -39,14 +39,14 @@ ButtonRound.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-  radius: PropTypes.string
+  radius: PropTypes.string,
 };
 
 ButtonRound.defaultProps = {
   width: '100%',
   height: '38px',
   color: '#fff',
-  radius: '30px'
+  radius: '30px',
 };
 
 export default ButtonRound;

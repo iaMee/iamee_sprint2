@@ -6,7 +6,7 @@ class DropButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navItems: []
+      navItems: [],
     };
   }
 
@@ -39,7 +39,7 @@ class DropButton extends Component {
 }
 
 DropButton.propTypes = {
-  buttonHeader: PropTypes.string.isRequired
+  buttonHeader: PropTypes.string.isRequired,
 };
 
 export default DropButton;

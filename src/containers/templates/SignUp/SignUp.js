@@ -33,7 +33,7 @@ const onClickFacebook = () => {
 
 const enhancer = compose(
   withProps({
-    listeners: { onClickFacebook }
+    listeners: { onClickFacebook },
   })
 );
 

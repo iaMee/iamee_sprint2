@@ -10,7 +10,7 @@ import ExperienceModal from 'components/organisms/ExperienceModal';
 
 const circle = {
   height: '10rem',
-  radius: '100%'
+  radius: '100%',
 };
 
 const getModalTrigger = ({ experience: { name, enabled }, setCurrentExperience }) => (
@@ -57,11 +57,11 @@ Experience.propTypes = {
   experiences: PropTypes.arrayOf(
     PropTypes.shape({
       description: PropTypes.string,
-      title: PropTypes.string
+      title: PropTypes.string,
     })
   ).isRequired,
   makeExperience: PropTypes.func.isRequired,
-  setCurrentExperience: PropTypes.func.isRequired
+  setCurrentExperience: PropTypes.func.isRequired,
 };
 
 export default Experience;

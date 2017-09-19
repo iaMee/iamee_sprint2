@@ -72,13 +72,13 @@ export default class extends React.Component {
           if (!this.state.task.question) {
             base
               .fetch(questionsPath + '/count', {
-                context: this
+                context: this,
               })
               .then(count => {
                 this.questionNumber = random(0, count);
 
                 return base.fetch(questionsPath + '/' + this.questionNumber, {
-                  context: this
+                  context: this,
                 });
               })
               .then(question => {
@@ -88,14 +88,14 @@ export default class extends React.Component {
                 console.error(error);
               });
           }
-        }
+        },
       });
     });
 
     this.explanationBinding = base.syncState(`/users/${this.userId}/tutorial/showExplanation/positive`, {
       context: this,
       state: 'showExplanation',
-      defaultValue: true
+      defaultValue: true,
     });
   }
 
@@ -105,8 +105,8 @@ export default class extends React.Component {
         asArray: true,
         queries: {
           orderByChild: 'dateTimeCreated',
-          limitToLast: 1
-        }
+          limitToLast: 1,
+        },
       })
       .then(lastEntries => {
         if (lastEntries.length > 0) {
@@ -131,8 +131,8 @@ export default class extends React.Component {
       .push(`/users/${this.userId}/tasks/positive/entries`, {
         data: {
           diaryEntry: '',
-          dateTimeCreated: currentEpoch
-        }
+          dateTimeCreated: currentEpoch,
+        },
       })
       .then(newLocation => newLocation.key);
   }
@@ -145,13 +145,13 @@ export default class extends React.Component {
   updateEntry = event => {
     const diaryEntry = event.target.value;
     this.setState(({ task }) => ({
-      task: { ...task, diaryEntry }
+      task: { ...task, diaryEntry },
     }));
   };
 
   rememberExplained = () => {
     this.setState({
-      showExplanation: false
+      showExplanation: false,
     });
   };
 
@@ -197,12 +197,12 @@ export default class extends React.Component {
           className={{
             base: 'modalContent',
             afterOpen: 'ReactModal__Content--after-open',
-            beforeClose: 'ReactModal__Content--before-close'
+            beforeClose: 'ReactModal__Content--before-close',
           }}
           overlayClassName={{
             base: 'modalOverlay',
             afterOpen: 'ReactModal__Overlay--after-open',
-            beforeClose: 'ReactModal__Overlay--before-close'
+            beforeClose: 'ReactModal__Overlay--before-close',
           }}
         >
           Sam is here to guide your thoughts toward feeling more positive everyday. Simply respond to Sam and start

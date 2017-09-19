@@ -9,7 +9,7 @@ class HomeContainer extends React.Component {
     super();
     this.state = {
       activities: [],
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -20,7 +20,7 @@ class HomeContainer extends React.Component {
       asArray: true,
       context: this,
       state: 'activities',
-      then: () => this.setState(() => ({ isLoading: false }))
+      then: () => this.setState(() => ({ isLoading: false })),
     });
   }
 
@@ -38,7 +38,7 @@ class HomeContainer extends React.Component {
       key: activity.key,
       name: activity.key,
       entries: activity.entries,
-      link: `/experiences/tasks/${activity.key}`
+      link: `/experiences/tasks/${activity.key}`,
     }));
 
     const totalStreak = this.state.activities.reduce((acc, currentActivity) => {

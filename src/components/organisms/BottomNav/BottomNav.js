@@ -16,28 +16,28 @@ class BottomNav extends Component {
           text: '',
           iconImage: iconHome,
           path: '/',
-          id: 'home'
+          id: 'home',
         },
         {
           text: '',
           iconImage: iconChart,
           path: '/',
-          id: 'notifications'
+          id: 'notifications',
         },
         {
           text: '',
           iconImage: iconSearch,
           path: '/',
-          id: 'find'
+          id: 'find',
         },
         {
           text: '',
           iconImage: iconStar,
           path: '/',
-          id: 'buddies'
-        }
+          id: 'buddies',
+        },
       ],
-      size: 23
+      size: 23,
     };
   }
 

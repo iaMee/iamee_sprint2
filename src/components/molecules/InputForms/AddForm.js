@@ -38,7 +38,7 @@ AddForm.propTypes = {
   value: PropTypes.string,
   s: PropTypes.number,
   onChange: PropTypes.func,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default AddForm;

@@ -19,8 +19,8 @@ class CustomSlider extends Component {
         2: <img src={Feel_2} />,
         3: <img src={Feel_3} />,
         4: <img src={Feel_4} />,
-        5: <img src={Feel_5} />
-      }
+        5: <img src={Feel_5} />,
+      },
     };
   }
 

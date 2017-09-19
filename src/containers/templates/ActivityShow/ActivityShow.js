@@ -42,23 +42,23 @@ class ActivityShow extends Component {
           activity: [
             {
               title: 'Meditation',
-              img: ''
+              img: '',
             },
             {
               title: 'Yoga',
-              img: yoga
+              img: yoga,
             },
             {
               title: 'Writing',
-              img: ''
-            }
-          ]
-        }
+              img: '',
+            },
+          ],
+        },
       },
       circle: {
         height: '10em',
-        radius: '100%'
-      }
+        radius: '100%',
+      },
     };
   }
 
@@ -69,7 +69,7 @@ class ActivityShow extends Component {
 
   onSliderChange = value => {
     this.setState({
-      value: value
+      value: value,
     });
   };
 
@@ -83,7 +83,7 @@ class ActivityShow extends Component {
       4: 'Thursday',
       5: 'Friday',
       6: 'Saturday',
-      0: 'Sunday'
+      0: 'Sunday',
     };
     return days[0];
   };

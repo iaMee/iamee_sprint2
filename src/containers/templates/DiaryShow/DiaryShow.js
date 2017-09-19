@@ -11,7 +11,7 @@ class DiaryShow extends Component {
       4: 'Thursday',
       5: 'Friday',
       6: 'Saturday',
-      0: 'Sunday'
+      0: 'Sunday',
     };
     return days[0];
   };

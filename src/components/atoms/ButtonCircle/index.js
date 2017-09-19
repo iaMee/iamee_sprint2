@@ -36,12 +36,12 @@ const ButtonCircle = styled.button`
 
 ButtonCircle.propTypes = {
   height: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 ButtonCircle.defaultProps = {
   height: '1rem',
-  color: '#fff'
+  color: '#fff',
 };
 
 export default ButtonCircle;

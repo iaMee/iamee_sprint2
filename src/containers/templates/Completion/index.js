@@ -7,7 +7,7 @@ import { firebase, base } from 'data/firebase';
 const sliderValues = {
   min: 1,
   max: 5,
-  step: 1
+  step: 1,
 };
 
 const enhancer = compose(
@@ -16,7 +16,7 @@ const enhancer = compose(
       e.preventDefault();
       props.history.push('/');
       console.log(props.ratingValue);
-    }
+    },
   }),
   withProps({ sliderValues })
 );
@@ -27,7 +27,7 @@ class CompletionContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      activities: []
+      activities: [],
     };
   }
 
@@ -37,7 +37,7 @@ class CompletionContainer extends React.Component {
     this.tasksBinding = base.bindToState(tasksFirebasePath, {
       asArray: true,
       context: this,
-      state: 'activities'
+      state: 'activities',
     });
 
     const { experienceId, entryId } = this.props.match.params;
@@ -46,13 +46,13 @@ class CompletionContainer extends React.Component {
     this.moodBinding = base.syncState(moodFirebasePath, {
       context: this,
       state: 'mood',
-      default: 3
+      default: 3,
     });
   }
 
   onRatingChange = rating => {
     this.setState({
-      mood: rating
+      mood: rating,
     });
   };
 

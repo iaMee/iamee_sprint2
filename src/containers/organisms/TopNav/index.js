@@ -11,7 +11,7 @@ const enhancer = compose(
     onLogoutButtonClick: props => e => {
       firebase.auth().signOut();
       // TODO: Catch errors and do something useful with them!
-    }
+    },
   })
 );
 

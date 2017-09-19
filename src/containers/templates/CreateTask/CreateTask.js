@@ -15,7 +15,7 @@ import { templateWrapper } from 'styles/layout';
 
 const components = {
   relaxed: Relaxed,
-  positive: Positive
+  positive: Positive,
 };
 
 const Wrapper = styled.main`${templateWrapper};`;

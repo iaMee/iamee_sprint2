@@ -14,14 +14,14 @@ class LoadingTimed extends React.Component {
   constructor() {
     super();
     this.state = {
-      shouldShowLoadingComp: false
+      shouldShowLoadingComp: false,
     };
   }
 
   componentDidMount() {
     this.showLoadingTimeout = setTimeout(() => {
       this.setState({
-        shouldShowLoadingComp: true
+        shouldShowLoadingComp: true,
       });
     }, DELAY);
   }
@@ -39,7 +39,7 @@ class LoadingTimed extends React.Component {
 }
 
 LoadingTimed.defaultProps = {
-  loadingComponent: Loading
+  loadingComponent: Loading,
 };
 
 export default LoadingTimed;
