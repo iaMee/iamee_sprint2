@@ -3,6 +3,7 @@ const colors = {
   mid: '#999',
   light: '#eee',
   active: '#c3ff00',
+  lightBlue: '#1b9aef',
   disabled: '#bbb',
 
   bold: 'linear-gradient(red, #F1808B)',

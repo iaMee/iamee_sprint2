@@ -5,7 +5,7 @@ import imgChat from 'assets/Images/no-activity-chat.svg';
 const circleWidth = '68%';
 const circleWidthTablet = '50%';
 
-export const LinkRow = styled.div`
+export const PetLinkRow = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -14,7 +14,27 @@ export const LinkRow = styled.div`
   right: -20px;
 `;
 
-export default styled.div`
+export const PetTitle = styled.div`
+  position: absolute;
+  color: ${props => props.theme.lightBlue};
+  top: -32px;
+  left: 0;
+  right: 0;
+  margin: auto;
+`
+
+export const PetTitleNoActivity = PetTitle.extend`
+  height: 85px;
+  width: 100%;
+  margin-left: 45px;
+  top: -30px;
+  padding-top: 12px;
+  background-image: url(${imgChat});
+  background-size: 100%;
+  background-repeat: no-repeat;
+`
+
+export const PetWrapper = styled.div`
   border: 3px solid ${props => props.theme.main};
   border-radius: 50%;
   width: ${circleWidth};
@@ -30,24 +50,6 @@ export default styled.div`
     padding-bottom: ${circleWidthTablet};
   `};
 
-  .title {
-    position: absolute;
-    color: #1b9aef;
-    top: -32px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    &.no-activity {
-      height: 85px;
-      width: 100%;
-      margin-left: 45px;
-      top: -30px;
-      padding-top: 12px;
-      background-image: url(${imgChat});
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-  }
   > img {
     position: absolute;
     top: 0;

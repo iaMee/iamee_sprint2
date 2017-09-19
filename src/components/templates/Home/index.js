@@ -5,7 +5,7 @@ import LinkRound from 'components/atoms/LinkRound';
 import StreakProgress from 'components/atoms/StreakProgress';
 
 import Wrapper from './Wrapper';
-import PetWrapper, { LinkRow } from './PetWrapper';
+import { PetLinkRow, PetTitle, PetTitleNoActivity, PetWrapper } from './PetComponents';
 import RowWrapper from './RowWrapper';
 import StreakWrapper from './StreakWrapper';
 import StreakTitle from './StreakTitle';
@@ -59,37 +59,41 @@ const getActivities = ({ activities, totalStreak }) => {
 const getTitle = ({ activities }) => {
   if (!activities.length) {
     return (
-      <div className="title no-activity">Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!</div>
+      <PetTitleNoActivity>Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!</PetTitleNoActivity>
     );
   }
 
-  return <div className="title">Life is too short to not smile</div>;
+  return <PetTitle>Life is too short to not smile</PetTitle>;
 };
+
+const getPet = ({ activities }) => (
+  <PetWrapper>
+    {getTitle({ activities })}
+    <img src={turtle} alt="turtle" />
+    <PetLinkRow>
+      <LinkCircle background="#934FE9" height="75px" to="/dashboard" uppercase>
+        Shop
+      </LinkCircle>
+      <LinkCircle background="#E94F4F" height="75px" lineHeight="15px" to="/dashboard" uppercase>
+        Dash<br />board
+      </LinkCircle>
+    </PetLinkRow>
+  </PetWrapper>
+);
 
 const getStarPuff = ({ activities, totalStreak }) => <div>{totalStreak * 10} Starpuffs</div>;
 
 const Home = ({ activities, totalStreak }) => {
   return (
     <Wrapper>
-      <PetWrapper>
-        {getTitle({ activities })}
-        <img src={turtle} alt="turtle" />
-        <LinkRow>
-          <LinkCircle background="#934FE9" height="75px" to="/dashboard" uppercase>
-            Shop
-          </LinkCircle>
-          <LinkCircle background="#E94F4F" height="75px" lineHeight="15px" to="/dashboard" uppercase>
-            Dash<br />board
-          </LinkCircle>
-        </LinkRow>
-      </PetWrapper>
+      {getPet({ activities })}
       <RowWrapper>
         <div className="starfish">
           <img alt="starfish" src={starFish} />
           {getStarPuff({ activities, totalStreak })}
         </div>
       </RowWrapper>
-      <H3>CURRENT JOURNEY</H3>
+      <H3>Current Journey</H3>
       {getActivities({ activities, totalStreak })}
     </Wrapper>
   );
