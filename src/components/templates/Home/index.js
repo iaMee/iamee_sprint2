@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LinkCircle from 'components/atoms/LinkCircle';
-import LinkButton from 'components/atoms/LinkButton';
 import LinkRound from 'components/atoms/LinkRound';
+import StreakProgress from 'components/atoms/StreakProgress';
 
-import ActivityEntry from './ActivityEntry';
 import Wrapper from './Wrapper';
-import PetWrapper from './PetWrapper';
+import PetWrapper, { LinkRow } from './PetWrapper';
 import RowWrapper from './RowWrapper';
+import StreakWrapper from './StreakWrapper';
+import StreakTitle from './StreakTitle';
 
-import HiddenH2 from './HiddenH2';
 import H3 from './H3';
 import turtle from 'assets/Images/turtle.png';
 import starFish from 'assets/Images/starfish.svg';
@@ -37,11 +37,11 @@ const getActivities = ({ activities, totalStreak }) => {
       {activities.map(activity =>
         <RowWrapper className="activity" key={activity.key}>
           <LinkCircle
-            height="75px"
-            to={activity.link}
             backgroundThemeColor={activity.name}
             color="#121212"
-            className="uppercase"
+            height="75px"
+            to={activity.link}
+            uppercase
           >
             {activity.name}
           </LinkCircle>
@@ -55,14 +55,12 @@ const getActivities = ({ activities, totalStreak }) => {
           </div>
         </RowWrapper>
       )}
-      <RowWrapper>
-        <div className="progress-title">Streak Progress</div>
-        <div className="progress-bar">
-          <div className="streak-progress">
-            {totalStreak} / 21
-          </div>
-        </div>
-      </RowWrapper>
+      <StreakWrapper>
+        <StreakTitle>Streak Progress</StreakTitle>
+        <StreakProgress>
+          {totalStreak} / 21
+        </StreakProgress>
+      </StreakWrapper>
     </div>
   );
 };
@@ -90,23 +88,29 @@ const Home = ({ activities, totalStreak }) => {
       <PetWrapper>
         {getTitle({ activities })}
         <img src={turtle} alt="turtle" />
-        <RowWrapper className="link_row">
-          <LinkCircle to="/dashboard" height="75px" background="#934FE9">
-            SHOP
+        <LinkRow>
+          <LinkCircle
+            background="#934FE9"
+            height="75px"
+            to="/dashboard"
+            uppercase
+          >
+            Shop
           </LinkCircle>
           <LinkCircle
-            to="/dashboard"
-            height="75px"
             background="#E94F4F"
-            className="btn-dashboard"
+            height="75px"
+            lineHeight="15px"
+            to="/dashboard"
+            uppercase
           >
-            DASH<br />BOARD
+            Dash<br />board
           </LinkCircle>
-        </RowWrapper>
+        </LinkRow>
       </PetWrapper>
       <RowWrapper>
         <div className="starfish">
-          <img src={starFish} />
+          <img alt="starfish" src={starFish} />
           {getStarPuff({ activities, totalStreak })}
         </div>
       </RowWrapper>

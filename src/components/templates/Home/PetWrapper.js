@@ -5,6 +5,15 @@ import imgChat from 'assets/Images/no-activity-chat.svg';
 const circleWidth = '68%';
 const circleWidthTablet = '50%';
 
+export const LinkRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -14px;
+  left: -20px;
+  right: -20px;
+`;
+
 export default styled.div`
   border: 3px solid ${props => props.theme.main};
   border-radius: 50%;
@@ -47,16 +56,5 @@ export default styled.div`
     bottom: 0;
     width: 65%;
     margin: auto;
-  }
-  > .link_row {
-    position: absolute;
-    bottom: -14px;
-    left: -20px;
-    right: -20px;
-    .btn-dashboard {
-      line-height: 15px;
-      padding: top;
-      padding-top: 22px;
-    }
   }
 `;

@@ -36,6 +36,7 @@ const ButtonCircle = styled.button`
   border: 0;
   ${getBackground};
   ${props => props.capitalize && 'text-transform: capitalize;'};
+  ${props => props.uppercase && 'text-transform: uppercase;'};
 `;
 
 ButtonCircle.propTypes = {
