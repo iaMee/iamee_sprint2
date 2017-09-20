@@ -31,11 +31,13 @@ const Bubble = styled.div`
   margin: 10px 20px 0px 60px;
   padding: 0px 20px;
 `;
+
 const AnswerText = styled.textarea`
   height: 80px;
   border: solid 3px #0c38a9;
   margin-top: 57px;
   border-radius: 5px;
+  width: 100%;
 
   &[disabled] {
     background: #8ed9ff;
@@ -48,48 +50,43 @@ const BubbleInner = styled.div`
   line-height: 1.5em;
 `;
 
+const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = { task: {} };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.userId = firebase.auth().currentUser.uid;
-
-    const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
-
     const questionsPath = 'aspirations/positive/turtle-questions';
 
-    this.getOrCreateLatestEntry().then(latestEntryId => {
-      this.entryId = latestEntryId;
-      const firebasePath = `/users/${this.userId}/tasks/positive/entries/${latestEntryId}`;
+    const latestEntryId = await this.getOrCreateLatestEntry();
+    this.entryId = latestEntryId;
+    const firebasePath = `/users/${this.userId}/tasks/positive/entries/${latestEntryId}`;
 
-      this.binding = base.syncState(firebasePath, {
-        context: this,
-        state: 'task',
-        then: () => {
-          if (!this.state.task.question) {
-            base
-              .fetch(questionsPath + '/count', {
-                context: this,
-              })
-              .then(count => {
-                this.questionNumber = random(0, count);
+    this.binding = base.syncState(firebasePath, {
+      context: this,
+      state: 'task',
+      then: async () => {
+        if (!this.state.task.question) {
+          try {
+            const count = await base.fetch(questionsPath + '/count', {
+              context: this,
+            });
 
-                return base.fetch(questionsPath + '/' + this.questionNumber, {
-                  context: this,
-                });
-              })
-              .then(question => {
-                this.setState(({ task }) => ({ task: { ...task, question } }));
-              })
-              .catch(error => {
-                console.error(error);
-              });
+            this.questionNumber = random(0, count);
+            const question = await base.fetch(questionsPath + '/' + this.questionNumber, {
+              context: this,
+            });
+
+            this.setState(({ task }) => ({ task: { ...task, question } }));
+          } catch (error) {
+            console.error(error);
           }
-        },
-      });
+        }
+      },
     });
 
     this.explanationBinding = base.syncState(`/users/${this.userId}/tutorial/showExplanation/positive`, {

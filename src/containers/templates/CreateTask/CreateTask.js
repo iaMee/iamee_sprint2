@@ -1,6 +1,6 @@
 import React from 'react';
-import Relaxed from 'components/templates/CreateTask/Relaxed';
-import Positive from 'components/templates/CreateTask/Positive';
+import Relaxed from 'containers/templates/Relaxed';
+import Positive from 'containers/templates/Positive';
 import styled from 'styled-components';
 import { templateWrapper } from 'styles/layout';
 
