@@ -1,14 +1,8 @@
 import React from 'react';
-import BottomNav from 'components/organisms/BottomNav/BottomNav';
-import Circle from 'components/atoms/Circles/Circle';
 import BaseButton from 'components/atoms/Buttons/BaseButton';
-import Banner from 'components/atoms/Banners/Banner';
 import { Link } from 'react-router-dom';
-import { Row, Input, Button } from 'react-materialize';
-import AddForm from 'components/molecules/InputForms/AddForm';
+import { Input } from 'react-materialize';
 import { firebase, base } from 'data/firebase';
-import Relaxed from 'components/templates/CreateTask/Relaxed';
-import Positive from 'components/templates/CreateTask/Positive';
 
 export default class extends React.Component {
   constructor(props) {
