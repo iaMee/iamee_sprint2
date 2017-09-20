@@ -20,17 +20,13 @@ class Circle extends Component {
       color: this.props.boolean ? '' : this.props.font,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     };
   }
 
   render() {
     return (
-      <div
-        className={this.props.className}
-        style={this.getCircleStyles()}
-        id={this.props.tag}
-      >
+      <div className={this.props.className} style={this.getCircleStyles()} id={this.props.tag}>
         <div>
           {this.props.title}
           {this.props.description}
@@ -45,7 +41,7 @@ Circle.propTypes = {
   tag: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
-  radius: PropTypes.string.isRequired
+  radius: PropTypes.string.isRequired,
 };
 
 export default Circle;

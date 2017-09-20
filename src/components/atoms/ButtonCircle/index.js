@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 const generateBackground = bg => `background: ${bg};`;
 
-const getBackground = ({
-  background,
-  backgroundThemeColor,
-  disabled,
-  theme
-}) => {
+const getBackground = ({ background, backgroundThemeColor, disabled, theme }) => {
   if (disabled) {
     return generateBackground(theme.disabled);
   }
@@ -36,16 +31,17 @@ const ButtonCircle = styled.button`
   border: 0;
   ${getBackground};
   ${props => props.capitalize && 'text-transform: capitalize;'};
+  ${props => props.uppercase && 'text-transform: uppercase;'};
 `;
 
 ButtonCircle.propTypes = {
   height: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
 ButtonCircle.defaultProps = {
   height: '1rem',
-  color: '#fff'
+  color: '#fff',
 };
 
 export default ButtonCircle;

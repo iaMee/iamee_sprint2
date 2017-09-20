@@ -9,26 +9,15 @@ const getText = ({ hideText, text }) => {
     return;
   }
 
-  return hideText
-    ? <HiddenSpan>
-        {text}
-      </HiddenSpan>
-    : text;
+  return hideText ? <HiddenSpan>{text}</HiddenSpan> : text;
 };
 
-const LabelBlock = ({
-  children,
-  fullWidth,
-  hideText,
-  inputType,
-  placeholder,
-  text,
-  verticalMargin
-}) =>
+const LabelBlock = ({ children, fullWidth, hideText, inputType, placeholder, text, verticalMargin }) => (
   <Label verticalMargin={verticalMargin}>
     {getText({ hideText, text })}
     {children}
-  </Label>;
+  </Label>
+);
 
 LabelBlock.propTypes = {
   fullWidth: PropTypes.bool,
@@ -36,7 +25,7 @@ LabelBlock.propTypes = {
   inputType: PropTypes.string,
   placeholder: PropTypes.string,
   text: PropTypes.string,
-  verticalMargin: PropTypes.string
+  verticalMargin: PropTypes.string,
 };
 
 LabelBlock.defaultProps = {
@@ -45,7 +34,7 @@ LabelBlock.defaultProps = {
   inputType: 'text',
   placeholder: '',
   text: '',
-  verticalMargin: '1rem'
+  verticalMargin: '1rem',
 };
 
 export default pure(LabelBlock);

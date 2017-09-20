@@ -1,21 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LinkCircle from 'components/atoms/LinkCircle';
-import LinkButton from 'components/atoms/LinkButton';
 import LinkRound from 'components/atoms/LinkRound';
+import StreakProgress from 'components/atoms/StreakProgress';
 
-import ActivityEntry from './ActivityEntry';
 import Wrapper from './Wrapper';
-import PetWrapper from './PetWrapper';
+import { PetLinkRow, PetTitle, PetTitleNoActivity, PetWrapper } from './PetComponents';
 import RowWrapper from './RowWrapper';
+import StreakWrapper from './StreakWrapper';
+import StreakTitle from './StreakTitle';
 
-import HiddenH2 from './HiddenH2';
 import H3 from './H3';
 import turtle from 'assets/Images/turtle.png';
 import starFish from 'assets/Images/starfish.svg';
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
-const getEmptyActivity = () =>
+const getEmptyActivity = () => (
   <div>
     <RowWrapper className="activity">
       <LinkCircle height="75px" to="" disabled />
@@ -25,7 +25,8 @@ const getEmptyActivity = () =>
       </div>
     </RowWrapper>
     <LinkRound to="/experiences">Start a journey</LinkRound>
-  </div>;
+  </div>
+);
 
 const getActivities = ({ activities, totalStreak }) => {
   if (!activities.length) {
@@ -34,35 +35,23 @@ const getActivities = ({ activities, totalStreak }) => {
 
   return (
     <div>
-      {activities.map(activity =>
+      {activities.map(activity => (
         <RowWrapper className="activity" key={activity.key}>
-          <LinkCircle
-            height="75px"
-            to={activity.link}
-            backgroundThemeColor={activity.name}
-            color="#121212"
-            className="uppercase"
-          >
+          <LinkCircle backgroundThemeColor={activity.name} color="#121212" height="75px" to={activity.link} uppercase>
             {activity.name}
           </LinkCircle>
-          <div className="activity-description">
-            Enter Daily {activity.name}
-          </div>
+          <div className="activity-description">Enter Daily {activity.name}</div>
           <div className="activity-link">
             <Link to={activity.link}>
               <FaAngleRight color="#F4BA23" size="42" />
             </Link>
           </div>
         </RowWrapper>
-      )}
-      <RowWrapper>
-        <div className="progress-title">Streak Progress</div>
-        <div className="progress-bar">
-          <div className="streak-progress">
-            {totalStreak} / 21
-          </div>
-        </div>
-      </RowWrapper>
+      ))}
+      <StreakWrapper>
+        <StreakTitle>Streak Progress</StreakTitle>
+        <StreakProgress>{totalStreak} / 21</StreakProgress>
+      </StreakWrapper>
     </div>
   );
 };
@@ -70,47 +59,41 @@ const getActivities = ({ activities, totalStreak }) => {
 const getTitle = ({ activities }) => {
   if (!activities.length) {
     return (
-      <div className="title no-activity">
-        Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!
-      </div>
+      <PetTitleNoActivity>Hi I’m Hermi and I’ll be your buddy. Start a journey below to get going!</PetTitleNoActivity>
     );
   }
 
-  return <div className="title">Life is too short to not smile</div>;
+  return <PetTitle>Life is too short to not smile</PetTitle>;
 };
 
-const getStarPuff = ({ activities, totalStreak }) =>
-  <div>
-    {totalStreak * 10} Starpuffs
-  </div>;
+const getPet = ({ activities }) => (
+  <PetWrapper>
+    {getTitle({ activities })}
+    <img src={turtle} alt="turtle" />
+    <PetLinkRow>
+      <LinkCircle background="#934FE9" height="75px" to="/dashboard" uppercase>
+        Shop
+      </LinkCircle>
+      <LinkCircle background="#E94F4F" height="75px" lineHeight="15px" to="/dashboard" uppercase>
+        Dash<br />board
+      </LinkCircle>
+    </PetLinkRow>
+  </PetWrapper>
+);
+
+const getStarPuff = ({ activities, totalStreak }) => <div>{totalStreak * 10} Starpuffs</div>;
 
 const Home = ({ activities, totalStreak }) => {
   return (
     <Wrapper>
-      <PetWrapper>
-        {getTitle({ activities })}
-        <img src={turtle} alt="turtle" />
-        <RowWrapper className="link_row">
-          <LinkCircle to="/dashboard" height="75px" background="#934FE9">
-            SHOP
-          </LinkCircle>
-          <LinkCircle
-            to="/dashboard"
-            height="75px"
-            background="#E94F4F"
-            className="btn-dashboard"
-          >
-            DASH<br />BOARD
-          </LinkCircle>
-        </RowWrapper>
-      </PetWrapper>
+      {getPet({ activities })}
       <RowWrapper>
         <div className="starfish">
-          <img src={starFish} />
+          <img alt="starfish" src={starFish} />
           {getStarPuff({ activities, totalStreak })}
         </div>
       </RowWrapper>
-      <H3>CURRENT JOURNEY</H3>
+      <H3>Current Journey</H3>
       {getActivities({ activities, totalStreak })}
     </Wrapper>
   );

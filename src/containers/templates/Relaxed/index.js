@@ -1,21 +1,15 @@
 import React from 'react';
-import BottomNav from 'components/organisms/BottomNav/BottomNav';
-import Circle from 'components/atoms/Circles/Circle';
 import BaseButton from 'components/atoms/Buttons/BaseButton';
-import Banner from 'components/atoms/Banners/Banner';
 import { Link } from 'react-router-dom';
-import { Row, Input, Button } from 'react-materialize';
-import AddForm from 'components/molecules/InputForms/AddForm';
+import { Input } from 'react-materialize';
 import { firebase, base } from 'data/firebase';
-import Relaxed from 'components/templates/CreateTask/Relaxed';
-import Positive from 'components/templates/CreateTask/Positive';
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      emailFormholder: 'Invite a friend to be positive with you!'
+      emailFormholder: 'Invite a friend to be positive with you!',
     };
     const userId = firebase.auth().currentUser.uid;
     this.firebasePath = `users/${userId}/tasks/${props.taskId}`;
@@ -28,16 +22,16 @@ export default class extends React.Component {
       then: () => {
         this.setState(state => {
           return {
-            stagedFrequency: state.task.reminderFrequency || 'none'
+            stagedFrequency: state.task.reminderFrequency || 'none',
           };
         });
-      }
+      },
     });
   }
 
   onFrequencyChange = event => {
     this.setState({
-      stagedFrequency: event.target.value
+      stagedFrequency: event.target.value,
     });
   };
 
@@ -45,8 +39,8 @@ export default class extends React.Component {
     this.setState(state => ({
       task: {
         ...state.task,
-        reminderFrequency: this.state.stagedFrequency
-      }
+        reminderFrequency: this.state.stagedFrequency,
+      },
     }));
 
     this.showMessage('Reminder set!');
@@ -54,13 +48,13 @@ export default class extends React.Component {
 
   showMessage(message) {
     this.setState({
-      message
+      message,
     });
 
     setTimeout(
       () =>
         this.setState({
-          message: undefined
+          message: undefined,
         }),
       2000
     );
@@ -73,7 +67,7 @@ export default class extends React.Component {
 
     base
       .push(`${this.firebasePath}/invites`, {
-        data: this.state.email
+        data: this.state.email,
       })
       .then(() => {
         this.showMessage('Invite sent!');
@@ -106,12 +100,7 @@ export default class extends React.Component {
         <div className="text-center margin-top">Set Reminder Frequency</div>
 
         <div className="dropDown margin-top">
-          <Input
-            className="margin"
-            type="select"
-            value={this.state.stagedFrequency}
-            onChange={this.onFrequencyChange}
-          >
+          <Input className="margin" type="select" value={this.state.stagedFrequency} onChange={this.onFrequencyChange}>
             <option className="text-center" value="none">
               None
             </option>
@@ -128,9 +117,7 @@ export default class extends React.Component {
         <br />
         <br />
 
-        <div className="text-center">
-          {this.state.emailFormholder}
-        </div>
+        <div className="text-center">{this.state.emailFormholder}</div>
 
         {/*<div className="margin-top">
               <Input

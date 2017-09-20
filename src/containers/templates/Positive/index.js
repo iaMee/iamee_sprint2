@@ -31,11 +31,13 @@ const Bubble = styled.div`
   margin: 10px 20px 0px 60px;
   padding: 0px 20px;
 `;
+
 const AnswerText = styled.textarea`
   height: 80px;
   border: solid 3px #0c38a9;
   margin-top: 57px;
   border-radius: 5px;
+  width: 100%;
 
   &[disabled] {
     background: #8ed9ff;
@@ -48,59 +50,50 @@ const BubbleInner = styled.div`
   line-height: 1.5em;
 `;
 
+const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = { task: {} };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.userId = firebase.auth().currentUser.uid;
-
-    const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
-
     const questionsPath = 'aspirations/positive/turtle-questions';
 
-    this.getOrCreateLatestEntry().then(latestEntryId => {
-      this.entryId = latestEntryId;
-      const firebasePath = `/users/${this
-        .userId}/tasks/positive/entries/${latestEntryId}`;
+    const latestEntryId = await this.getOrCreateLatestEntry();
+    this.entryId = latestEntryId;
+    const firebasePath = `/users/${this.userId}/tasks/positive/entries/${latestEntryId}`;
 
-      this.binding = base.syncState(firebasePath, {
-        context: this,
-        state: 'task',
-        then: () => {
-          if (!this.state.task.question) {
-            base
-              .fetch(questionsPath + '/count', {
-                context: this
-              })
-              .then(count => {
-                this.questionNumber = random(0, count);
+    this.binding = base.syncState(firebasePath, {
+      context: this,
+      state: 'task',
+      then: async () => {
+        if (!this.state.task.question) {
+          try {
+            const count = await base.fetch(questionsPath + '/count', {
+              context: this,
+            });
 
-                return base.fetch(questionsPath + '/' + this.questionNumber, {
-                  context: this
-                });
-              })
-              .then(question => {
-                this.setState(({ task }) => ({ task: { ...task, question } }));
-              })
-              .catch(error => {
-                console.error(error);
-              });
+            this.questionNumber = random(0, count);
+            const question = await base.fetch(questionsPath + '/' + this.questionNumber, {
+              context: this,
+            });
+
+            this.setState(({ task }) => ({ task: { ...task, question } }));
+          } catch (error) {
+            console.error(error);
           }
         }
-      });
+      },
     });
 
-    this.explanationBinding = base.syncState(
-      `/users/${this.userId}/tutorial/showExplanation/positive`,
-      {
-        context: this,
-        state: 'showExplanation',
-        defaultValue: true
-      }
-    );
+    this.explanationBinding = base.syncState(`/users/${this.userId}/tutorial/showExplanation/positive`, {
+      context: this,
+      state: 'showExplanation',
+      defaultValue: true,
+    });
   }
 
   getOrCreateLatestEntry() {
@@ -109,8 +102,8 @@ export default class extends React.Component {
         asArray: true,
         queries: {
           orderByChild: 'dateTimeCreated',
-          limitToLast: 1
-        }
+          limitToLast: 1,
+        },
       })
       .then(lastEntries => {
         if (lastEntries.length > 0) {
@@ -135,8 +128,8 @@ export default class extends React.Component {
       .push(`/users/${this.userId}/tasks/positive/entries`, {
         data: {
           diaryEntry: '',
-          dateTimeCreated: currentEpoch
-        }
+          dateTimeCreated: currentEpoch,
+        },
       })
       .then(newLocation => newLocation.key);
   }
@@ -149,13 +142,13 @@ export default class extends React.Component {
   updateEntry = event => {
     const diaryEntry = event.target.value;
     this.setState(({ task }) => ({
-      task: { ...task, diaryEntry }
+      task: { ...task, diaryEntry },
     }));
   };
 
   rememberExplained = () => {
     this.setState({
-      showExplanation: false
+      showExplanation: false,
     });
   };
 
@@ -165,10 +158,7 @@ export default class extends React.Component {
       this.props.history.goBack();
     } else {
       base
-        .update(
-          `/users/${this.userId}/tasks/positive/entries/${this.entryId}`,
-          { data: { complete: true } }
-        )
+        .update(`/users/${this.userId}/tasks/positive/entries/${this.entryId}`, { data: { complete: true } })
         .then(() => {
           this.props.history.push(`${match.url}/completion/${this.entryId}`);
         });
@@ -179,9 +169,7 @@ export default class extends React.Component {
     return (
       <div>
         <TurtleWrapper>
-          <Bubble>
-            {this.state.task.question}
-          </Bubble>
+          <Bubble>{this.state.task.question}</Bubble>
           <TurtleImage src={turtle} />
         </TurtleWrapper>
 
@@ -192,17 +180,12 @@ export default class extends React.Component {
           disabled={this.state.task.complete || false}
         />
 
-        {this.state.task.complete &&
-          <div>
-            You felt {this.state.task.mood}
-          </div>}
+        {this.state.task.complete && <div>You felt {this.state.task.mood}</div>}
 
         <div className="spacer" />
         <div className="spacer" />
 
-        <ButtonRound onClick={this.onRespond}>
-          {this.state.task.complete ? 'Back' : 'Respond'}
-        </ButtonRound>
+        <ButtonRound onClick={this.onRespond}>{this.state.task.complete ? 'Back' : 'Respond'}</ButtonRound>
 
         <Modal
           isOpen={this.state.showExplanation}
@@ -211,18 +194,16 @@ export default class extends React.Component {
           className={{
             base: 'modalContent',
             afterOpen: 'ReactModal__Content--after-open',
-            beforeClose: 'ReactModal__Content--before-close'
+            beforeClose: 'ReactModal__Content--before-close',
           }}
           overlayClassName={{
             base: 'modalOverlay',
             afterOpen: 'ReactModal__Overlay--after-open',
-            beforeClose: 'ReactModal__Overlay--before-close'
+            beforeClose: 'ReactModal__Overlay--before-close',
           }}
         >
-          Sam is here to guide your thoughts toward feeling more positive
-          everyday. Simply respond to Sam and start feeling the difference! We
-          recommend having a reflection at least 21 times everyday to see the
-          best effect.
+          Sam is here to guide your thoughts toward feeling more positive everyday. Simply respond to Sam and start
+          feeling the difference! We recommend having a reflection at least 21 times everyday to see the best effect.
         </Modal>
       </div>
     );

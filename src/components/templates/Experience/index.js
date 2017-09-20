@@ -10,13 +10,10 @@ import ExperienceModal from 'components/organisms/ExperienceModal';
 
 const circle = {
   height: '10rem',
-  radius: '100%'
+  radius: '100%',
 };
 
-const getModalTrigger = ({
-  experience: { name, enabled },
-  setCurrentExperience
-}) =>
+const getModalTrigger = ({ experience: { name, enabled }, setCurrentExperience }) => (
   <ButtonCircle
     capitalize
     disabled={!enabled}
@@ -25,15 +22,11 @@ const getModalTrigger = ({
     onClick={() => setCurrentExperience(name)}
   >
     {name}
-  </ButtonCircle>;
+  </ButtonCircle>
+);
 
-const getExperiences = ({
-  currentExperience,
-  experiences,
-  makeExperience,
-  setCurrentExperience
-}) => {
-  return experiences.map(experience =>
+const getExperiences = ({ currentExperience, experiences, makeExperience, setCurrentExperience }) => {
+  return experiences.map(experience => (
     <div key={experience.name}>
       {getModalTrigger({ experience, setCurrentExperience })}
       <ExperienceModal
@@ -43,7 +36,7 @@ const getExperiences = ({
         setCurrentExperience={setCurrentExperience}
       />
     </div>
-  );
+  ));
 };
 
 const Experience = props => {
@@ -54,9 +47,7 @@ const Experience = props => {
         <p>Each journey is different.</p>
         <p>Tap on one to find out more</p>
       </Description>
-      <CirclesWrapper>
-        {getExperiences(props)}
-      </CirclesWrapper>
+      <CirclesWrapper>{getExperiences(props)}</CirclesWrapper>
     </Wrapper>
   );
 };
@@ -66,11 +57,11 @@ Experience.propTypes = {
   experiences: PropTypes.arrayOf(
     PropTypes.shape({
       description: PropTypes.string,
-      title: PropTypes.string
+      title: PropTypes.string,
     })
   ).isRequired,
   makeExperience: PropTypes.func.isRequired,
-  setCurrentExperience: PropTypes.func.isRequired
+  setCurrentExperience: PropTypes.func.isRequired,
 };
 
 export default Experience;

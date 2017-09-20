@@ -39,12 +39,8 @@ const ModalContent = ({ experience, makeExperience }) => {
       </ButtonPlain>
 
       <img alt="turtle" src={imgTurtle} />
-      <h3>
-        You are about to go on a journey to feel more {name.toUpperCase()}.
-      </h3>
-      <p>
-        {description}
-      </p>
+      <h3>You are about to go on a journey to feel more {name.toUpperCase()}.</h3>
+      <p>{description}</p>
       <Button onClick={makeExperience({ experience })} className="btn-go">
         Go!!
       </Button>

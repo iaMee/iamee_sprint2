@@ -42,23 +42,23 @@ class ActivityShow extends Component {
           activity: [
             {
               title: 'Meditation',
-              img: ''
+              img: '',
             },
             {
               title: 'Yoga',
-              img: yoga
+              img: yoga,
             },
             {
               title: 'Writing',
-              img: ''
-            }
-          ]
-        }
+              img: '',
+            },
+          ],
+        },
       },
       circle: {
         height: '10em',
-        radius: '100%'
-      }
+        radius: '100%',
+      },
     };
   }
 
@@ -69,7 +69,7 @@ class ActivityShow extends Component {
 
   onSliderChange = value => {
     this.setState({
-      value: value
+      value: value,
     });
   };
 
@@ -83,7 +83,7 @@ class ActivityShow extends Component {
       4: 'Thursday',
       5: 'Friday',
       6: 'Saturday',
-      0: 'Sunday'
+      0: 'Sunday',
     };
     return days[0];
   };
@@ -97,18 +97,14 @@ class ActivityShow extends Component {
       <div>
         <div className="content">
           <div className="circles less-padding2">
-            {user.chosen_aspiration.activity.map(attribute =>
+            {user.chosen_aspiration.activity.map(attribute => (
               <div className="modal-selector">
                 <Modal
                   header={this.getDay()}
                   trigger={
                     <div className="circle-margin text-center">
                       <Circle
-                        title={
-                          <h6>
-                            {attribute.title}
-                          </h6>
-                        }
+                        title={<h6>{attribute.title}</h6>}
                         tag={params.toLowerCase()}
                         className={`${params.toLowerCase()}1`}
                         height={circle.height}
@@ -123,11 +119,7 @@ class ActivityShow extends Component {
                 >
                   <div className="custom-modal-content text-center">
                     <div>
-                      <img
-                        className="attribute-image"
-                        src={attribute.img}
-                        alt=""
-                      />
+                      <img className="attribute-image" src={attribute.img} alt="" />
                       <p>How Do You Feel?</p>
                       <CustomSlider
                         step={10}
@@ -149,14 +141,10 @@ class ActivityShow extends Component {
                   />
                 </Modal>
               </div>
-            )}
+            ))}
           </div>
           <div className="less-padding">
-            <AddForm
-              type={'email'}
-              label={'Add your own activity'}
-              name="add"
-            />
+            <AddForm type={'email'} label={'Add your own activity'} name="add" />
           </div>
         </div>
       </div>

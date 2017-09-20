@@ -17,7 +17,7 @@ class App extends React.PureComponent {
 
     this.state = {
       loading: true,
-      user: null
+      user: null,
     };
   }
 
@@ -28,11 +28,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    return (
-      <ThemeProvider theme={colors}>
-        {this.inner()}
-      </ThemeProvider>
-    );
+    return <ThemeProvider theme={colors}>{this.inner()}</ThemeProvider>;
   }
 
   inner() {

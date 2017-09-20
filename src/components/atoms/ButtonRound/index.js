@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 const generateBackground = bg => `background: ${bg};`;
 
-const getBackground = ({
-  background,
-  backgroundThemeColor,
-  disabled,
-  theme
-}) => {
+const getBackground = ({ background, backgroundThemeColor, disabled, theme }) => {
   if (disabled) {
     return generateBackground(theme.disabled);
   }
@@ -44,14 +39,14 @@ ButtonRound.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-  radius: PropTypes.string
+  radius: PropTypes.string,
 };
 
 ButtonRound.defaultProps = {
   width: '100%',
   height: '38px',
   color: '#fff',
-  radius: '30px'
+  radius: '30px',
 };
 
 export default ButtonRound;

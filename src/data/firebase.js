@@ -6,7 +6,7 @@ const app = firebase.initializeApp({
   databaseURL: 'https://iamee-2.firebaseio.com',
   projectId: 'iamee-2',
   storageBucket: 'iamee-2.appspot.com',
-  messagingSenderId: '113928087640'
+  messagingSenderId: '113928087640',
 });
 const db = firebase.database(app);
 const base = Rebase.createClass(db);

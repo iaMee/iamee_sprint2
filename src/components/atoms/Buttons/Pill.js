@@ -12,16 +12,14 @@ class Pill extends Component {
   render() {
     return (
       <Chip>
-        <p className="margin-reset white-text">
-          {this.props.tasks}
-        </p>
+        <p className="margin-reset white-text">{this.props.tasks}</p>
       </Chip>
     );
   }
 }
 
 Pill.propTypes = {
-  tasks: PropTypes.string.isRequired
+  tasks: PropTypes.string.isRequired,
 };
 
 export default Pill;

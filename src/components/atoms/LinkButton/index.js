@@ -5,8 +5,7 @@ import { buttonStyle } from 'styles/button';
 
 // this is used to avoid warning for unknown props in link
 // https://github.com/styled-components/styled-components/issues/135
-const filteredLink = ({ bold, fullWidth, textTransform, ...rest }) =>
-  <Link {...rest} />;
+const filteredLink = ({ bold, fullWidth, textTransform, ...rest }) => <Link {...rest} />;
 
 const LinkButton = styled(filteredLink)`
   ${buttonStyle};

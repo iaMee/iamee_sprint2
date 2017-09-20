@@ -1,19 +1,15 @@
 import React from 'react';
-import {
-  compose,
-  lifecycle,
-  withHandlers,
-  withState,
-  withProps
-} from 'recompose';
+import { compose, lifecycle, withHandlers, withState, withProps } from 'recompose';
 import Home from 'components/templates/Home';
+import LoadingTimed from 'containers/molecules/LoadingTimed';
 import { firebase, base } from 'data/firebase';
 
 class HomeContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      activities: []
+      activities: [],
+      isLoading: true,
     };
   }
 
@@ -23,7 +19,8 @@ class HomeContainer extends React.Component {
     this.binding = base.bindToState(firebasePath, {
       asArray: true,
       context: this,
-      state: 'activities'
+      state: 'activities',
+      then: () => this.setState(() => ({ isLoading: false })),
     });
   }
 
@@ -32,11 +29,16 @@ class HomeContainer extends React.Component {
   }
 
   render() {
+    const { isLoading } = this.state;
+    if (isLoading) {
+      return <LoadingTimed />;
+    }
+
     const processedActivities = this.state.activities.map(activity => ({
       key: activity.key,
       name: activity.key,
       entries: activity.entries,
-      link: `/experiences/tasks/${activity.key}`
+      link: `/experiences/tasks/${activity.key}`,
     }));
 
     const totalStreak = this.state.activities.reduce((acc, currentActivity) => {

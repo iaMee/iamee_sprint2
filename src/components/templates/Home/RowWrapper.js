@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { media } from 'styles/media';
 
 export default styled.div`
   display: flex;

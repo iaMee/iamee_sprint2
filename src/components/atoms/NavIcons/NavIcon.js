@@ -11,27 +11,17 @@ import FaUsers from 'react-icons/lib/fa/user';
 
 import ButtonPlain from 'components/atoms/ButtonPlain';
 
-const linkWrapper = path => props =>
-  <Link to={path}>
-    {props.children}
-  </Link>;
-const buttonWrapper = onClick => props =>
-  <ButtonPlain onClick={onClick}>
-    {props.children}
-  </ButtonPlain>;
+const linkWrapper = path => props => <Link to={path}>{props.children}</Link>;
+const buttonWrapper = onClick => props => <ButtonPlain onClick={onClick}>{props.children}</ButtonPlain>;
 
 class NavIcon extends Component {
   render() {
-    const Wrapper = this.props.path
-      ? linkWrapper(this.props.path)
-      : buttonWrapper(this.props.onClick);
+    const Wrapper = this.props.path ? linkWrapper(this.props.path) : buttonWrapper(this.props.onClick);
 
     return (
       <div className="navicon-box" id={this.props.id}>
         <Wrapper>
-          <div className="navicon-image">
-            {this.props.iconImage}
-          </div>
+          <div className="navicon-image">{this.props.iconImage}</div>
         </Wrapper>
       </div>
     );

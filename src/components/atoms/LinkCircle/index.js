@@ -8,12 +8,16 @@ const filteredLink = ({
   background,
   backgroundThemeColor,
   bold,
+  capitalize,
+  lineHeight,
   fullWidth,
-  textTransform,
+  uppercase,
   ...rest
 }) => <Link {...rest} />;
 
 export default ButtonCircle.extend`
-  display: inline-block;
-  line-height: ${props => props.height};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: ${props => props.lineHeight || props.height};
 `.withComponent(filteredLink);

@@ -23,11 +23,11 @@ class AspirationShow extends Component {
       value: 8,
       user: {
         id: 'something',
-        points: 0
+        points: 0,
       },
       activities: ['relaxed', 'bold', 'kind'],
       diary: ['positive', 'inquisitive'],
-      personal: ['yourself', 'grateful', 'loving']
+      personal: ['yourself', 'grateful', 'loving'],
     };
   }
 
@@ -44,40 +44,22 @@ class AspirationShow extends Component {
       var activities = this.state.activities;
       if (activities.indexOf(title) >= 0) {
         return (
-          <ActivityShow
-            {...props}
-            params={match.params.experience}
-            user={this.state.user}
-            update={this.updatePoints}
-          />
+          <ActivityShow {...props} params={match.params.experience} user={this.state.user} update={this.updatePoints} />
         );
       } else if (this.state.diary.indexOf(title) >= 0) {
         return (
-          <DiaryShow
-            {...props}
-            params={match.params.experience}
-            user={this.state.user}
-            update={this.updatePoints}
-          />
+          <DiaryShow {...props} params={match.params.experience} user={this.state.user} update={this.updatePoints} />
         );
       } else {
         return (
-          <PersonalShow
-            {...props}
-            params={match.params.experience}
-            user={this.state.user}
-            update={this.updatePoints}
-          />
+          <PersonalShow {...props} params={match.params.experience} user={this.state.user} update={this.updatePoints} />
         );
       }
     };
 
     return (
       <div>
-        <Banners
-          id={match.params.experience.toLowerCase()}
-          title={'Be ' + match.params.experience}
-        />
+        <Banners id={match.params.experience.toLowerCase()} title={'Be ' + match.params.experience} />
         <PointBanner points={user.points} />
         <Switch>
           <Route path={`${match.url}`} render={ShowComponent} />

@@ -11,16 +11,14 @@ class Banner extends Component {
   render() {
     return (
       <div id={this.props.id} className="banner">
-        <h5>
-          {this.props.title}
-        </h5>
+        <h5>{this.props.title}</h5>
       </div>
     );
   }
 }
 
 Banner.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Banner;

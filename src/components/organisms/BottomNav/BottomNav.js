@@ -16,28 +16,28 @@ class BottomNav extends Component {
           text: '',
           iconImage: iconHome,
           path: '/',
-          id: 'home'
+          id: 'home',
         },
         {
           text: '',
           iconImage: iconChart,
           path: '/',
-          id: 'notifications'
+          id: 'notifications',
         },
         {
           text: '',
           iconImage: iconSearch,
           path: '/',
-          id: 'find'
+          id: 'find',
         },
         {
           text: '',
           iconImage: iconStar,
           path: '/',
-          id: 'buddies'
-        }
+          id: 'buddies',
+        },
       ],
-      size: 23
+      size: 23,
     };
   }
 
@@ -45,7 +45,7 @@ class BottomNav extends Component {
     return (
       <div className="bottom-nav">
         <div className="nav-bar">
-          {this.state.icons.map(icon =>
+          {this.state.icons.map(icon => (
             <NavIcon
               id={icon.id}
               iconImage={<img src={icon.iconImage} alt={icon.text} />}
@@ -53,7 +53,7 @@ class BottomNav extends Component {
               text={icon.text}
               path={icon.path}
             />
-          )}
+          ))}
         </div>
         <div className="bottom-nav-placeholder" />
       </div>
