@@ -12,7 +12,7 @@ const components = {
 const Wrapper = styled.main`${templateWrapper};`;
 
 const CreateTask = ({ history, match }) => {
-  const Component = components[match.params.experienceId];
+  const Component = components[match.params.activityName];
   return (
     <Wrapper>
       <Component history={history} match={match} />

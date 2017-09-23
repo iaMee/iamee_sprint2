@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Slider, { Range } from 'rc-slider';
+import React from 'react';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import style from './Slider.css';
 
@@ -10,35 +9,28 @@ import Feel_3 from 'assets/Images/feel_3.svg';
 import Feel_4 from 'assets/Images/feel_4.svg';
 import Feel_5 from 'assets/Images/feel_5.svg';
 
-class CustomSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      marks: {
-        1: <img src={Feel_1} />,
-        2: <img src={Feel_2} />,
-        3: <img src={Feel_3} />,
-        4: <img src={Feel_4} />,
-        5: <img src={Feel_5} />,
-      },
-    };
-  }
+const marks = {
+  1: <img alt="Feeling rate 1" src={Feel_1} />,
+  2: <img alt="Feeling rate 2" src={Feel_2} />,
+  3: <img alt="Feeling rate 3" src={Feel_3} />,
+  4: <img alt="Feeling rate 4" src={Feel_4} />,
+  5: <img alt="Feeling rate 5" src={Feel_5} />,
+};
 
-  render() {
-    return (
-      <Slider
-        dots
-        marks={this.state.marks}
-        step={this.props.step}
-        defaultValue={this.props.defaultValue}
-        value={this.props.value}
-        onChange={this.props.onSliderChange}
-        min={this.props.min}
-        max={this.props.max}
-        className="rating-slider"
-      />
-    );
-  }
-}
+const CustomSlider = props => {
+  return (
+    <Slider
+      dots
+      marks={marks}
+      step={props.step}
+      defaultValue={props.defaultValue}
+      value={props.value}
+      onChange={props.onSliderChange}
+      min={props.min}
+      max={props.max}
+      className="rating-slider"
+    />
+  );
+};
 
 export default CustomSlider;

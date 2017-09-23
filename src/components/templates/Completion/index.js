@@ -32,7 +32,7 @@ const Completion = ({ onRatingChange, onFormSubmit, sliderValues: { min, max, st
 
       <form onSubmit={onFormSubmit}>
         <div className="rating-text">How do you feel?</div>
-        <CustomSlider min={1} max={5} value={rating} onSliderChange={onRatingChange} />
+        <CustomSlider min={min} max={max} step={step} value={rating} onSliderChange={onRatingChange} />
         <InputSubmit fullWidth value="Finito!" className="btn-submit" />
       </form>
     </Wrapper>
