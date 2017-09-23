@@ -157,11 +157,12 @@ export default class extends React.Component {
     if (this.state.task.complete) {
       this.props.history.goBack();
     } else {
-      base
-        .update(`/users/${this.userId}/tasks/positive/entries/${this.entryId}`, { data: { complete: true } })
-        .then(() => {
-          this.props.history.push(`${match.url}/completion/${this.entryId}`);
-        });
+      this.props.history.push(`${match.url}/completion/${this.entryId}`);
+      // base
+      //   .update(`/users/${this.userId}/tasks/positive/entries/${this.entryId}`, { data: { complete: true } })
+      //   .then(() => {
+      //     this.props.history.push(`${match.url}/completion/${this.entryId}`);
+      //   });
     }
   };
 
@@ -172,24 +173,19 @@ export default class extends React.Component {
           <Bubble>{this.state.task.question}</Bubble>
           <TurtleImage src={turtle} />
         </TurtleWrapper>
-
         <AnswerText
           value={this.state.task.diaryEntry}
           onChange={this.updateEntry}
           placeholder="Enter text"
           disabled={this.state.task.complete || false}
         />
-
         {this.state.task.complete && <div>You felt {this.state.task.mood}</div>}
-
         <div className="spacer" />
         <div className="spacer" />
-
         <ButtonRound onClick={this.onRespond}>{this.state.task.complete ? 'Back' : 'Respond'}</ButtonRound>
-
         <Modal
           isOpen={this.state.showExplanation}
-          contentLabel={`Blah`}
+          contentLabel="Tutorial"
           onRequestClose={this.rememberExplained}
           className={{
             base: 'modalContent',

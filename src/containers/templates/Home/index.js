@@ -2,6 +2,7 @@ import React from 'react';
 import { compose, lifecycle, withHandlers, withState, withProps } from 'recompose';
 import Home from 'components/templates/Home';
 import LoadingTimed from 'containers/molecules/LoadingTimed';
+import { getTotalStreak } from 'containers/utils/firebase';
 import { firebase, base } from 'data/firebase';
 
 class HomeContainer extends React.Component {
@@ -41,11 +42,7 @@ class HomeContainer extends React.Component {
       link: `/experiences/tasks/${activity.key}`,
     }));
 
-    const totalStreak = this.state.activities.reduce((acc, currentActivity) => {
-      acc += Object.keys(currentActivity.entries || {}).length;
-      return acc;
-    }, 0);
-
+    const totalStreak = getTotalStreak(this.state.activities);
     return <Home activities={processedActivities} totalStreak={totalStreak} />;
   }
 }
