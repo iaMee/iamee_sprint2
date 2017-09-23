@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { merge } from 'lodash';
 import Completion from 'components/templates/Completion';
 import LoadingTimed from 'containers/molecules/LoadingTimed';
 import { getTotalStreak } from 'containers/utils/firebase';

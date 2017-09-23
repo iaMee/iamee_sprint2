@@ -34,20 +34,19 @@ const Bubble = styled.div`
 
 const AnswerText = styled.textarea`
   height: 80px;
-  border: solid 3px #0c38a9;
+  border: solid 3px ${props => props.theme.lightBlue};
   margin-top: 57px;
   border-radius: 5px;
   width: 100%;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  padding: 8px;
+  box-sizing: border-box;
 
-  &[disabled] {
-    background: #8ed9ff;
+  &:disabled {
+    background: ${props => props.theme.disabled};
     border: none;
   }
-`;
-const BubbleInner = styled.div`
-  padding: 2em;
-  text-align: left;
-  line-height: 1.5em;
 `;
 
 const random = (bottom, top) => Math.floor(Math.random() * top) + bottom;
@@ -158,11 +157,6 @@ export default class extends React.Component {
       this.props.history.goBack();
     } else {
       this.props.history.push(`${match.url}/completion/${this.entryId}`);
-      // base
-      //   .update(`/users/${this.userId}/tasks/positive/entries/${this.entryId}`, { data: { complete: true } })
-      //   .then(() => {
-      //     this.props.history.push(`${match.url}/completion/${this.entryId}`);
-      //   });
     }
   };
 
@@ -180,8 +174,6 @@ export default class extends React.Component {
           disabled={this.state.task.complete || false}
         />
         {this.state.task.complete && <div>You felt {this.state.task.mood}</div>}
-        <div className="spacer" />
-        <div className="spacer" />
         <ButtonRound onClick={this.onRespond}>{this.state.task.complete ? 'Back' : 'Respond'}</ButtonRound>
         <Modal
           isOpen={this.state.showExplanation}
