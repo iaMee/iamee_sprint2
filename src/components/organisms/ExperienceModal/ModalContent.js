@@ -17,6 +17,9 @@ const ModalContentWrapper = styled.div`
     font-weight: bold;
     letter-spacing: 1px;
   }
+  > p {
+    margin-bottom: 2rem;
+  }
   .btn-go {
     background: #f2c94c;
     border: none;
@@ -30,11 +33,11 @@ const ModalContentWrapper = styled.div`
   }
 `;
 
-const ModalContent = ({ experience, makeExperience }) => {
+const ModalContent = ({ experience, makeExperience, onButtonCloseClick }) => {
   const { name, description } = experience;
   return (
     <ModalContentWrapper>
-      <ButtonPlain className="btn-close">
+      <ButtonPlain className="btn-close" onClick={onButtonCloseClick}>
         <img alt="icon close" src={iconClose} />
       </ButtonPlain>
 

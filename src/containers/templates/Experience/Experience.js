@@ -1,7 +1,7 @@
 import Loadable from 'react-loadable';
 import { compose, withHandlers, withState, withProps } from 'recompose';
 import Loading from 'components/atoms/Loading';
-import { firebase, base } from 'data/firebase';
+import { base } from 'data/firebase';
 
 const makeExperienceFactory = ({ history, match }) => ({ experience }) => () => {
   // const userId = firebase.auth().currentUser.uid;
@@ -32,13 +32,14 @@ const experienceLoader = async () => {
     .sort((a, b) => a.index - b.index);
 
   const enhancer = compose(
+    withState('currentExperience', 'setCurrentExperience', ''),
     withHandlers({
       makeExperience: props => makeExperienceFactory(props),
+      onButtonCloseClick: props => () => props.setCurrentExperience(''),
     }),
     withProps({
       experiences: sortedMappedAspirations,
-    }),
-    withState('currentExperience', 'setCurrentExperience', '')
+    })
   );
 
   return enhancer(Experience.default);

@@ -2,12 +2,22 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalContent from './ModalContent';
 
-const ExperienceModal = ({ currentExperience, experience, makeExperience, setCurrentExperience }) => {
+const ExperienceModal = ({
+  currentExperience,
+  experience,
+  makeExperience,
+  onButtonCloseClick,
+  setCurrentExperience,
+}) => {
+  const onRequestClose = () => {
+    currentExperience !== '' && setCurrentExperience('');
+  };
+
   return (
     <Modal
       isOpen={experience.name === currentExperience}
       contentLabel={`Experience-${experience.name}`}
-      onRequestClose={() => setCurrentExperience('')}
+      onRequestClose={onRequestClose}
       className={{
         base: 'modalContent',
         afterOpen: 'ReactModal__Content--after-open',
@@ -19,7 +29,11 @@ const ExperienceModal = ({ currentExperience, experience, makeExperience, setCur
         beforeClose: 'ReactModal__Overlay--before-close',
       }}
     >
-      <ModalContent experience={experience} makeExperience={makeExperience} />
+      <ModalContent
+        experience={experience}
+        makeExperience={makeExperience}
+        onButtonCloseClick={onButtonCloseClick}
+      />
     </Modal>
   );
 };

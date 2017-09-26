@@ -25,7 +25,13 @@ const getModalTrigger = ({ experience: { name, enabled }, setCurrentExperience }
   </ButtonCircle>
 );
 
-const getExperiences = ({ currentExperience, experiences, makeExperience, setCurrentExperience }) => {
+const getExperiences = ({
+  currentExperience,
+  experiences,
+  makeExperience,
+  onButtonCloseClick,
+  setCurrentExperience,
+}) => {
   return experiences.map(experience => (
     <div key={experience.name}>
       {getModalTrigger({ experience, setCurrentExperience })}
@@ -33,6 +39,7 @@ const getExperiences = ({ currentExperience, experiences, makeExperience, setCur
         currentExperience={currentExperience}
         experience={experience}
         makeExperience={makeExperience}
+        onButtonCloseClick={onButtonCloseClick}
         setCurrentExperience={setCurrentExperience}
       />
     </div>
